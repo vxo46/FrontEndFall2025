@@ -17,42 +17,56 @@ body {
   background: var(--bg);
 }
 
-/* Header aligned with main */
-header {
-  border-bottom: 1px solid #e5e7eb;
-  background: linear-gradient(180deg, #f8fafc, #ffffff);
-  max-width: 1000px;   /* keep same width as main */
-  margin: 0 auto;      /* center horizontally */
-  padding: 2rem 1rem 1rem;
-}
-
-h1 { 
-  margin: 0 0 .5rem; 
-}
-
-.tagline { 
-  color: var(--muted); 
-  margin: 0 0 1rem; 
-}
-
-.nav {
+/* ===== HERO HEADER ===== */
+.hero {
+  background: url("images/header-bg.jpg") center / cover no-repeat;
+  min-height: 320px;
   display: flex;
-  gap: 1rem;
-  padding: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+}
+
+/* semi-transparent black strip for title + tagline */
+.hero-banner {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.5rem 2rem;
+}
+
+.hero-banner h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.hero-banner .tagline {
+  margin: 0.5rem 0 0;
+  color: #f1f5f9;
+}
+
+/* solid black nav bar under the banner */
+.hero-nav {
+  background: #000;
+}
+
+.hero-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.75rem 2rem;
   margin: 0;
   list-style: none;
 }
 
-.nav a { 
-  text-decoration: none; 
-  color: var(--accent); 
+.hero-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
 }
 
-.nav a:hover { 
-  text-decoration: underline; 
+.hero-nav a:hover {
+  text-decoration: underline;
 }
 
-/* Main content area */
+/* ===== MAIN CONTENT ===== */
 main {
   max-width: 1000px;
   margin: 2rem auto;
@@ -76,7 +90,7 @@ section img {
   border: 1px solid #ddd;
 }
 
-/* FAQ Box */
+/* ===== FAQ BOX ===== */
 aside {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -84,20 +98,20 @@ aside {
   border-radius: 8px;
   background: #fafafa;
 
-  width: 100%;        /* stretch across */
-  max-width: 1000px;  /* match header + main */
+  width: 100%;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Remove yellow highlight from <mark> */
+/* remove yellow highlight from <mark> */
 mark {
-  background: none;   /* removes yellow background */
-  color: inherit;     /* uses normal text color */
-  font-weight: bold;  /* optional: keeps emphasis */
+  background: none;
+  color: inherit;
+  font-weight: bold;
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 footer {
   margin-top: 3rem;
   padding: 1.5rem 1rem;
