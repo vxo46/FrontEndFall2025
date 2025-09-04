@@ -5,7 +5,9 @@
   --accent: #0ea5e9;
 }
 
-* { box-sizing: border-box; }
+* { 
+  box-sizing: border-box; 
+}
 
 body {
   margin: 0;
@@ -15,14 +17,23 @@ body {
   background: var(--bg);
 }
 
+/* Header aligned with main */
 header {
-  padding: 2rem 1rem 1rem;
   border-bottom: 1px solid #e5e7eb;
   background: linear-gradient(180deg, #f8fafc, #ffffff);
+  max-width: 1000px;   /* keep same width as main */
+  margin: 0 auto;      /* center horizontally */
+  padding: 2rem 1rem 1rem;
 }
 
-h1 { margin: 0 0 .5rem; }
-.tagline { color: var(--muted); margin: 0 0 1rem; }
+h1 { 
+  margin: 0 0 .5rem; 
+}
+
+.tagline { 
+  color: var(--muted); 
+  margin: 0 0 1rem; 
+}
 
 .nav {
   display: flex;
@@ -31,14 +42,21 @@ h1 { margin: 0 0 .5rem; }
   margin: 0;
   list-style: none;
 }
-.nav a { text-decoration: none; color: var(--accent); }
-.nav a:hover { text-decoration: underline; }
 
-/* Center the entire column */
+.nav a { 
+  text-decoration: none; 
+  color: var(--accent); 
+}
+
+.nav a:hover { 
+  text-decoration: underline; 
+}
+
+/* Main content area */
 main {
-  max-width: 1000px;   /* controls total content width */
-  margin: 2rem auto;   /* auto makes left & right space equal */
-  padding: 0 1rem;     /* a little breathing room inside */
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   text-align: left;
 }
 
@@ -50,7 +68,7 @@ section {
 }
 
 section img {
-  max-width: 200px;
+  max-width: 200px;   /* smaller images */
   height: auto;
   display: block;
   margin: 1rem 0;
@@ -58,16 +76,21 @@ section img {
   border: 1px solid #ddd;
 }
 
-/* FAQ now spans full column width (and is centered with main) */
-aside#faq {
-  width: 100%;
+/* FAQ Box */
+aside {
+  margin-top: 2rem;
   padding: 1.5rem;
   border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #fafafa;
-  margin-top: 2rem;
+
+  width: 100%;        /* stretch across */
+  max-width: 1000px;  /* match header + main */
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Footer */
 footer {
   margin-top: 3rem;
   padding: 1.5rem 1rem;
@@ -75,21 +98,5 @@ footer {
   color: var(--muted);
   text-align: center;
 }
-/* ===== FINAL OVERRIDES: center the column & balance FAQ ===== */
-main {
-  max-width: 1000px !important;   /* total content width */
-  margin: 2rem auto !important;   /* equal left/right space */
-  padding: 0 1rem !important;     /* a little inner breathing room */
-  text-align: left !important;
-}
 
-aside#faq {
-  width: 100% !important;         /* fill the main column */
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding: 1.5rem !important;
-  border: 1px solid #e5e7eb !important;
-  border-radius: 10px !important;
-  background: #fafafa !important;
-}
 
