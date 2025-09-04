@@ -20,7 +20,7 @@ body {
 /* HERO HEADER */
 .hero {
   position: relative;
-  background: url("images/header-bg.jpg") no-repeat center center;
+  background: url("images/header-bg.png") no-repeat center center;
   background-size: cover;
   color: #fff;
 }
