@@ -36,29 +36,26 @@ h1 { margin: 0 0 .5rem; }
 
 main {
   max-width: 900px;
-  margin: 2rem 0;      /* aligned to left, not centered */
-  padding: 0 2rem;     /* left padding for breathing room */
+  margin: 2rem;
+  padding: 0;
   text-align: left;
 }
 
 h2 { margin-top: 2rem; }
 h3, h4 { margin-top: 1rem; }
 
-figure { margin: 1rem 0; }
-figure img {
-  width: 100%;
-  max-width: 560px;
-  display: block;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-}
-figcaption {
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-top: .5rem;
+section {
+  margin-bottom: 2.5rem;
 }
 
-.hero img { max-width: 720px; }
+section img {
+  max-width: 200px;   /* keeps images smaller */
+  height: auto;
+  display: block;
+  margin: 1rem 0;     /* space between text and image */
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
 
 aside {
   margin-top: 2rem;
@@ -75,68 +72,3 @@ footer {
   color: var(--muted);
   text-align: center;
 }
-
-/* ------------------------------
-   Custom Wiki Layout (stable)
--------------------------------- */
-
-/* Content block aligned left */
-main {
-  max-width: 1000px;
-  margin: 2rem 0 3rem 2rem; /* left margin only */
-  padding: 0;
-  text-align: left;
-}
-
-/* Two-column grid per section:
-   left column = all text
-   right column = image */
-#bigfoot,
-#man,
-#woman {
-  display: grid;
-  grid-template-columns: 1fr 200px; /* text | image */
-  gap: 1rem 2rem;                   /* row | column gap */
-  align-items: start;
-  margin-bottom: 2.5rem;
-}
-
-/* FORCE text into left column */
-#bigfoot h2, #bigfoot p, #bigfoot ul, #bigfoot ol,
-#man h2,    #man p,    #man ul,    #man ol,
-#woman h2,  #woman p,  #woman ul,  #woman ol {
-  grid-column: 1;
-}
-
-/* FORCE image into right column (top-right) */
-#bigfoot img, #man img, #woman img {
-  grid-column: 2;
-  grid-row: 1;            /* always start at the top of the section */
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  justify-self: end;      /* hug the right edge */
-}
-
-/* Tidy list spacing */
-section ul, section ol {
-  margin: .5rem 0 0 1.25rem;
-}
-
-/* FAQ box spans full width */
-aside#faq {
-  background: #fafafa;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 2rem;
-}
-
-/* Stack on small screens */
-@media (max-width: 760px) {
-  #bigfoot, #man, #woman {
-    grid-template-columns: 1fr;   /* single column */
-  }
-  #bigfoot img, #man img, #woman img {
