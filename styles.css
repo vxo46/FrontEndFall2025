@@ -5,8 +5,8 @@
   --accent: #0ea5e9;
 }
 
-* { 
-  box-sizing: border-box; 
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -17,20 +17,18 @@ body {
   background: var(--bg);
 }
 
-/* ===== HERO HEADER ===== */
+/* HERO HEADER */
 .hero {
-  background: url("images/header-bg.jpg") center / cover no-repeat;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  position: relative;
+  background: url("images/header-bg.jpg") no-repeat center center;
+  background-size: cover;
   color: #fff;
 }
 
-/* semi-transparent black strip for title + tagline */
 .hero-banner {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.6); /* transparent black */
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
 .hero-banner h1 {
@@ -40,18 +38,26 @@ body {
 
 .hero-banner .tagline {
   margin: 0.5rem 0 0;
-  color: #f1f5f9;
+  color: #ddd;
 }
 
-/* solid black nav bar under the banner */
+/* remove highlight style from <mark> */
+mark {
+  background: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+/* NAV BAR UNDER HERO */
 .hero-nav {
-  background: #000;
+  background: #000; /* solid black bar */
 }
 
 .hero-nav ul {
   display: flex;
-  gap: 1.5rem;
-  padding: 0.75rem 2rem;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.75rem 0;
   margin: 0;
   list-style: none;
 }
@@ -59,14 +65,14 @@ body {
 .hero-nav a {
   text-decoration: none;
   color: #fff;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .hero-nav a:hover {
-  text-decoration: underline;
+  color: var(--accent);
 }
 
-/* ===== MAIN CONTENT ===== */
+/* MAIN CONTENT AREA */
 main {
   max-width: 1000px;
   margin: 2rem auto;
@@ -74,15 +80,21 @@ main {
   text-align: left;
 }
 
-h2 { margin-top: 2rem; }
-h3, h4 { margin-top: 1rem; }
+h2 {
+  margin-top: 2rem;
+}
+
+h3,
+h4 {
+  margin-top: 1rem;
+}
 
 section {
   margin-bottom: 2.5rem;
 }
 
 section img {
-  max-width: 200px;   /* smaller images */
+  max-width: 200px; /* smaller images */
   height: auto;
   display: block;
   margin: 1rem 0;
@@ -90,7 +102,7 @@ section img {
   border: 1px solid #ddd;
 }
 
-/* ===== FAQ BOX ===== */
+/* FAQ BOX */
 aside {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -104,14 +116,7 @@ aside {
   margin-right: auto;
 }
 
-/* remove yellow highlight from <mark> */
-mark {
-  background: none;
-  color: inherit;
-  font-weight: bold;
-}
-
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer {
   margin-top: 3rem;
   padding: 1.5rem 1rem;
