@@ -74,3 +74,23 @@ footer {
   color: var(--muted);
   text-align: center;
 }
+/* Make images smaller and centered */
+img {
+  max-width: 250px;   /* shrink images */
+  height: auto;
+  display: block;
+  margin: 1rem auto;  /* center */
+}
+
+/* Align sections better */
+section {
+  margin-bottom: 3rem;
+  text-align: center; /* center text + image in each section */
+}
+
+section ul,
+section ol {
+  text-align: left;   /* keep lists left-aligned */
+  display: inline-block;
+}
+
