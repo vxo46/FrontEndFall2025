@@ -75,4 +75,21 @@ footer {
   color: var(--muted);
   text-align: center;
 }
+/* ===== FINAL OVERRIDES: center the column & balance FAQ ===== */
+main {
+  max-width: 1000px !important;   /* total content width */
+  margin: 2rem auto !important;   /* equal left/right space */
+  padding: 0 1rem !important;     /* a little inner breathing room */
+  text-align: left !important;
+}
+
+aside#faq {
+  width: 100% !important;         /* fill the main column */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 1.5rem !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 10px !important;
+  background: #fafafa !important;
+}
 
