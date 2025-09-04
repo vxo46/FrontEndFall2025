@@ -57,13 +57,14 @@ section img {
   border: 1px solid #ddd;
 }
 
-/* Full-bleed FAQ banner */
+/* Wider-than-main FAQ box */
 aside#faq {
-  width: 100vw !important;
-  margin-left: calc(50% - 50vw) !important;
-  margin-right: calc(50% - 50vw) !important;
-  padding: 2rem clamp(16px, 4vw, 48px);
-  border-radius: 12px;
+  max-width: 1200px !important;
+  width: calc(100% + 200px) !important;
+  margin-left: -100px !important;
+  margin-right: -100px !important;
+  padding: 1.75rem;
+  border-radius: 10px;
   border: 1px solid #e5e7eb;
   background: #fafafa;
 }
@@ -75,4 +76,5 @@ footer {
   color: var(--muted);
   text-align: center;
 }
+
 
