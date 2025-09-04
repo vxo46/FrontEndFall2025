@@ -17,23 +17,46 @@ body {
   background: var(--bg);
 }
 
-/* HERO HEADER */
+/* ================= HERO HEADER ================= */
 .hero {
   position: relative;
-  background: url("images/header-bg.png") no-repeat center center;
-  background-size: cover;
+  background: url("images/header-bg.png") center/cover no-repeat;
+  min-height: 45vh;              /* height of header image */
+  display: flex;
+  align-items: flex-end;         /* push banner to bottom */
   color: #fff;
 }
 
+/* optional fade overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.35) 80%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
 .hero-banner {
-  background: rgba(0, 0, 0, 0.6); /* transparent black */
-  padding: 2rem 1rem;
-  text-align: center;
+  position: relative;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  padding: 2rem 0;
+}
+
+.hero-banner .wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: left;
 }
 
 .hero-banner h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 3.5vw + 1rem, 3rem);
 }
 
 .hero-banner .tagline {
@@ -48,7 +71,7 @@ mark {
   font-weight: bold;
 }
 
-/* NAV BAR UNDER HERO */
+/* ================= NAVIGATION ================= */
 .hero-nav {
   background: #000; /* solid black bar */
 }
@@ -72,7 +95,7 @@ mark {
   color: var(--accent);
 }
 
-/* MAIN CONTENT AREA */
+/* ================= MAIN CONTENT ================= */
 main {
   max-width: 1000px;
   margin: 2rem auto;
@@ -94,7 +117,7 @@ section {
 }
 
 section img {
-  max-width: 200px; /* smaller images */
+  max-width: 200px;
   height: auto;
   display: block;
   margin: 1rem 0;
@@ -102,7 +125,7 @@ section img {
   border: 1px solid #ddd;
 }
 
-/* FAQ BOX */
+/* ================= FAQ BOX ================= */
 aside {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -116,7 +139,7 @@ aside {
   margin-right: auto;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer {
   margin-top: 3rem;
   padding: 1.5rem 1rem;
