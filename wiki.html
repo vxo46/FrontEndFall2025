@@ -9,9 +9,10 @@
   <meta name="description" content="A fun wiki-style page about Florida Bigfoot, Florida Man, and Florida Woman." />
 
   <title>Florida Legends Wiki</title>
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
+
   <!-- HERO HEADER WITH IMAGE BACKGROUND -->
   <header class="hero">
     <div class="hero-banner">
@@ -20,55 +21,59 @@
         <p class="tagline">A tiny encyclopedia of <mark>only-in-Florida</mark> legends.</p>
       </div>
     </div>
+
+    <!-- NAVIGATION BAR (now aligned with the title) -->
+    <nav class="hero-nav">
+      <div class="wrap">
+        <ul>
+          <li><a href="#bigfoot">Florida Bigfoot</a></li>
+          <li><a href="#man">Florida Man</a></li>
+          <li><a href="#woman">Florida Woman</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
-  <!-- NAVIGATION BAR -->
-  <nav class="hero-nav">
-    <ul>
-      <li><a href="#bigfoot">Florida Bigfoot</a></li>
-      <li><a href="#man">Florida Man</a></li>
-      <li><a href="#woman">Florida Woman</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
-  </nav>
-
-  <!-- MAIN CONTENT -->
+  <!-- MAIN CONTENT (wrapped so it aligns with header + nav) -->
   <main>
-    <section id="bigfoot">
-      <h2>Florida Bigfoot</h2>
-      <ul>
-        <li><strong>Also known as:</strong> Skunk Ape</li>
-        <li><em>Habitat:</em> Everglades</li>
-        <li><strong>Fun fact:</strong> Loves Publix chicken tender subs</li>
-      </ul>
-      <img src="images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
-    </section>
+    <div class="wrap">
+      <section id="bigfoot">
+        <h2>Florida Bigfoot</h2>
+        <ul>
+          <li><strong>Also known as:</strong> Skunk Ape</li>
+          <li><em>Habitat:</em> Everglades</li>
+          <li><strong>Fun fact:</strong> Loves Publix chicken tender subs</li>
+        </ul>
+        <img src="images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
+      </section>
 
-    <section id="man">
-      <h2>Florida Man</h2>
-      <ul>
-        <li>Rides inflatable flamingos into hurricanes</li>
-        <li>Uses fireworks as bug spray</li>
-        <li><strong>Chaos magnet:</strong> Always in the news</li>
-      </ul>
-      <img src="images/florida-man.png" alt="Florida Man cartoon">
-    </section>
+      <section id="man">
+        <h2>Florida Man</h2>
+        <ul>
+          <li>Rides inflatable flamingos into hurricanes</li>
+          <li>Uses fireworks as bug spray</li>
+          <li><strong>Chaos magnet:</strong> Always in the news</li>
+        </ul>
+        <img src="images/florida-man.png" alt="Florida Man cartoon">
+      </section>
 
-    <section id="woman">
-      <h2>Florida Woman</h2>
-      <ul>
-        <li>Argues with raccoons for Doritos</li>
-        <li>Karaoke airboat parties</li>
-        <li><em>Bedazzled emergency gear</em></li>
-      </ul>
-      <img src="images/florida-woman.png" alt="Florida Woman cartoon">
-    </section>
+      <section id="woman">
+        <h2>Florida Woman</h2>
+        <ul>
+          <li>Argues with raccoons for Doritos</li>
+          <li>Karaoke airboat parties</li>
+          <li><em>Bedazzled emergency gear</em></li>
+        </ul>
+        <img src="images/florida-woman.png" alt="Florida Woman cartoon">
+      </section>
 
-    <aside id="faq">
-      <h2>FAQ</h2>
-      <p><strong>Are they real?</strong> The legends are real. The evidence is flexible.</p>
-      <p>Learn more about the <a href="https://www.nps.gov/ever/index.htm" target="_blank">Everglades</a>.</p>
-    </aside>
+      <aside id="faq">
+        <h2>FAQ</h2>
+        <p><strong>Are they real?</strong> The legends are real. The evidence is flexible.</p>
+        <p>Learn more about the <a href="https://www.nps.gov/ever/index.htm" target="_blank">Everglades</a>.</p>
+      </aside>
+    </div>
   </main>
 
   <!-- FOOTER -->
@@ -76,5 +81,6 @@
     <p>&copy; 2025 Vivian Orellana - Class demo.</p>
     <!-- HTML comment for rubric -->
   </footer>
+
 </body>
 </html>
