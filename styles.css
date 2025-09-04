@@ -57,19 +57,17 @@ section img {
   border: 1px solid #ddd;
 }
 
-aside {
-  margin-top: 2rem;
-  padding: 1.5rem;
+/* Full-bleed FAQ banner */
+aside#faq {
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding: 2rem clamp(16px, 4vw, 48px);
+  border-radius: 12px;
   border: 1px solid #e5e7eb;
-  border-radius: 8px;
   background: #fafafa;
-
-  /* new code */
-  width: 100%;       /* makes it full width of main */
-  max-width: 900px;  /* keeps it from stretching too wide */
-  margin-left: auto;
-  margin-right: auto;
 }
+
 footer {
   margin-top: 3rem;
   padding: 1.5rem 1rem;
@@ -77,3 +75,4 @@ footer {
   color: var(--muted);
   text-align: center;
 }
+
