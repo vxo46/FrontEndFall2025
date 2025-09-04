@@ -80,30 +80,66 @@ footer {
    Custom Wiki Layout Adjustments
 -------------------------------- */
 
-/* Images smaller, floated right */
-section img {
-  float: right;
-  margin: 0 0 1rem 1rem; /* space between text and image */
+/* Overall page content aligned left */
+main {
+  max-width: 1000px;      /* wider working area */
+  margin: 2rem 0 3rem 2rem; /* left margin only */
+  padding: 0;             /* no extra centering */
+  text-align: left;
+}
+
+/* Each character section uses a two-column grid:
+   - left: text (flexible)
+   - right: image (fixed) */
+#bigfoot,
+#man,
+#woman {
+  display: grid;
+  grid-template-columns: 1fr 180px; /* text | image */
+  align-items: start;
+  gap: 1rem 2rem;                    /* row | column gap */
+  margin-bottom: 2.5rem;
+}
+
+/* Keep lists neatly left-aligned */
+section ul,
+section ol {
+  margin: 0.5rem 0 0 1.25rem;
+}
+
+/* Image sizing (no floats anymore) */
+#bigfoot img,
+#man img,
+#woman img {
+  width: 100%;
   max-width: 180px;
   height: auto;
   border-radius: 6px;
   border: 1px solid #ddd;
+  justify-self: end;  /* hugs the right edge of the image column */
 }
 
-/* Clear floats so next sections don’t overlap */
-section::after {
-  content: "";
-  display: block;
-  clear: both;
+/* FAQ box spans the full content width, with a little emphasis */
+aside#faq {
+  grid-column: 1 / -1;     /* full width if it ever sits inside a grid */
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
 }
 
-/* Keep sections tidy */
-section {
-  margin-bottom: 2.5rem;
-  text-align: left;
-}
-
-section ul,
-section ol {
-  text-align: left;
+/* Make it stack nicely on phones/tablets */
+@media (max-width: 760px) {
+  #bigfoot,
+  #man,
+  #woman {
+    grid-template-columns: 1fr;   /* single column */
+  }
+  #bigfoot img,
+  #man img,
+  #woman img {
+    justify-self: start;          /* image sits under text, left-aligned */
+    max-width: 220px;             /* a bit larger on small screens */
+    margin-top: .5rem;
+  }
 }
