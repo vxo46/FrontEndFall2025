@@ -34,9 +34,10 @@ h1 { margin: 0 0 .5rem; }
 .nav a { text-decoration: none; color: var(--accent); }
 .nav a:hover { text-decoration: underline; }
 
+/* Make the whole page column a bit wider and left-aligned */
 main {
-  max-width: 900px;
-  margin: 2rem;
+  max-width: 1100px;   /* wider than before so the FAQ can breathe */
+  margin: 2rem;        /* left-aligned (no auto centering) */
   padding: 0;
   text-align: left;
 }
@@ -48,25 +49,24 @@ section {
   margin-bottom: 2.5rem;
 }
 
+/* Images under text, modest size */
 section img {
-  max-width: 200px;   /* keeps images smaller */
+  max-width: 200px;
   height: auto;
   display: block;
-  margin: 1rem 0;     /* space between text and image */
+  margin: 1rem 0;
   border-radius: 6px;
   border: 1px solid #ddd;
 }
 
-/* Wider-than-main FAQ box */
+/* FAQ fills the whole main column */
 aside#faq {
-  max-width: 1200px !important;
-  width: calc(100% + 200px) !important;
-  margin-left: -100px !important;
-  margin-right: -100px !important;
-  padding: 1.75rem;
-  border-radius: 10px;
+  width: 100%;
+  padding: 1.5rem;
   border: 1px solid #e5e7eb;
+  border-radius: 10px;
   background: #fafafa;
+  margin-top: 2rem;
 }
 
 footer {
@@ -76,5 +76,3 @@ footer {
   color: var(--muted);
   text-align: center;
 }
-
-
