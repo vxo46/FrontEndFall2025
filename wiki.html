@@ -1,76 +1,71 @@
-:root {
-  --ink: #0b1723;
-  --bg: #fff;
-  --muted: #6b7a8c;
-  --accent: #0ea5e9;
-}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-* { box-sizing: border-box; }
+  <meta name="author" content="Vivian Orellana" />
+  <meta name="keywords" content="Florida Bigfoot, Florida Man, Florida Woman, Everglades, wiki" />
+  <meta name="description" content="A fun wiki-style page about Florida Bigfoot, Florida Man, and Florida Woman." />
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height: 1.6;
-  color: var(--ink);
-  background: var(--bg);
-}
+  <title>Florida Legends Wiki</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Florida Bigfoot, Florida Man &amp; Florida Woman — Wiki</h1>
+    <p class="tagline">A tiny encyclopedia of <mark>only-in-Florida</mark> legends.</p>
+    <nav>
+      <ul class="nav">
+        <li><a href="#bigfoot">Florida Bigfoot</a></li>
+        <li><a href="#man">Florida Man</a></li>
+        <li><a href="#woman">Florida Woman</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
 
-header {
-  padding: 2rem 1rem 1rem;
-  border-bottom: 1px solid #e5e7eb;
-  background: linear-gradient(180deg, #f8fafc, #ffffff);
-}
+  <main>
+    <section id="bigfoot">
+      <h2>Florida Bigfoot</h2>
+      <ul>
+        <li><strong>Also known as:</strong> Skunk Ape</li>
+        <li><em>Habitat:</em> Everglades</li>
+        <li><strong>Fun fact:</strong> Loves Publix chicken tender subs</li>
+      </ul>
+      <img src="images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
+    </section>
 
-h1 { margin: 0 0 .5rem; }
-.tagline { color: var(--muted); margin: 0 0 1rem; }
+    <section id="man">
+      <h2>Florida Man</h2>
+      <ul>
+        <li>Rides inflatable flamingos into hurricanes</li>
+        <li>Uses fireworks as bug spray</li>
+        <li><strong>Chaos magnet:</strong> Always in the news</li>
+      </ul>
+      <img src="images/florida-man.png" alt="Florida Man cartoon">
+    </section>
 
-.nav {
-  display: flex;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.nav a { text-decoration: none; color: var(--accent); }
-.nav a:hover { text-decoration: underline; }
+    <section id="woman">
+      <h2>Florida Woman</h2>
+      <ol>
+        <li>Argues with raccoons for Doritos</li>
+        <li>Karaoke airboat parties</li>
+        <li><em>Bedazzled emergency gear</em></li>
+      </ol>
+      <img src="images/florida-woman.png" alt="Florida Woman cartoon">
+    </section>
 
-main {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
+    <aside id="faq">
+      <h2>FAQ</h2>
+      <p><strong>Are they real?</strong> The legends are real. The evidence is flexible.</p>
+      <p>Learn more about the <a href="https://www.nps.gov/ever/index.htm" target="_blank">Everglades</a>.</p>
+    </aside>
+  </main>
 
-h2 { margin-top: 2rem; }
-h3, h4 { margin-top: 1rem; }
-
-figure { margin: 1rem 0; }
-figure img {
-  width: 100%;
-  max-width: 560px;
-  display: block;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-}
-figcaption {
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-top: .5rem;
-}
-
-.hero img { max-width: 720px; }
-
-aside {
-  margin-top: 2rem;
-  padding: 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #fafafa;
-}
-
-footer {
-  margin-top: 3rem;
-  padding: 1.5rem 1rem;
-  border-top: 1px solid #e5e7eb;
-  color: var(--muted);
-  text-align: center;
-}
+  <footer>
+    <p>&copy; 2025 Vivian Orellana — Class demo.</p>
+    <!-- HTML comment for rubric -->
+  </footer>
+</body>
+</html>
