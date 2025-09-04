@@ -27,15 +27,16 @@ body {
   color: #fff;
 }
 
-/* Removed overlay completely */
+/* remove overlay entirely */
 .hero::before {
-  display: none;
+  display: none !important;
+  content: none !important;
 }
 
 .hero-banner {
   position: relative;
   width: 100%;
-  background: none;   /* no dark overlay */
+  background: transparent;       /* no dark block */
   padding: 2rem 0;
 }
 
@@ -49,14 +50,16 @@ body {
 .hero-banner h1 {
   margin: 0;
   font-size: clamp(1.8rem, 3.5vw + 1rem, 3rem);
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);  /* subtle readability boost */
 }
 
 .hero-banner .tagline {
   margin: 0.5rem 0 0;
-  color: #f0f0f0; /* keep light text for readability */
+  color: #f0f0f0;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
 
-/* remove highlight style from <mark> */
+/* remove yellow highlight from <mark> */
 mark {
   background: none;
   color: inherit;
@@ -139,4 +142,5 @@ footer {
   color: var(--muted);
   text-align: center;
 }
+
 
