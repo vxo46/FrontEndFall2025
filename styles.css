@@ -75,7 +75,7 @@ mark {
   display: flex;
   justify-content: flex-start;
   gap: 2rem;
-  padding: 0.75rem 0;
+  padding: 0.75rem 2rem; /* add some left padding so it’s not flush to the edge */
   margin: 0;
   list-style: none;
 }
