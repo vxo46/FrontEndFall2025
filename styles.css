@@ -90,6 +90,13 @@ aside {
   margin-right: auto;
 }
 
+/* Remove yellow highlight from <mark> */
+mark {
+  background: none;   /* removes yellow background */
+  color: inherit;     /* uses normal text color */
+  font-weight: bold;  /* optional: keeps emphasis */
+}
+
 /* Footer */
 footer {
   margin-top: 3rem;
