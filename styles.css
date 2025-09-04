@@ -73,24 +73,16 @@ footer {
   border-top: 1px solid #e5e7eb;
   color: var(--muted);
   text-align: center;
-}
-/* Make images smaller and centered */
+/* Make images smaller and left-aligned */
 img {
-  max-width: 250px;   /* shrink images */
+  max-width: 200px;   /* smaller size */
   height: auto;
   display: block;
-  margin: 1rem auto;  /* center */
+  margin: 0.5rem 0;
 }
 
-/* Align sections better */
+/* Keep sections tidy */
 section {
-  margin-bottom: 3rem;
-  text-align: center; /* center text + image in each section */
+  margin-bottom: 2.5rem;
+  text-align: left;
 }
-
-section ul,
-section ol {
-  text-align: left;   /* keep lists left-aligned */
-  display: inline-block;
-}
-
