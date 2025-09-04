@@ -73,16 +73,31 @@ footer {
   border-top: 1px solid #e5e7eb;
   color: var(--muted);
   text-align: center;
+}
+
 /* Make images smaller and left-aligned */
 img {
-  max-width: 200px;   /* smaller size */
+  max-width: 200px;
   height: auto;
   display: block;
   margin: 0.5rem 0;
 }
 
-/* Keep sections tidy */
+/* Keep sections tidy and left-aligned */
 section {
   margin-bottom: 2.5rem;
   text-align: left;
+}
+
+/* OPTIONAL: put the image on the right like a wiki */
+section img {
+  float: right;
+  margin: 0 0 1rem 1rem; /* space between text and image */
+}
+
+/* Clear the float so the next section doesn’t wrap weirdly */
+section::after {
+  content: "";
+  display: block;
+  clear: both;
 }
