@@ -36,8 +36,9 @@ h1 { margin: 0 0 .5rem; }
 
 main {
   max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  margin: 2rem 0;      /* aligned to left, not centered */
+  padding: 0 2rem;     /* left padding for breathing room */
+  text-align: left;
 }
 
 h2 { margin-top: 2rem; }
@@ -75,29 +76,34 @@ footer {
   text-align: center;
 }
 
-/* Make images smaller and left-aligned */
-img {
-  max-width: 200px;
+/* ------------------------------
+   Custom Wiki Layout Adjustments
+-------------------------------- */
+
+/* Images smaller, floated right */
+section img {
+  float: right;
+  margin: 0 0 1rem 1rem; /* space between text and image */
+  max-width: 180px;
   height: auto;
-  display: block;
-  margin: 0.5rem 0;
+  border-radius: 6px;
+  border: 1px solid #ddd;
 }
 
-/* Keep sections tidy and left-aligned */
+/* Clear floats so next sections don’t overlap */
+section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Keep sections tidy */
 section {
   margin-bottom: 2.5rem;
   text-align: left;
 }
 
-/* OPTIONAL: put the image on the right like a wiki */
-section img {
-  float: right;
-  margin: 0 0 1rem 1rem; /* space between text and image */
-}
-
-/* Clear the float so the next section doesn’t wrap weirdly */
-section::after {
-  content: "";
-  display: block;
-  clear: both;
+section ul,
+section ol {
+  text-align: left;
 }
