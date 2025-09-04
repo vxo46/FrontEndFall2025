@@ -27,23 +27,15 @@ body {
   color: #fff;
 }
 
-/* optional fade overlay for readability */
+/* Removed overlay completely */
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0) 55%,
-    rgba(0, 0, 0, 0.35) 80%,
-    rgba(0, 0, 0, 0.55) 100%
-  );
-  pointer-events: none;
+  display: none;
 }
 
 .hero-banner {
   position: relative;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+  background: none;   /* no dark overlay */
   padding: 2rem 0;
 }
 
@@ -61,7 +53,7 @@ body {
 
 .hero-banner .tagline {
   margin: 0.5rem 0 0;
-  color: #ddd;
+  color: #f0f0f0; /* keep light text for readability */
 }
 
 /* remove highlight style from <mark> */
@@ -147,3 +139,4 @@ footer {
   color: var(--muted);
   text-align: center;
 }
+
