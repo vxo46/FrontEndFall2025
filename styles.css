@@ -1,18 +1,13 @@
-/* =========================================
-   THEME VARIABLES
-========================================= */
 :root {
   --ink: #0b1723;
   --bg: #fff;
   --muted: #6b7a8c;
   --accent: #0ea5e9;
-  --wrap: 1000px;    /* shared content width */
 }
 
-/* =========================================
-   BASE / RESET
-========================================= */
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -22,101 +17,93 @@ body {
   background: var(--bg);
 }
 
-/* Reusable container that aligns header, nav, and main */
-.wrap {
-  max-width: var(--wrap);
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Remove yellow highlight from <mark> */
-mark {
-  background: none;
-  color: inherit;
-  font-weight: 700;
-}
-
-/* =========================================
-   HERO HEADER
-========================================= */
+/* ================= HERO HEADER ================= */
 .hero {
   position: relative;
-  background: url("images/header-bg.png") center / cover no-repeat;
-  min-height: 45vh;             /* header height */
+  background: url("images/header-bg.png") center/cover no-repeat;
+  min-height: 45vh;              /* height of header image */
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;    /* push banner to bottom */
+  align-items: flex-end;         /* push banner to bottom */
   color: #fff;
 }
 
-/* No dark overlay so the image stays bright */
+/* remove overlay entirely */
 .hero::before {
-  content: none !important;
   display: none !important;
+  content: none !important;
 }
 
 .hero-banner {
+  position: relative;
   width: 100%;
-  background: transparent;      /* no dark block */
+  background: transparent;       /* no dark block */
   padding: 2rem 0;
 }
 
-/* Title & tagline */
+.hero-banner .wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: left;
+}
+
 .hero-banner h1 {
   margin: 0;
-  font-size: clamp(2rem, 3.5vw + 1rem, 3.5rem);
-  line-height: 1.15;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); /* subtle readability boost */
+  font-size: clamp(1.8rem, 3.5vw + 1rem, 3rem);
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);  /* subtle readability boost */
 }
 
 .hero-banner .tagline {
   margin: 0.5rem 0 0;
   color: #f0f0f0;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
 
-/* =========================================
-   NAVIGATION (under hero, left-aligned)
-========================================= */
+/* remove yellow highlight from <mark> */
+mark {
+  background: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+/* ================= NAVIGATION ================= */
 .hero-nav {
-  background: #000;  /* solid black bar */
-}
-
-.hero-nav .wrap {
-  /* wrap keeps it aligned with the title */
+  background: #000; /* solid black bar */
 }
 
 .hero-nav ul {
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 2rem;
+  padding: 0.75rem 0;
   margin: 0;
-  padding: 0.75rem 0; /* vertical padding only; .wrap adds horizontal */
   list-style: none;
 }
 
 .hero-nav a {
   text-decoration: none;
   color: #fff;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .hero-nav a:hover {
   color: var(--accent);
 }
 
-/* =========================================
-   MAIN CONTENT
-========================================= */
+/* ================= MAIN CONTENT ================= */
 main {
-  padding: 2rem 0;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: left;
 }
 
 h2 {
   margin-top: 2rem;
 }
 
-h3, h4 {
+h3,
+h4 {
   margin-top: 1rem;
 }
 
@@ -133,27 +120,21 @@ section img {
   border: 1px solid #ddd;
 }
 
-/* Ensure all lists are bullets (including Florida Woman) */
-section ul {
-  padding-left: 1.25rem;
-  margin: 0.5rem 0 0;
-  list-style: disc;
-}
-
-/* =========================================
-   FAQ BOX
-========================================= */
+/* ================= FAQ BOX ================= */
 aside {
   margin-top: 2rem;
   padding: 1.5rem;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   background: #fafafa;
+
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+/* ================= FOOTER ================= */
 footer {
   margin-top: 3rem;
   padding: 1.5rem 1rem;
@@ -161,18 +142,4 @@ footer {
   color: var(--muted);
   text-align: center;
 }
-
-/* =========================================
-   RESPONSIVE TWEAKS
-========================================= */
-@media (max-width: 560px) {
-  .hero {
-    min-height: 38vh;
-  }
-  .hero-nav ul {
-    gap: 1.25rem;
-    flex-wrap: wrap;
-  }
-}
-
 
