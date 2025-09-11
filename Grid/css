@@ -1,1 +1,111 @@
+/* ====== Base ====== */
+* { box-sizing: border-box; }
+:root { --gap: 16px; --max: 1100px; }
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.55;
+  margin: 0;
+  color: #222;
+}
+
+.center {
+  margin-inline: auto;
+  max-width: var(--max);
+  padding: 24px;
+}
+
+header, footer {
+  background: #f2f2f7;
+  min-height: 60px;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+h2 { margin: 24px 0 12px; }
+h3 { margin: 16px 0 8px; }
+
+/* Generic helpers */
+section[class^="grid"] {
+  display: grid;
+  gap: var(--gap);
+  margin-bottom: 28px;
+}
+
+img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+.box, .grid8box, .grid9box {
+  background: #ececff;
+  border: 1px solid #c9c9ff;
+  border-radius: 10px;
+  min-height: 80px;
+}
+
+/* ====== Using fr dimension ====== */
+
+/* Grid 1 – three equal columns */
+.grid1 {
+  grid-template-columns: repeat(3, 1fr); /* 1fr 1fr 1fr */
+}
+
+/* Grid 2 – wide middle column */
+.grid2 {
+  grid-template-columns: 1fr 2fr 1fr; /* unequal frs */
+}
+
+/* Grid 3 – content-heavy middle column gets more space */
+.grid3 {
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: start;
+}
+
+/* Grid 4 – two columns: text and image */
+.grid4 {
+  grid-template-columns: 2fr 3fr;
+  align-items: start;
+}
+
+/* Grid 5 – two columns, text heavier on the left */
+.grid5 {
+  grid-template-columns: 3fr 2fr;
+}
+
+/* Grid 6 – four equal columns; items flow across */
+.grid6 {
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+}
+
+/* Grid 7 – three equal columns for the .box items */
+.grid7 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid7 .box { padding: 16px; }
+
+/* Grid 8 – outer grid, with a nested grid (grid9) */
+.grid8 {
+  grid-template-columns: 2fr 3fr;
+  align-items: stretch;
+}
+.grid8box { min-height: 140px; }
+
+/* Nested grid (Grid 9) inside Grid 8 */
+.grid9 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+.grid9box { min-height: 80px; }
+
+/* ====== Responsive adjustments ====== */
+@media (max-width: 900px) {
+  .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid1, .grid2, .grid3, .grid4, .grid5, .grid6, .grid7, .grid8, .grid9 {
+    grid-template-columns: 1fr; /* single column on small phones */
+  }
+}
 
