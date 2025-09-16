@@ -17,7 +17,6 @@ body {
   background: var(--bg);
 }
 
-/* ================= HERO HEADER ================= */
 .hero {
   position: relative;
   background: url("images/header-bg.png") center/cover no-repeat;
@@ -27,7 +26,6 @@ body {
   color: #fff;
 }
 
-/* remove overlay entirely */
 .hero::before {
   display: none !important;
   content: none !important;
@@ -59,14 +57,12 @@ body {
   text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
 
-/* remove yellow highlight from <mark> */
 mark {
   background: none;
   color: inherit;
   font-weight: bold;
 }
 
-/* ================= NAVIGATION ================= */
 .hero-nav {
   background: #000; /* solid black bar */
 }
@@ -90,7 +86,6 @@ mark {
   color: var(--accent);
 }
 
-/* ================= MAIN CONTENT ================= */
 main {
   max-width: 1000px;
   margin: 2rem auto;
@@ -120,7 +115,6 @@ section img {
   border: 1px solid #ddd;
 }
 
-/* ================= FAQ BOX ================= */
 aside {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -134,7 +128,6 @@ aside {
   margin-right: auto;
 }
 
-/* ================= FOOTER ================= */
 footer {
   margin-top: 3rem;
   padding: 1.5rem 1rem;
