@@ -6,11 +6,16 @@
   <meta name="author" content="Vivian Orellana" />
   <meta name="keywords" content="Florida Bigfoot, Florida Man, Florida Woman, Everglades, wiki" />
   <meta name="description" content="A fun wiki-style page about Florida Bigfoot, Florida Man, and Florida Woman." />
-
   <title>Florida Legends Wiki</title>
-  <link rel="stylesheet" href="styles.css?v=8" />
+
+  <!-- Custom font (rubric: custom font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Your stylesheet in the same folder -->
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 <body>
+  <!-- HERO / HEADER -->
   <header class="hero">
     <div class="hero-banner">
       <div class="wrap">
@@ -20,71 +25,111 @@
     </div>
   </header>
 
-  <nav class="hero-nav">
+  <!-- NAV (in-page links to sections) -->
+  <nav class="hero-nav" aria-label="Primary">
     <div class="wrap">
       <ul>
         <li><a href="#bigfoot">Florida Bigfoot</a></li>
         <li><a href="#man">Florida Man</a></li>
         <li><a href="#woman">Florida Woman</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
   </nav>
-  
+
   <main>
-     <section id="bigfoot">
+    <!-- Section: Bigfoot -->
+    <section id="bigfoot" class="section">
       <h2>Florida Bigfoot</h2>
-      <ul>
-        <li>Also known as: 
-          <a href="https://en.wikipedia.org/wiki/Skunk_ape" target="_blank">Skunk Ape</a>
-        </li>
-        <li>Habitat: Everglades</li>
-        <li>Fun fact: Loves Publix chicken tender subs</li>
-      </ul>
-       <img src="images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
+      <p class="lead">Also known as the Skunk Ape—mysterious, swamp-loving, and (allegedly) a connoisseur of Publix chicken tender subs.</p>
+
+      <article class="card">
+        <ul>
+          <li>Also known as: 
+            <a href="https://en.wikipedia.org/wiki/Skunk_ape" target="_blank" rel="noopener">Skunk Ape</a>
+          </li>
+          <li>Habitat: Everglades</li>
+          <li>Fun fact: Loves Publix chicken tender subs</li>
+        </ul>
+      </article>
+
+      <img src="../images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
       <p>
         Locals say Florida Bigfoot appears at dusk, lumbering through the sawgrass with a sandwich in hand. 
         Some claim he leaves behind a trail of swamp water and laughter, but no one’s ever caught him on camera long enough to prove it.
       </p>
+
+      <aside class="note" role="note">Note: Reports often mention a strong odor—hence the nickname “Skunk Ape.”</aside>
     </section>
 
-    <section id="man">
+    <!-- Section: Florida Man -->
+    <section id="man" class="section">
       <h2>Florida Man</h2>
-      <ul>
-        <li>Rides inflatable flamingos into hurricanes</li>
-        <li>Uses fireworks as bug spray</li>
-        <li><strong>Chaos magnet:</strong> Always in the news</li>
-      </ul>
-      <img src="images/florida-man.png" alt="Florida Man cartoon">
+
+      <article class="card">
+        <ul>
+          <li>Rides inflatable flamingos into hurricanes</li>
+          <li>Uses fireworks as bug spray</li>
+          <li><strong>Chaos magnet:</strong> Always in the news</li>
+        </ul>
+      </article>
+
+      <img src="../images/florida-man.png" alt="Florida Man cartoon">
       <p>
         Florida Man’s misadventures are legendary: one week he’s arrested for wrestling an alligator in a convenience store parking lot, 
         the next he’s spotted parasailing with a lawn chair. His motto? “If it makes the news, it was worth it.”
       </p>
     </section>
 
-    <section id="woman">
+    <!-- Section: Florida Woman -->
+    <section id="woman" class="section">
       <h2>Florida Woman</h2>
-      <ul>
-        <li>Argues with raccoons for Doritos</li>
-        <li>Karaoke airboat parties</li>
-        <li><em>Bedazzled emergency gear</em></li>
-      </ul>
-      <img src="images/florida-woman.png" alt="Florida Woman cartoon">
+
+      <article class="card">
+        <ul>
+          <li>Argues with raccoons for Doritos</li>
+          <li>Karaoke airboat parties</li>
+          <li><em>Bedazzled emergency gear</em></li>
+        </ul>
+      </article>
+
+      <img src="../images/florida-woman.png" alt="Florida Woman cartoon">
       <p>
         Florida Woman once held up traffic to save a baby alligator, all while belting out karaoke classics. 
         She’s equally famous for her sequined survival kits and spontaneous dance-offs at roadside fruit stands.
       </p>
     </section>
 
-    <aside id="faq">
+    <!-- NEW: Gallery (rubric: properly style an image gallery) -->
+    <section id="gallery" class="section">
+      <h2>Image Gallery</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../images/florida-bigfoot.png" alt="Bigfoot sighting in Florida">
+          <figcaption>Bigfoot sighting</figcaption>
+        </figure>
+        <figure>
+          <img src="../images/florida-man.png" alt="Florida Man illustration">
+          <figcaption>Florida Man</figcaption>
+        </figure>
+        <figure>
+          <img src="../images/florida-woman.png" alt="Florida Woman illustration">
+          <figcaption>Florida Woman</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <aside id="faq" class="section">
       <h2>FAQ</h2>
       <p><strong>Are they real?</strong> The legends are real. The evidence is flexible.</p>
-      <p>Learn more about the <a href="https://www.nps.gov/ever/index.htm" target="_blank">Everglades</a>.</p>
+      <p>Learn more about the <a href="https://www.nps.gov/ever/index.htm" target="_blank" rel="noopener">Everglades</a>.</p>
     </aside>
   </main>
 
   <footer>
-    <p>&copy; 2025 Vivian Orellana - Class demo.</p>
+    <p>&copy; 2025 Vivian Orellana — Class demo.</p>
   </footer>
 </body>
 </html>
