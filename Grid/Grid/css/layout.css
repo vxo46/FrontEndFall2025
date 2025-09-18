@@ -1,1 +1,39 @@
+/* ===== Grid 3: Outer layout ===== */
+.grid3{
+  display:grid;
+  grid-template-columns: 1fr 3fr;               /* sidebar | content */
+  grid-template-areas:
+    "header header"
+    "nav    content"
+    "footer footer";
+  gap:16px;
+}
+.grid3 > header  { grid-area: header;  background:#e9ecef; padding:16px; border:1px solid #ccc; }
+.grid3 > .nav    { grid-area: nav;     background:#fff;    padding:16px; border:1px solid #ccc; }
+.grid3 > .content{ grid-area: content; background:#fff;    padding:16px; border:1px solid #ccc; }
+.grid3 > footer  { grid-area: footer;  background:#e9ecef; padding:16px; border:1px solid #ccc; }
 
+/* ===== Grid 3: Nested grid inside .content ===== */
+.grid3-inner{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);       /* 2×2 grid of cards */
+  gap:12px;
+  margin-top:12px;
+}
+.grid3-inner .card{
+  background:#f7f7f7;
+  border:1px solid #ddd;
+  border-radius:10px;
+  min-height:90px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:600;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .grid3-inner{ grid-template-columns: 1fr; }  /* stack cards on tablets/phones */
+}
+@media (max-width: 640px){
+  .grid3{ grid-template-columns: 1fr;
+          grid-template-areas: "header" "content" "nav" "footer"; }
+}
