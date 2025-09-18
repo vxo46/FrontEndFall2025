@@ -1,48 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wiki Page (Magazine Layout)</title>
-  <!-- Link to your CSS file inside the css folder -->
-  <link rel="stylesheet" href="css/layout.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>In-Class: 2 Grids</title>
+  <link rel="stylesheet" href="css/layout.css" />
 </head>
 <body>
   <main>
+    <!-- GRID 1 -->
     <section>
-      <h2>Wiki Page (Magazine Layout)</h2>
-      <div class="wiki-layout">
-        <header>
-          <h3>Wikipedia Header</h3>
-          <p>Logo | Search | Links</p>
-        </header>
-        
-        <aside>
-          <h3>Navigation</h3>
-          <ul>
-            <li>Main Page</li>
-            <li>Contents</li>
-            <li>Random Article</li>
-            <li>About</li>
-          </ul>
-        </aside>
-        
+      <h2>Grid 1 — Wiki (Magazine) Layout</h2>
+      <figure>
+        <img src="images/grid1.svg" alt="Drawing of Grid 1: header, sidebar + article, footer">
+        <figcaption>Design drawing (Grid 1)</figcaption>
+      </figure>
+
+      <div class="grid1">
+        <header>Header</header>
+        <aside>Sidebar</aside>
+        <article>Main Article</article>
+        <footer>Footer</footer>
+      </div>
+    </section>
+
+    <!-- GRID 2 -->
+    <section>
+      <h2>Grid 2 — Nested Grid (Grid inside a Grid)</h2>
+      <figure>
+        <img src="images/grid2.svg" alt="Drawing of Grid 2: header, nav + content, footer, with 2x2 cards inside content">
+        <figcaption>Design drawing (Grid 2)</figcaption>
+      </figure>
+
+      <div class="grid2">
+        <header>Header</header>
+        <aside>Navigation</aside>
         <article>
-          <h3>Main Article Content</h3>
-          <p>
-            This is the main body of the article, similar to a Wikipedia entry.
-            You can add headings, paragraphs, and even images here.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae 
-            ligula ut velit commodo commodo. Integer vulputate arcu nec elit 
-            ullamcorper, et posuere est facilisis.
-          </p>
+          <h3>Main Content</h3>
+          <p>Nested grid of cards (2×2).</p>
+          <div class="grid2-inner">
+            <div class="card">A</div>
+            <div class="card">B</div>
+            <div class="card">C</div>
+            <div class="card">D</div>
+          </div>
         </article>
-        
-        <footer>
-          <p>Wikipedia Footer</p>
-        </footer>
+        <footer>Footer</footer>
       </div>
     </section>
   </main>
