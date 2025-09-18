@@ -5,27 +5,32 @@
   --accent: #0ea5e9;
 }
 
-* {
-  box-sizing: border-box;
-}
+/* New CSS properties for rubric */
+html { scroll-behavior: smooth; }       /* smooth scroll to anchors */
+.section { scroll-margin-top: 84px; }   /* offset below hero/nav when jumping */
+
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; /* custom font used */
   line-height: 1.6;
   color: var(--ink);
   background: var(--bg);
 }
 
+/* HERO / header image
+   NOTE: if your images are inside Grid/images/, change ../images/ to images/ */
 .hero {
   position: relative;
-  background: url("images/header-bg.png") center/cover no-repeat;
+  background: url("../images/header-bg.png") center/cover no-repeat;
   min-height: 45vh;              /* height of header image */
   display: flex;
   align-items: flex-end;         /* push banner to bottom */
   color: #fff;
 }
 
+/* remove any default overlay */
 .hero::before {
   display: none !important;
   content: none !important;
@@ -63,29 +68,43 @@ mark {
   font-weight: bold;
 }
 
-.hero-nav {
-  background: #000; /* solid black bar */
+/* NAV */
+.hero-nav { background: #000; } /* solid black bar */
+
+.hero-nav .wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .hero-nav ul {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
   padding: 0.75rem 0;
   margin: 0;
   list-style: none;
 }
 
+/* rubric: style links, remove underline, hover effect */
 .hero-nav a {
-  text-decoration: none;
+  text-decoration: none;          /* remove underline */
   color: #fff;
-  font-weight: bold;
+  font-weight: 700;
+  padding: .25rem .5rem;
+  border-radius: 6px;
+  transition: color .15s ease, background-color .15s ease, text-shadow .15s ease;
 }
-
-.hero-nav a:hover {
+.hero-nav a:hover,
+.hero-nav a:focus-visible {
   color: var(--accent);
+  background: rgba(255,255,255,.06);
+  text-shadow: 0 0 10px rgba(14,165,233,.35);
+  outline: 2px solid transparent;
 }
 
+/* Main layout */
 main {
   max-width: 1000px;
   margin: 2rem auto;
@@ -93,19 +112,22 @@ main {
   text-align: left;
 }
 
-h2 {
-  margin-top: 2rem;
+/* rubric: tag selectors styled */
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  letter-spacing: .2px;
+}
+h2 { margin-top: 2rem; }
+h3, h4 { margin-top: 1rem; }
+
+p {
+  margin: 0 0 1rem;
+  color: #1f2937; /* a bit softer than pure black */
 }
 
-h3,
-h4 {
-  margin-top: 1rem;
-}
+section { margin-bottom: 2.5rem; }
 
-section {
-  margin-bottom: 2.5rem;
-}
-
+/* Inline images in sections (not gallery) */
 section img {
   max-width: 200px;
   height: auto;
@@ -115,19 +137,60 @@ section img {
   border: 1px solid #ddd;
 }
 
-aside {
-  margin-top: 2rem;
-  padding: 1.5rem;
+/* rubric: 3 reusable classes */
+.lead {
+  font-size: clamp(1.05rem, 0.6vw + 1rem, 1.25rem);
+  font-weight: 600;
+  color: #0f172a;
+}
+.card {
+  background: #fff;
   border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  margin: 1rem 0;
+}
+.note {
+  border-left: 4px solid var(--accent);
+  background: #f0f9ff;
+  padding: .75rem 1rem;
   border-radius: 8px;
-  background: #fafafa;
-
-  width: 100%;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  color: #0b1723;
 }
 
+/* rubric: properly styled image gallery (responsive) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(220px, 1fr) );
+  gap: 16px;
+  margin-top: 1rem;
+}
+.gallery figure {
+  margin: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform .25s ease;
+}
+.gallery figure:hover img { transform: scale(1.03); }
+.gallery figcaption {
+  padding: .6rem .8rem;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+  font-size: .95rem;
+}
+
+/* Footer */
 footer {
   margin-top: 3rem;
   padding: 1.5rem 1rem;
@@ -135,4 +198,3 @@ footer {
   color: var(--muted);
   text-align: center;
 }
-
