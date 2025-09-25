@@ -1,1 +1,170 @@
+:root {
+  --ink: #0b1723;
+  --bg: #fff;
+  --muted: #6b7a8c;
+  --accent: #0ea5e9;
+  --gap: 1rem;
+  --maxw: 1000px;
+}
 
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+/* ---------- HERO IMAGE ---------- */
+.hero {
+  position: relative;
+  background: url("./images/header-bg.png") center/cover no-repeat;
+  min-height: 45vh;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.hero-banner { position: relative; width: 100%; padding: 2rem 0; z-index: 1; }
+.hero-banner .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1rem; text-align: left; }
+.hero-banner h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.5vw + 1rem, 3rem);
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+.hero-banner .tagline {
+  margin: 0.5rem 0 0;
+  color: #f0f0f0;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+
+/* ---------- NAV = CSS GRID ---------- */
+.hero-nav { background: #000; }
+.hero-nav .wrap { max-width: var(--maxw); margin: 0 auto; }
+
+.hero-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); /* horizontal grid on desktop */
+  gap: 0;
+}
+.hero-nav a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.65rem 0.5rem;
+}
+.hero-nav a:hover, .hero-nav a:focus { color: var(--accent); }
+
+/* Mobile: vertical nav */
+@media (max-width: 768px) {
+  .hero-nav ul { grid-template-columns: 1fr; } /* vertical stack */
+  .hero-nav a { text-align: left; padding-left: 0.75rem; }
+}
+
+/* ---------- MAIN ---------- */
+main {
+  max-width: var(--maxw);
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: left;
+}
+h2 { margin-top: 2rem; font-weight: 700; }
+h3, h4 { margin-top: 1rem; font-weight: 600; }
+.section { margin-bottom: 2.5rem; }
+
+/* images used inside sections (when not in info-grid) */
+.section img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fafafa;
+  margin: 1rem 0;
+}
+
+.note {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fffbe6;
+  border-left: 4px solid #facc15;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* ---------- GRID #1: GALLERY ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.gallery figure { margin: 0; text-align: center; }
+.gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; }
+.gallery figcaption { margin-top: 0.5rem; font-size: 0.9rem; color: var(--muted); }
+
+@media (max-width: 900px) { .gallery { grid-template-columns: repeat(3, minmax(160px, 1fr)); } }
+@media (max-width: 600px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- GRID #2: FACTS (inside .card ul) ---------- */
+.card ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem 1rem;
+  margin: 0;
+  padding-left: 1rem; /* keep bullets; remove if you want no bullets */
+}
+.card li { margin: 0.25rem 0; }
+
+@media (max-width: 768px) { .card ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .card ul { grid-template-columns: 1fr; } }
+
+/* ---------- GRID #3: INFO LAYOUT (image + text) ---------- */
+.info-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr; /* image + text */
+  gap: 1rem 1.25rem;
+  align-items: start;
+  margin: 1rem 0 2rem;
+}
+.info-media img {
+  width: 100%;
+  height: auto;
+  max-width: 220px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Mobile: stack */
+@media (max-width: 768px) {
+  .info-grid { grid-template-columns: 1fr; }
+  .info-media img { max-width: 100%; }
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  margin-top: 3rem;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid #e5e7eb;
+  color: var(--muted);
+  text-align: center;
+}
