@@ -8,6 +8,7 @@
 }
 
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -17,9 +18,10 @@ body {
 }
 
 /* ---------- HERO IMAGE ---------- */
+/* NOTE: images are in the repo root /images, so from this CSS file use ../images/... */
 .hero {
   position: relative;
-  background: url("./images/header-bg.png") center/cover no-repeat;
+  background: url("../images/header-bg.png") center/cover no-repeat;
   min-height: 45vh;
   display: flex;
   align-items: flex-end;
@@ -39,22 +41,17 @@ body {
   font-weight: 800;
   text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
-.hero-banner .tagline {
-  margin: 0.5rem 0 0;
-  color: #f0f0f0;
-  text-shadow: 0 2px 8px rgba(0,0,0,.35);
-}
+.hero-banner .tagline { margin: 0.5rem 0 0; color: #f0f0f0; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
 
 /* ---------- NAV = CSS GRID ---------- */
 .hero-nav { background: #000; }
 .hero-nav .wrap { max-width: var(--maxw); margin: 0 auto; }
-
 .hero-nav ul {
   list-style: none;
   margin: 0;
   padding: 0.75rem 1rem;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr)); /* horizontal grid on desktop */
+  grid-template-columns: repeat(5, minmax(0, 1fr)); /* desktop horizontal grid */
   gap: 0;
 }
 .hero-nav a {
@@ -69,7 +66,7 @@ body {
 
 /* Mobile: vertical nav */
 @media (max-width: 768px) {
-  .hero-nav ul { grid-template-columns: 1fr; } /* vertical stack */
+  .hero-nav ul { grid-template-columns: 1fr; } /* stack vertically */
   .hero-nav a { text-align: left; padding-left: 0.75rem; }
 }
 
@@ -84,7 +81,7 @@ h2 { margin-top: 2rem; font-weight: 700; }
 h3, h4 { margin-top: 1rem; font-weight: 600; }
 .section { margin-bottom: 2.5rem; }
 
-/* images used inside sections (when not in info-grid) */
+/* default images (not in info-grid) */
 .section img {
   max-width: 200px;
   height: auto;
@@ -131,7 +128,7 @@ h3, h4 { margin-top: 1rem; font-weight: 600; }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem 1rem;
   margin: 0;
-  padding-left: 1rem; /* keep bullets; remove if you want no bullets */
+  padding-left: 1rem; /* keep bullets; remove to drop bullets */
 }
 .card li { margin: 0.25rem 0; }
 
