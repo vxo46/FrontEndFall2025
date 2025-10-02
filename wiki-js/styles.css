@@ -1,162 +1,210 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="Vivian Orellana" />
-  <meta name="keywords" content="Florida Bigfoot, Florida Man, Florida Woman, Everglades, wiki" />
-  <meta name="description" content="A fun wiki-style page about Florida Bigfoot, Florida Man, and Florida Woman." />
-  <title>Florida Legends Wiki</title>
+:root {
+  --ink: #0b1723;
+  --bg: #fff;
+  --muted: #6b7a8c;
+  --accent: #0ea5e9;
+  --gap: 1rem;
+  --maxw: 1000px;
+}
 
-  <!-- Custom font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+* { box-sizing: border-box; }
 
-  <!-- Use the new CSS in this folder -->
-  <link rel="stylesheet" href="styles-wiki.css" />
-</head>
-<body>
-  <!-- HERO / HEADER -->
-  <header class="hero" role="banner">
-    <div class="hero-banner">
-      <div class="wrap">
-        <h1>Florida Bigfoot, Florida Man &amp; Florida Woman - Wiki</h1>
-        <p class="tagline">A tiny encyclopedia of only-in-Florida legends.</p>
-      </div>
-    </div>
-  </header>
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+}
 
-  <!-- NAV = GRID -->
-  <nav class="hero-nav" aria-label="Primary">
-    <div class="wrap">
-      <ul>
-        <li><a href="#bigfoot">Florida Bigfoot</a></li>
-        <li><a href="#man">Florida Man</a></li>
-        <li><a href="#woman">Florida Woman</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </div>
-  </nav>
+/* ---------- HERO IMAGE ---------- */
+/* NOTE: images are in the repo root /images, so from this CSS file use ../images/... */
+.hero {
+  position: relative;
+  background: url("../images/header-bg.png") center/cover no-repeat;
+  min-height: 45vh;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.hero-banner { position: relative; width: 100%; padding: 2rem 0; z-index: 1; }
+.hero-banner .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1rem; text-align: left; }
+.hero-banner h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.5vw + 1rem, 3rem);
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+.hero-banner .tagline { margin: 0.5rem 0 0; color: #f0f0f0; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
 
-  <main>
-    <!-- Section: Bigfoot -->
-    <section id="bigfoot" class="section">
-      <h2>Florida Bigfoot</h2>
-      <p class="lead">Also known as the Skunk Ape—mysterious, swamp-loving, and (allegedly) a connoisseur of Publix chicken tender subs.</p>
+/* ---------- NAV = CSS GRID ---------- */
+.hero-nav { background: #000; }
+.hero-nav .wrap { max-width: var(--maxw); margin: 0 auto; }
+.hero-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); /* desktop horizontal grid */
+  gap: 0;
+}
+.hero-nav a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.65rem 0.5rem;
+}
+.hero-nav a:hover, .hero-nav a:focus { color: var(--accent); }
 
-      <!-- GRID #2: facts grid inside card -->
-      <article class="card">
-        <ul>
-          <li>Also known as:
-            <a href="https://en.wikipedia.org/wiki/Skunk_ape" target="_blank" rel="noopener">Skunk Ape</a>
-          </li>
-          <li>Habitat: Everglades</li>
-          <li>Fun fact: Loves Publix chicken tender subs</li>
-        </ul>
-      </article>
+/* Mobile: vertical nav */
+@media (max-width: 768px) {
+  .hero-nav ul { grid-template-columns: 1fr; } /* stack vertically */
+  .hero-nav a { text-align: left; padding-left: 0.75rem; }
+}
 
-      <!-- GRID #3: info layout (image + text) -->
-      <div class="info-grid">
-        <div class="info-media">
-          <img src="../images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
-        </div>
-        <div class="info-text">
-          <p>
-            Locals say Florida Bigfoot appears at dusk, lumbering through the sawgrass with a sandwich in hand.
-            Some claim he leaves behind a trail of swamp water and laughter, but no one’s ever caught him on camera long enough to prove it.
-          </p>
-          <aside class="note">Note: Reports often mention a strong odor—hence the nickname “Skunk Ape.”</aside>
-        </div>
-      </div>
-    </section>
+/* ---------- MAIN ---------- */
+main {
+  max-width: var(--maxw);
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: left;
+}
+h2 { margin-top: 2rem; font-weight: 700; }
+h3, h4 { margin-top: 1rem; font-weight: 600; }
+.section { margin-bottom: 2.5rem; }
 
-    <!-- Section: Florida Man -->
-    <section id="man" class="section">
-      <h2>Florida Man</h2>
+/* default images (not in info-grid) */
+.section img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
 
-      <!-- facts grid -->
-      <article class="card">
-        <ul>
-          <li>Rides inflatable flamingos into hurricanes</li>
-          <li>Uses fireworks as bug spray</li>
-          <li><strong>Chaos magnet:</strong> Always in the news</li>
-        </ul>
-      </article>
+.card {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fafafa;
+  margin: 1rem 0;
+}
 
-      <!-- info layout -->
-      <div class="info-grid">
-        <div class="info-media">
-          <img src="../images/florida-man.png" alt="Florida Man cartoon">
-        </div>
-        <div class="info-text">
-          <p>
-            Florida Man’s misadventures are legendary: one week he’s arrested for wrestling an alligator in a convenience store parking lot,
-            the next he’s spotted parasailing with a lawn chair. His motto? “If it makes the news, it was worth it.”
-          </p>
-        </div>
-      </div>
-    </section>
+.note {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fffbe6;
+  border-left: 4px solid #facc15;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
 
-    <!-- Section: Florida Woman -->
-    <section id="woman" class="section">
-      <h2>Florida Woman</h2>
+/* ---------- GRID #1: GALLERY ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.gallery figure { margin: 0; text-align: center; }
+.gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; }
+.gallery figcaption { margin-top: 0.5rem; font-size: 0.9rem; color: var(--muted); }
 
-      <!-- facts grid -->
-      <article class="card">
-        <ul>
-          <li>Argues with raccoons for Doritos</li>
-          <li>Karaoke airboat parties</li>
-          <li><em>Bedazzled emergency gear</em></li>
-        </ul>
-      </article>
+@media (max-width: 900px) { .gallery { grid-template-columns: repeat(3, minmax(160px, 1fr)); } }
+@media (max-width: 600px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
 
-      <!-- info layout -->
-      <div class="info-grid">
-        <div class="info-media">
-          <img src="../images/florida-woman.png" alt="Florida Woman cartoon">
-        </div>
-        <div class="info-text">
-          <p>
-            Florida Woman once held up traffic to save a baby alligator, all while belting out karaoke classics.
-            She’s equally famous for her sequined survival kits and spontaneous dance-offs at roadside fruit stands.
-          </p>
-        </div>
-      </div>
-    </section>
+/* ---------- GRID #2: FACTS (inside .card ul) ---------- */
+.card ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem 1rem;
+  margin: 0;
+  padding-left: 1rem; /* keep bullets; remove to drop bullets */
+}
+.card li { margin: 0.25rem 0; }
 
-    <!-- GRID #1: Gallery -->
-    <section id="gallery" class="section">
-      <h2>Image Gallery</h2>
-      <div class="gallery">
-        <figure>
-          <img src="../images/florida-bigfoot.png" alt="Bigfoot sighting in Florida">
-          <figcaption>Bigfoot sighting</figcaption>
-        </figure>
-        <figure>
-          <img src="../images/florida-man.png" alt="Florida Man illustration">
-          <figcaption>Florida Man</figcaption>
-        </figure>
-        <figure>
-          <img src="../images/florida-woman.png" alt="Florida Woman illustration">
-          <figcaption>Florida Woman</figcaption>
-        </figure>
-        <figure>
-          <img src="../images/everglades.png" alt="Everglades landscape">
-          <figcaption>Everglades</figcaption>
-        </figure>
-      </div>
-    </section>
+@media (max-width: 768px) { .card ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .card ul { grid-template-columns: 1fr; } }
 
-    <!-- FAQ -->
-    <aside id="faq" class="section">
-      <h2>FAQ</h2>
-      <p><strong>Are they real?</strong> The legends are real. The evidence is flexible.</p>
-      <p>Learn more about the <a href="https://www.nps.gov/ever/index.htm" target="_blank" rel="noopener">Everglades</a>.</p>
-    </aside>
-  </main>
+/* ---------- GRID #3: INFO LAYOUT (image + text) ---------- */
+.info-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr; /* image + text */
+  gap: 1rem 1.25rem;
+  align-items: start;
+  margin: 1rem 0 2rem;
+}
+.info-media img {
+  width: 100%;
+  height: auto;
+  max-width: 220px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
 
-  <footer>
-    <p>&copy; 2025 Vivian Orellana — Class demo.</p>
-  </footer>
-</body>
-</html>
+/* Mobile: stack */
+@media (max-width: 768px) {
+  .info-grid { grid-template-columns: 1fr; }
+  .info-media img { max-width: 100%; }
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  margin-top: 3rem;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid #e5e7eb;
+  color: var(--muted);
+  text-align: center;
+}
+/* ===== Controls bar ===== */
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  max-width: var(--maxw);
+  margin: 0.75rem auto 0;
+  padding: 0 1rem 0.5rem;
+}
+.btn {
+  border: 1px solid #e5e7eb;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover { border-color: var(--accent); }
+
+/* ===== Dark mode (toggled on <body>) ===== */
+.dark {
+  --bg: #0b1220;
+  --ink: #e5e7eb;
+  --muted: #94a3b8;
+  background: var(--bg);
+  color: var(--ink);
+}
+.dark .hero-nav { background: #0b1220; }
+.dark .card { background: #0f172a; border-color: #1f2937; }
+.dark .btn { background: #111827; color: var(--ink); border-color: #1f2937; }
+
+/* ===== Bigger text (toggled on #content) ===== */
+.big-text { font-size: 1.15rem; line-height: 1.8; }
+
+/* ===== Header accent (toggled on .hero) ===== */
+.header-accent { box-shadow: inset 0 -4px 0 var(--accent); }
+
+/* ===== Highlight utility for captions (added/removed via JS) ===== */
+.highlight {
+  background: #fff7ed;
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+}
+
