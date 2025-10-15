@@ -1,1 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marks of Humanity: Graffiti × Cave Art</title>
+  <meta name="description" content="A responsive mini-site comparing ancient cave art and modern street art (graffiti).">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site">
+    <div class="wrap">
+      <nav class="primary" aria-label="Primary">
+        <div class="brand"><span class="dot" aria-hidden="true"></span> Marks of Humanity</div>
+        <div class="nav-links" id="navLinks">
+          <a href="#origins">Origins</a>
+          <a href="#compare">Compare</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#learn">Learn</a>
+        </div>
+        <div class="actions">
+          <button class="btn" id="themeBtn" aria-pressed="false">Toggle Theme</button>
+          <button class="btn hamburger" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="inner">
+          <div>
+            <h1>Graffiti × Cave Art</h1>
+            <p class="tagline">From Paleolithic handprints to subway chalk — humans have always drawn on walls to say: <em>we were here</em>.</p>
+            <a class="btn btn-accent" href="#gallery">Jump to Gallery</a>
+          </div>
+          <figure class="card pad">
+            <img src="ElCastillo_cave.png" alt="Red hand stencils and disks on a limestone wall (El Castillo Cave, Spain)" />
+            <figcaption class="eyebrow">El Castillo Cave, Spain — red hand stencils & disks (40k+ years)</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID #1: COMPARISON -->
+    <section id="compare">
+      <div class="wrap">
+        <h2>Same Walls, Different Centuries</h2>
+        <p class="section-intro">A quick comparison of intent, tools, and audience.</p>
+        <div class="grid-cards">
+          <article class="card pad">
+            <div class="eyebrow">Intent</div>
+            <h3>Cave Art</h3>
+            <p>Ritual, teaching, or storytelling about animals and people.</p>
+            <h3>Street Art</h3>
+            <p>Identity, protest, and public dialogue in cities.</p>
+          </article>
+          <article class="card pad">
+            <div class="eyebrow">Materials</div>
+            <p><strong>Cave:</strong> ochre, charcoal, clay; brushes, fingers, air-spray through reeds.</p>
+            <p><strong>Street:</strong> spray paint, rollers, pastes, stencils, chalk.</p>
+          </article>
+          <article class="card pad">
+            <div class="eyebrow">Audience</div>
+            <p><strong>Cave:</strong> clan/community in restricted spaces.</p>
+            <p><strong>Street:</strong> the public — commuters, neighbors, tourists.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABS -->
+    <section id="origins">
+      <div class="wrap">
+        <h2>Origins & Examples (Tabs)</h2>
+        <p class="section-intro">Switch between ancient caves and modern street art.</p>
+        <div class="tabs card pad" role="tablist" aria-label="Origins tabs">
+          <div class="tab-buttons">
+            <button role="tab" aria-selected="true" aria-controls="tab-caves" id="btn-caves">Cave Art</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-street" id="btn-street">Street Art</button>
+          </div>
+
+          <div id="tab-caves" class="tab-panel" role="tabpanel" aria-hidden="false">
+            <ul>
+              <li><strong>El Castillo (Spain, >40k years):</strong> red hand stencils & disks made by blowing pigment over hands.</li>
+              <li><strong>Chauvet (France, ~36k years):</strong> shaded horses, lions, and rhinos showing motion.</li>
+              <li><strong>Sulawesi (Indonesia, ~45k years):</strong> red-ochre wild pigs and handprints; oldest figurative art.</li>
+            </ul>
+          </div>
+
+          <div id="tab-street" class="tab-panel" role="tabpanel" aria-hidden="true">
+            <ul>
+              <li><strong>Keith Haring – Subway Drawings (1980s):</strong> chalk on black subway panels; public, accessible symbols.</li>
+              <li><strong>Keith Haring – Crack Is Wack (1986):</strong> handball court mural protesting the crack epidemic.</li>
+              <li><strong>Banksy – Cave Painting Removal (2008):</strong> worker power-washing over prehistoric animals and handprints.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID #2: GALLERY -->
+    <section id="gallery">
+      <div class="wrap">
+        <h2>Image Gallery</h2>
+        <p class="section-intro">Tap an image to enlarge.</p>
+        <div class="gallery" aria-live="polite">
+          <img src="KeithHaring_Sub.png" alt="Keith Haring subway chalk drawing of radiant dog" data-caption="Keith Haring – Subway Drawing (1980s)">
+          <img src="KeithHaring_CrackWack.png" alt="Keith Haring 'Crack Is Wack' mural" data-caption="Keith Haring – Crack Is Wack (1986)">
+          <img src="KeithHaring_CaveRemoval.png" alt="Banksy Cave Painting Removal mural" data-caption="Banksy – Cave Painting Removal (2008)">
+          <img src="ElCastillo_cave.png" alt="El Castillo Cave hand stencils" data-caption="El Castillo Cave (Spain)">
+          <img src="Chauvet_cave.png" alt="Chauvet Cave animal drawings" data-caption="Chauvet Cave (France)">
+          <img src="Sulawesi_cave.png" alt="Sulawesi Cave pig and handprints" data-caption="Sulawesi Cave (Indonesia)">
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARN -->
+    <section id="learn">
+      <div class="wrap">
+        <h2>What connects them?</h2>
+        <p class="section-intro">Both are wall-based storytelling: presence, community, and memory.</p>
+        <div class="card pad">
+          <p><strong>HTML tags styled:</strong> h1/h2/h3, p, a, ul/li, figure, figcaption</p>
+          <p><strong>Classes used:</strong> .card, .pad, .eyebrow, .btn, .gallery, .grid-cards</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2025 Vivian Orellana · Midterm – Front-End Fundamentals</div>
+  </footer>
+
+  <dialog id="lightbox">
+    <figure style="margin:0">
+      <img id="lightImg" alt="Expanded image">
+      <figcaption id="lightCap" class="pad" style="color:#6b7280"></figcaption>
+    </figure>
+    <form method="dialog" style="text-align:right;padding:.5rem .75rem">
+      <button class="btn">Close</button>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
