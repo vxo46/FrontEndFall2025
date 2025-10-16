@@ -70,35 +70,88 @@
       </div>
     </section>
 
-    <!-- TABS -->
-    <section id="origins">
-      <div class="wrap">
-        <h2>Origins & Examples (Tabs)</h2>
-        <p class="section-intro">Switch between ancient caves and modern street art.</p>
-        <div class="tabs card pad" role="tablist" aria-label="Origins tabs">
-          <div class="tab-buttons">
-            <button role="tab" aria-selected="true" aria-controls="tab-caves" id="btn-caves">Cave Art</button>
-            <button role="tab" aria-selected="false" aria-controls="tab-street" id="btn-street">Street Art</button>
-          </div>
+  <!-- EXPLORE CARDS (replaces the old Tabs section) -->
+<section id="explore">
+  <div class="wrap">
+    <h2>Explore the Art</h2>
+    <p class="section-intro">Click a panel to watch a short video.</p>
 
-          <div id="tab-caves" class="tab-panel" role="tabpanel" aria-hidden="false">
-            <ul>
-              <li><strong>El Castillo (Spain, >40k years):</strong> red hand stencils & disks made by blowing pigment over hands.</li>
-              <li><strong>Chauvet (France, ~36k years):</strong> shaded horses, lions, and rhinos showing motion.</li>
-              <li><strong>Sulawesi (Indonesia, ~45k years):</strong> red-ochre wild pigs and handprints; oldest figurative art.</li>
-            </ul>
-          </div>
-
-          <div id="tab-street" class="tab-panel" role="tabpanel" aria-hidden="true">
-            <ul>
-              <li><strong>Keith Haring – Subway Drawings (1980s):</strong> chalk on black subway panels; public, accessible symbols.</li>
-              <li><strong>Keith Haring – Crack Is Wack (1986):</strong> handball court mural protesting the crack epidemic.</li>
-              <li><strong>Banksy – Cave Painting Removal (2008):</strong> worker power-washing over prehistoric animals and handprints.</li>
-            </ul>
-          </div>
+    <div class="card-grid">
+      <!-- 01 El Castillo -->
+      <a class="tile" href="https://www.youtube.com/watch?v=YOUR_VIDEO_1" target="_blank" rel="noopener">
+        <figure>
+          <img src="../images/ElCastillo_cave.png" alt="El Castillo Cave hand stencils">
+        </figure>
+        <div class="tile-meta">
+          <span class="num">01</span>
+          <span class="title">El Castillo (Spain)</span>
+          <span class="arrow">→</span>
         </div>
-      </div>
-    </section>
+      </a>
+
+      <!-- 02 Chauvet -->
+      <a class="tile" href="https://www.youtube.com/watch?v=YOUR_VIDEO_2" target="_blank" rel="noopener">
+        <figure>
+          <img src="../images/Chauvet_cave.png" alt="Chauvet Cave animals">
+        </figure>
+        <div class="tile-meta">
+          <span class="num">02</span>
+          <span class="title">Chauvet (France)</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+
+      <!-- 03 Sulawesi -->
+      <a class="tile" href="https://www.youtube.com/watch?v=YOUR_VIDEO_3" target="_blank" rel="noopener">
+        <figure>
+          <img src="../images/Sulawesi_cave.png" alt="Sulawesi Cave pig and handprints">
+        </figure>
+        <div class="tile-meta">
+          <span class="num">03</span>
+          <span class="title">Sulawesi (Indonesia)</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+
+      <!-- 04 Haring Subway -->
+      <a class="tile" href="https://www.youtube.com/watch?v=YOUR_VIDEO_4" target="_blank" rel="noopener">
+        <figure>
+          <img src="../images/KeithHaring_Sub.png" alt="Keith Haring subway chalk drawing">
+        </figure>
+        <div class="tile-meta">
+          <span class="num">04</span>
+          <span class="title">Haring — Subway Drawings</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+
+      <!-- 05 Crack Is Wack -->
+      <a class="tile" href="https://www.youtube.com/watch?v=YOUR_VIDEO_5" target="_blank" rel="noopener">
+        <figure>
+          <img src="../images/KeithHaring_CrackWack.png" alt="Crack Is Wack mural">
+        </figure>
+        <div class="tile-meta">
+          <span class="num">05</span>
+          <span class="title">Haring — Crack Is Wack</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+
+      <!-- 06 Banksy Cave Painting Removal -->
+      <a class="tile" href="https://www.youtube.com/watch?v=YOUR_VIDEO_6" target="_blank" rel="noopener">
+        <figure>
+          <img src="../images/KeithHaring_CaveRemoval.png" alt="Banksy Cave Painting Removal">
+        </figure>
+        <div class="tile-meta">
+          <span class="num">06</span>
+          <span class="title">Banksy — Cave Painting Removal</span>
+          <span class="arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 
     <!-- GRID #2: GALLERY -->
     <section id="gallery">
