@@ -51,4 +51,15 @@ document.querySelectorAll('.gallery img').forEach(img => {
     dlg.showModal();
   });
 });
+// Hero fade-out on scroll
+const hero = document.querySelector('.hero-banner');
+if (hero) {
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const fadePoint = window.innerHeight * 0.8; // start fading before the fold
+    const opacity = Math.max(0, 1 - scrollY / fadePoint);
+    hero.style.opacity = opacity;
+    hero.style.transform = `translateY(${scrollY * 0.2}px)`; // subtle parallax shift
+  });
+}
 
