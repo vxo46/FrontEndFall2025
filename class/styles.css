@@ -1,1 +1,323 @@
+/* ---------- RESET ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  line-height: 1.6;
+  color: #121316;
+  background: #fff;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: #0b6dff;
+  text-decoration: none;
+}
 
+/* ---------- COLOR TOKENS ---------- */
+:root {
+  --accent: #ff6b00;
+  --stone: #f3efe9;
+  --ink: #121316;
+  --muted: #6b7280;
+  --panel: #ffffff;
+  --radius: 14px;
+  --shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+/* Dark mode toggle */
+.dark {
+  background: #0f1012;
+  color: #eef1f6;
+}
+.dark a {
+  color: #7dd3fc;
+}
+.dark .card {
+  background: #14161a;
+  border-color: #23262d;
+}
+.dark header.site {
+  background: #0f1012e6;
+  border-bottom-color: #22262c;
+}
+
+/* ---------- UTILITIES ---------- */
+.wrap {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.pad {
+  padding: 1rem;
+}
+.eyebrow {
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .8rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+.btn:hover {
+  background: #f6f7fb;
+}
+.btn-accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #111;
+}
+
+/* ---------- HEADER & NAV (grid #1) ---------- */
+header.site {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e7eb;
+}
+nav.primary {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: .8rem;
+  align-items: center;
+  padding: .6rem 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-weight: 800;
+}
+.brand .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #b4893d);
+}
+.nav-links {
+  display: grid;
+  grid-auto-flow: column;
+  gap: .4rem;
+  justify-content: end;
+}
+.nav-links a {
+  padding: .45rem .7rem;
+  border-radius: 10px;
+  color: inherit;
+}
+.nav-links a:hover {
+  background: #f3f4f6;
+}
+.hamburger {
+  display: none;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  background: linear-gradient(180deg, var(--stone), #fff);
+  padding: 2.4rem 0;
+}
+.hero .inner {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 1.2rem;
+  align-items: center;
+}
+.hero h1 {
+  line-height: 1.1;
+  margin: 0 0 .4rem;
+  font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
+}
+.tagline {
+  color: var(--muted);
+  margin-top: .25rem;
+}
+/* --- Full-bleed hero banner with fade --- */
+.hero { padding: 0; margin: 0; }
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 85vh; /* big immersive banner */
+  background: url("../images/ElCastillo_cave.png") center center / cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.45) 0%,
+    rgba(0,0,0,0.6) 60%,
+    rgba(0,0,0,0.85) 100%
+  );
+}
+
+.hero-banner .overlay {
+  position: relative;
+  color: #fff;
+  z-index: 1;
+  max-width: 720px;
+  padding: 1.5rem;
+}
+
+.hero-banner h1 {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  margin-bottom: 1rem;
+}
+
+.hero-banner .tagline {
+  font-size: 1.1rem;
+  color: #e6e2db;
+  margin-bottom: 1.8rem;
+}
+
+/* Keep your existing .btn styles; this just tweaks the hero button color */
+.hero-banner .btn {
+  background: #b4893d;
+  color: #111;
+  border-color: #b4893d;
+  font-weight: 600;
+}
+.hero-banner .btn:hover { background: #cda85a; }
+
+
+/* ---------- SECTIONS ---------- */
+section {
+  padding: 2rem 0;
+  scroll-margin-top: 76px;
+}
+section h2 {
+  margin: .2rem 0 .6rem;
+}
+.section-intro {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* ---------- GRID #1: Comparison cards ---------- */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.grid-cards .card h3 {
+  margin: .25rem 0 .35rem;
+}
+
+/* ---------- GRID #2: Gallery ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .75rem;
+}
+.gallery img {
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* ---------- TABS ---------- */
+.tabs {
+  display: grid;
+  gap: .6rem;
+}
+.tab-buttons {
+  display: grid;
+  grid-auto-flow: column;
+  gap: .5rem;
+}
+.tab-buttons button {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  padding: .5rem .7rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.tab-buttons button[aria-selected="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #111;
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  padding: 2rem 0;
+  color: var(--muted);
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .hero .inner {
+    grid-template-columns: 1fr;
+  }
+  .grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  nav.primary {
+    grid-template-columns: auto auto 1fr;
+  }
+  .hamburger {
+    display: inline-flex;
+    justify-self: end;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-links.open {
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: start;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: .5rem;
+    position: absolute;
+    right: 1rem;
+    top: 3.2rem;
+  }
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
