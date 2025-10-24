@@ -5,22 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const content   = document.getElementById("content");
   const header    = document.querySelector(".hero");
 
-  // Listener #1: Toggle dark mode (adds/removes CSS class)
-  themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-  });
+  if (!themeBtn || !textBtn || !accentBtn || !content || !header) {
+    console.warn("Missing expected elements. Check IDs/classes and script placement.");
+    return;
+  }
 
-  // Listener #2: Toggle bigger text in main area (adds/removes CSS class)
-  textBtn.addEventListener("click", () => {
-    content.classList.toggle("big-text");
-  });
+  themeBtn.addEventListener("click", () => document.body.classList.toggle("dark"));
+  textBtn.addEventListener("click",  () => content.classList.toggle("big-text"));
+  accentBtn.addEventListener("click",() => header.classList.toggle("header-accent"));
 
-  // Listener #3: Accent the header (adds/removes CSS class)
-  accentBtn.addEventListener("click", () => {
-    header.classList.toggle("header-accent");
-  });
-
-  // Bonus interactions: change innerHTML and inline styles on gallery hover
   const figures = document.querySelectorAll(".gallery figure");
   figures.forEach((fig) => {
     const img = fig.querySelector("img");
@@ -29,9 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     img.addEventListener("mouseenter", () => {
       if (!cap) return;
-      cap.innerHTML = "Highlighted by JavaScript ✨"; // innerHTML change
-      cap.classList.add("highlight");                 // add CSS class
-      img.style.borderColor = "#0ea5e9";              // inline style change
+      cap.innerHTML = "Highlighted by JavaScript ✨";
+      cap.classList.add("highlight");
+      img.style.borderColor = "#0ea5e9";
       img.style.transform = "scale(1.02)";
     });
 
