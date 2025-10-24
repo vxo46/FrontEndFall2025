@@ -1,4 +1,4 @@
-// Quick proof JS is loaded (check console)
+// Prove the JS loaded (check the browser console)
 console.log("✅ wiki.js loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -8,22 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const content   = document.getElementById("content");
   const header    = document.querySelector(".hero");
 
-  // Listener #1: toggle dark mode
+  // Listener #1: dark mode
   themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
   });
 
-  // Listener #2: toggle bigger text in main area
+  // Listener #2: bigger text
   textBtn.addEventListener("click", () => {
     content.classList.toggle("big-text");
   });
 
-  // Listener #3: accent the header
+  // Listener #3: accent header
   accentBtn.addEventListener("click", () => {
     header.classList.toggle("header-accent");
   });
 
-  // BONUS for rubric: innerHTML + inline style on gallery hover
+  // Bonus rubric: innerHTML + inline style on gallery hover
   document.querySelectorAll(".gallery figure").forEach((fig) => {
     const img = fig.querySelector("img");
     const cap = fig.querySelector("figcaption");
@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     img.addEventListener("mouseenter", () => {
       if (!cap) return;
       cap.innerHTML = "Highlighted by JavaScript ✨"; // innerHTML change
-      cap.classList.add("highlight");                 // add class
-      img.style.borderColor = "#0ea5e9";              // inline style changes
+      cap.classList.add("highlight");                 // add CSS class
+      img.style.borderColor = "#0ea5e9";              // inline style change
       img.style.transform = "scale(1.02)";
     });
 
