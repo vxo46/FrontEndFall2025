@@ -8,11 +8,17 @@
   <meta name="description" content="A fun wiki-style page about Florida Bigfoot, Florida Man, and Florida Woman." />
   <title>Florida Legends Wiki</title>
 
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles-wiki.css" />
-  <script src="./wiki.js" defer></script>
+
+  <!-- NOTE: html → ../css/... -->
+  <link rel="stylesheet" href="../css/styles-wiki.css" />
+
+  <!-- NOTE: html → ../js/... -->
+  <script src="../js/wiki.js" defer></script>
 </head>
 <body>
+  <!-- HERO / HEADER -->
   <header class="hero" role="banner">
     <div class="hero-banner">
       <div class="wrap">
@@ -22,6 +28,7 @@
     </div>
   </header>
 
+  <!-- NAV -->
   <nav class="hero-nav" aria-label="Primary">
     <div class="wrap">
       <ul>
@@ -34,6 +41,7 @@
     </div>
   </nav>
 
+  <!-- CONTROLS -->
   <div class="controls" aria-label="Page controls">
     <button id="themeBtn" class="btn">🌙 Toggle Dark Mode</button>
     <button id="textBtn" class="btn">🔎 Toggle Bigger Text</button>
@@ -57,13 +65,13 @@
 
       <div class="info-grid">
         <div class="info-media">
-          <!-- If your images folder is NEXT to index.html, use images/...  -->
-          <img src="images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
+          <!-- NOTE: html → ../images/... -->
+          <img src="../images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
         </div>
         <div class="info-text">
           <p>
             Locals say Florida Bigfoot appears at dusk, lumbering through the sawgrass with a sandwich in hand.
-            Some claim he leaves behind a trail of swamp water and laughter, but no one’s ever caught him on camera long enough to prove it.
+            Some claim he leaves behind a trail of swamp water and laughter.
           </p>
           <aside class="note">Note: Reports often mention a strong odor—hence the nickname “Skunk Ape.”</aside>
         </div>
@@ -81,13 +89,10 @@
       </article>
       <div class="info-grid">
         <div class="info-media">
-          <img src="images/florida-man.png" alt="Florida Man cartoon">
+          <img src="../images/florida-man.png" alt="Florida Man cartoon">
         </div>
         <div class="info-text">
-          <p>
-            Florida Man’s misadventures are legendary: one week he’s arrested for wrestling an alligator,
-            the next he’s parasailing with a lawn chair. His motto? “If it makes the news, it was worth it.”
-          </p>
+          <p>Legendary misadventures. Motto: “If it makes the news, it was worth it.”</p>
         </div>
       </div>
     </section>
@@ -103,12 +108,10 @@
       </article>
       <div class="info-grid">
         <div class="info-media">
-          <img src="images/florida-woman.png" alt="Florida Woman cartoon">
+          <img src="../images/florida-woman.png" alt="Florida Woman cartoon">
         </div>
         <div class="info-text">
-          <p>
-            Florida Woman once held up traffic to save a baby alligator—while belting out karaoke classics.
-          </p>
+          <p>Saves baby gators and throws roadside dance-offs. Icon.</p>
         </div>
       </div>
     </section>
@@ -117,19 +120,19 @@
       <h2>Image Gallery</h2>
       <div class="gallery">
         <figure>
-          <img src="images/florida-bigfoot.png" alt="Bigfoot sighting in Florida">
+          <img src="../images/florida-bigfoot.png" alt="Bigfoot sighting in Florida">
           <figcaption>Bigfoot sighting</figcaption>
         </figure>
         <figure>
-          <img src="images/florida-man.png" alt="Florida Man illustration">
+          <img src="../images/florida-man.png" alt="Florida Man illustration">
           <figcaption>Florida Man</figcaption>
         </figure>
         <figure>
-          <img src="images/florida-woman.png" alt="Florida Woman illustration">
+          <img src="../images/florida-woman.png" alt="Florida Woman illustration">
           <figcaption>Florida Woman</figcaption>
         </figure>
       </div>
-      <p class="note">Hover images to see the JavaScript change captions and styles.</p>
+      <p class="note">Hover the images: captions/styles change via JavaScript.</p>
     </section>
 
     <aside id="faq" class="section">
