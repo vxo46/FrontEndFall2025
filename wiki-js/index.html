@@ -7,9 +7,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- html → ../css -->
+  <!-- link to your CSS and JS -->
   <link rel="stylesheet" href="../css/styles-wiki.css" />
-  <!-- html → ../js -->
   <script src="../js/wiki.js" defer></script>
 </head>
 <body>
@@ -22,111 +21,35 @@
     </div>
   </header>
 
-  <nav class="hero-nav">
-    <div class="wrap">
-      <ul>
-        <li><a href="#bigfoot">Florida Bigfoot</a></li>
-        <li><a href="#man">Florida Man</a></li>
-        <li><a href="#woman">Florida Woman</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- 3 Jump Links + 3 JS Toggles -->
+  <!-- only these 3 buttons -->
   <div class="controls">
-    <a href="#bigfoot" class="btn">⬇ Bigfoot</a>
-    <a href="#man" class="btn">⬇ Man</a>
-    <a href="#woman" class="btn">⬇ Woman</a>
-
-    <button id="themeBtn"  class="btn">🌙 Dark</button>
-    <button id="textBtn"   class="btn">🔎 Big Text</button>
+    <button id="themeBtn" class="btn">🌙 Dark</button>
+    <button id="textBtn" class="btn">🔎 Big Text</button>
     <button id="accentBtn" class="btn">🎨 Accent</button>
   </div>
 
   <main id="content">
     <section id="bigfoot" class="section">
       <h2>Florida Bigfoot</h2>
-      <article class="card">
-        <ul>
-          <li>Also known as: <a href="https://en.wikipedia.org/wiki/Skunk_ape" target="_blank">Skunk Ape</a></li>
-          <li>Habitat: Everglades</li>
-          <li>Fun fact: Loves Publix chicken tender subs</li>
-        </ul>
-      </article>
-      <div class="info-grid">
-        <div class="info-media">
-          <img src="../images/florida-bigfoot.png" alt="Florida Bigfoot" width="160">
-        </div>
-        <div class="info-text">
-          <p>Locals say Bigfoot lumbers through the sawgrass at dusk with a sandwich in hand.</p>
-        </div>
-      </div>
+      <p>The Skunk Ape—mysterious, swamp-loving, and fond of Publix chicken tender subs.</p>
+      <img src="../images/florida-bigfoot.png" alt="Florida Bigfoot" width="180">
     </section>
 
     <section id="man" class="section">
       <h2>Florida Man</h2>
-      <article class="card">
-        <ul>
-          <li>Rides inflatable flamingos into hurricanes</li>
-          <li>Uses fireworks as bug spray</li>
-          <li><strong>Chaos magnet:</strong> Always in the news</li>
-        </ul>
-      </article>
-      <div class="info-grid">
-        <div class="info-media">
-          <img src="../images/florida-man.png" alt="Florida Man" width="160">
-        </div>
-        <div class="info-text">
-          <p>His motto: “If it makes the news, it was worth it.”</p>
-        </div>
-      </div>
+      <p>Legendary misadventures: rides inflatable flamingos into hurricanes.</p>
+      <img src="../images/florida-man.png" alt="Florida Man" width="180">
     </section>
 
     <section id="woman" class="section">
       <h2>Florida Woman</h2>
-      <article class="card">
-        <ul>
-          <li>Argues with raccoons for Doritos</li>
-          <li>Karaoke airboat parties</li>
-          <li><em>Bedazzled emergency gear</em></li>
-        </ul>
-      </article>
-      <div class="info-grid">
-        <div class="info-media">
-          <img src="../images/florida-woman.png" alt="Florida Woman" width="160">
-        </div>
-        <div class="info-text">
-          <p>Saves baby gators while singing karaoke on airboats.</p>
-        </div>
-      </div>
+      <p>Saves baby gators while singing karaoke on airboats.</p>
+      <img src="../images/florida-woman.png" alt="Florida Woman" width="180">
     </section>
-
-    <section id="gallery" class="section">
-      <h2>Gallery</h2>
-      <div class="gallery">
-        <figure>
-          <img src="../images/florida-bigfoot.png" alt="Bigfoot" width="120" height="120">
-          <figcaption>Bigfoot sighting</figcaption>
-        </figure>
-        <figure>
-          <img src="../images/florida-man.png" alt="Florida Man" width="120" height="120">
-          <figcaption>Florida Man</figcaption>
-        </figure>
-        <figure>
-          <img src="../images/florida-woman.png" alt="Florida Woman" width="120" height="120">
-          <figcaption>Florida Woman</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <aside id="faq" class="section">
-      <h2>FAQ</h2>
-      <p><strong>Are they real?</strong> The legends are real. The evidence is flexible.</p>
-    </aside>
   </main>
 
-  <footer><p>© 2025 Vivian Orellana — Class Demo</p></footer>
+  <footer>
+    <p>© 2025 Vivian Orellana — Class Demo</p>
+  </footer>
 </body>
 </html>
