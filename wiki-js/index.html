@@ -8,17 +8,11 @@
   <meta name="description" content="A fun wiki-style page about Florida Bigfoot, Florida Man, and Florida Woman." />
   <title>Florida Legends Wiki</title>
 
-  <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="styles-wiki.css" />
-
-  <!-- Your JS -->
-  <script src="wiki.js" defer></script>
+  <link rel="stylesheet" href="./styles-wiki.css" />
+  <script src="./wiki.js" defer></script>
 </head>
 <body>
-  <!-- HERO / HEADER -->
   <header class="hero" role="banner">
     <div class="hero-banner">
       <div class="wrap">
@@ -28,7 +22,6 @@
     </div>
   </header>
 
-  <!-- NAV = GRID -->
   <nav class="hero-nav" aria-label="Primary">
     <div class="wrap">
       <ul>
@@ -41,7 +34,6 @@
     </div>
   </nav>
 
-  <!-- CONTROLS (for the JS interactions) -->
   <div class="controls" aria-label="Page controls">
     <button id="themeBtn" class="btn">🌙 Toggle Dark Mode</button>
     <button id="textBtn" class="btn">🔎 Toggle Bigger Text</button>
@@ -49,7 +41,6 @@
   </div>
 
   <main id="content">
-    <!-- Section: Bigfoot -->
     <section id="bigfoot" class="section">
       <h2>Florida Bigfoot</h2>
       <p class="lead">Also known as the Skunk Ape—mysterious, swamp-loving, and (allegedly) a connoisseur of Publix chicken tender subs.</p>
@@ -66,7 +57,8 @@
 
       <div class="info-grid">
         <div class="info-media">
-          <img src="../images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
+          <!-- If your images folder is NEXT to index.html, use images/...  -->
+          <img src="images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
         </div>
         <div class="info-text">
           <p>
@@ -78,10 +70,8 @@
       </div>
     </section>
 
-    <!-- Section: Florida Man -->
     <section id="man" class="section">
       <h2>Florida Man</h2>
-
       <article class="card">
         <ul>
           <li>Rides inflatable flamingos into hurricanes</li>
@@ -89,24 +79,21 @@
           <li><strong>Chaos magnet:</strong> Always in the news</li>
         </ul>
       </article>
-
       <div class="info-grid">
         <div class="info-media">
-          <img src="../images/florida-man.png" alt="Florida Man cartoon">
+          <img src="images/florida-man.png" alt="Florida Man cartoon">
         </div>
         <div class="info-text">
           <p>
-            Florida Man’s misadventures are legendary: one week he’s arrested for wrestling an alligator in a convenience store parking lot,
-            the next he’s spotted parasailing with a lawn chair. His motto? “If it makes the news, it was worth it.”
+            Florida Man’s misadventures are legendary: one week he’s arrested for wrestling an alligator,
+            the next he’s parasailing with a lawn chair. His motto? “If it makes the news, it was worth it.”
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Section: Florida Woman -->
     <section id="woman" class="section">
       <h2>Florida Woman</h2>
-
       <article class="card">
         <ul>
           <li>Argues with raccoons for Doritos</li>
@@ -114,41 +101,37 @@
           <li><em>Bedazzled emergency gear</em></li>
         </ul>
       </article>
-
       <div class="info-grid">
         <div class="info-media">
-          <img src="../images/florida-woman.png" alt="Florida Woman cartoon">
+          <img src="images/florida-woman.png" alt="Florida Woman cartoon">
         </div>
         <div class="info-text">
           <p>
-            Florida Woman once held up traffic to save a baby alligator, all while belting out karaoke classics.
-            She’s equally famous for her sequined survival kits and spontaneous dance-offs at roadside fruit stands.
+            Florida Woman once held up traffic to save a baby alligator—while belting out karaoke classics.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- GRID #1: Gallery -->
     <section id="gallery" class="section">
       <h2>Image Gallery</h2>
       <div class="gallery">
         <figure>
-          <img src="../images/florida-bigfoot.png" alt="Bigfoot sighting in Florida">
+          <img src="images/florida-bigfoot.png" alt="Bigfoot sighting in Florida">
           <figcaption>Bigfoot sighting</figcaption>
         </figure>
         <figure>
-          <img src="../images/florida-man.png" alt="Florida Man illustration">
+          <img src="images/florida-man.png" alt="Florida Man illustration">
           <figcaption>Florida Man</figcaption>
         </figure>
         <figure>
-          <img src="../images/florida-woman.png" alt="Florida Woman illustration">
+          <img src="images/florida-woman.png" alt="Florida Woman illustration">
           <figcaption>Florida Woman</figcaption>
         </figure>
       </div>
       <p class="note">Hover images to see the JavaScript change captions and styles.</p>
     </section>
 
-    <!-- FAQ -->
     <aside id="faq" class="section">
       <h2>FAQ</h2>
       <p><strong>Are they real?</strong> The legends are real. The evidence is flexible.</p>
@@ -161,4 +144,3 @@
   </footer>
 </body>
 </html>
-
