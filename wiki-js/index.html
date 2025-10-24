@@ -8,14 +8,14 @@
   <meta name="description" content="A fun wiki-style page about Florida Bigfoot, Florida Man, and Florida Woman." />
   <title>Florida Legends Wiki</title>
 
-  <!-- Custom font -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- CSS in the same folder -->
-  <link rel="stylesheet" href="styles-wiki.css" />
+  <!-- IMPORTANT: from /html/ go UP one level to /css/ -->
+  <link rel="stylesheet" href="../css/styles-wiki.css" />
 
-  <!-- JS in the same folder -->
-  <script src="wiki.js" defer></script>
+  <!-- IMPORTANT: from /html/ go UP one level to /js/ -->
+  <script src="../js/wiki.js" defer></script>
 </head>
 <body>
   <!-- HERO / HEADER -->
@@ -28,7 +28,7 @@
     </div>
   </header>
 
-  <!-- Simple controls bar: 3 buttons for the rubric -->
+  <!-- Three working buttons for the assignment -->
   <div class="controls" aria-label="Page controls">
     <button id="themeBtn" class="btn">🌙 Dark</button>
     <button id="textBtn" class="btn">🔎 Big Text</button>
@@ -48,6 +48,7 @@
     </div>
   </nav>
 
+  <!-- IMPORTANT: id="content" is required by the JS -->
   <main id="content">
     <!-- Section: Bigfoot -->
     <section id="bigfoot" class="section">
@@ -66,7 +67,8 @@
 
       <div class="info-grid">
         <div class="info-media">
-          <img src="images/florida-bigfoot.png" alt="Florida Bigfoot cartoon">
+          <!-- from /html/ go UP to /images/ -->
+          <img src="../images/florida-bigfoot.png" alt="Florida Bigfoot cartoon" width="180">
         </div>
         <div class="info-text">
           <p>
@@ -92,7 +94,7 @@
 
       <div class="info-grid">
         <div class="info-media">
-          <img src="images/florida-man.png" alt="Florida Man cartoon">
+          <img src="../images/florida-man.png" alt="Florida Man cartoon" width="180">
         </div>
         <div class="info-text">
           <p>
@@ -117,7 +119,7 @@
 
       <div class="info-grid">
         <div class="info-media">
-          <img src="images/florida-woman.png" alt="Florida Woman cartoon">
+          <img src="../images/florida-woman.png" alt="Florida Woman cartoon" width="180">
         </div>
         <div class="info-text">
           <p>
@@ -128,28 +130,28 @@
       </div>
     </section>
 
-    <!-- GRID #1: Gallery -->
+    <!-- Gallery -->
     <section id="gallery" class="section">
       <h2>Image Gallery</h2>
       <div class="gallery">
         <figure>
-          <img src="images/florida-bigfoot.png" alt="Bigfoot sighting in Florida">
+          <img src="../images/florida-bigfoot.png" alt="Bigfoot sighting in Florida" width="120" height="120">
           <figcaption>Bigfoot sighting</figcaption>
         </figure>
         <figure>
-          <img src="images/florida-man.png" alt="Florida Man illustration">
+          <img src="../images/florida-man.png" alt="Florida Man illustration" width="120" height="120">
           <figcaption>Florida Man</figcaption>
         </figure>
         <figure>
-          <img src="images/florida-woman.png" alt="Florida Woman illustration">
+          <img src="../images/florida-woman.png" alt="Florida Woman illustration" width="120" height="120">
           <figcaption>Florida Woman</figcaption>
         </figure>
         <figure>
-          <img src="images/everglades.png" alt="Everglades landscape">
+          <img src="../images/everglades.png" alt="Everglades landscape" width="120" height="120">
           <figcaption>Everglades</figcaption>
         </figure>
       </div>
-      <p class="note">Hover over gallery images to see JavaScript change captions & styles.</p>
+      <p class="note">Hover the gallery images to see JavaScript change captions and styles.</p>
     </section>
 
     <!-- FAQ -->
