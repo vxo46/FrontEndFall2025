@@ -1,3 +1,4 @@
+// Check that JS is loaded
 console.log("✅ wiki.js loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -7,27 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const content   = document.getElementById("content");
   const header    = document.querySelector(".hero");
 
-  // toggles for rubric
-  themeBtn?.addEventListener("click", () => document.body.classList.toggle("dark"));
-  textBtn?.addEventListener("click",  () => content?.classList.toggle("big-text"));
-  accentBtn?.addEventListener("click",() => header?.classList.toggle("header-accent"));
+  // 🌙 Toggle dark mode
+  themeBtn?.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
 
-  // hover interaction
-  document.querySelectorAll(".gallery figure").forEach(fig => {
-    const img = fig.querySelector("img");
-    const cap = fig.querySelector("figcaption");
-    const original = cap.innerHTML;
-    img.addEventListener("mouseenter",()=>{
-      cap.innerHTML="Highlighted by JavaScript ✨";
-      cap.classList.add("highlight");
-      img.style.borderColor="#0ea5e9";
-      img.style.transform="scale(1.02)";
-    });
-    img.addEventListener("mouseleave",()=>{
-      cap.innerHTML=original;
-      cap.classList.remove("highlight");
-      img.style.borderColor="#ddd";
-      img.style.transform="none";
-    });
+  // 🔎 Toggle bigger text
+  textBtn?.addEventListener("click", () => {
+    content?.classList.toggle("big-text");
+  });
+
+  // 🎨 Toggle accent header underline
+  accentBtn?.addEventListener("click", () => {
+    header?.classList.toggle("header-accent");
   });
 });
