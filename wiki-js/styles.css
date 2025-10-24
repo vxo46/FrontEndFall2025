@@ -18,10 +18,10 @@ body {
 }
 
 /* ---------- HERO IMAGE ---------- */
-/* CSS file sits next to index, so use images/... (no ../) */
+/* CSS is in /css/, so go UP one level to /images/ */
 .hero {
   position: relative;
-  background: url("images/header-bg.png") center/cover no-repeat;
+  background: url("../images/header-bg.png") center/cover no-repeat;
   min-height: 40vh;
   display: flex;
   align-items: flex-end;
@@ -80,7 +80,7 @@ h2 { margin-top: 1.5rem; font-weight: 700; font-size: 1.4rem; }
 h3, h4 { margin-top: 1rem; font-weight: 600; }
 .section { margin-bottom: 2rem; }
 
-/* default images — kept small */
+/* images kept small */
 .section img {
   max-width: 180px;
   height: auto;
@@ -90,24 +90,60 @@ h3, h4 { margin-top: 1rem; font-weight: 600; }
   border: 1px solid #ddd;
 }
 
-.card {
-  padding: 0.9rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #fafafa;
-  margin: 0.75rem 0;
-}
+/* cards & note */
+.card { padding: 0.9rem; border: 1px solid #e5e7eb; border-radius: 8px; background: #fafafa; margin: 0.75rem 0; }
+.note { margin-top: 0.75rem; padding: 0.6rem 0.9rem; background: #fffbe6; border-left: 4px solid #facc15; border-radius: 4px; font-size: 0.95rem; }
 
-.note {
-  margin-top: 0.75rem;
-  padding: 0.6rem 0.9rem;
-  background: #fffbe6;
-  border-left: 4px solid #facc15;
-  border-radius: 4px;
-  font-size: 0.95rem;
-}
-
-/* ---------- GRID #1: GALLERY ---------- */
+/* ---------- GALLERY ---------- */
 .gallery {
   display: grid;
-  grid-t
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.gallery figure { margin: 0; text-align: center; }
+.gallery img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: transform .15s ease, border-color .15s ease;
+}
+.gallery figcaption { margin-top: 0.35rem; font-size: 0.85rem; color: var(--muted); }
+
+/* ---------- FACTS GRID ---------- */
+.card ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.4rem 0.75rem; margin: 0; padding-left: 1rem; }
+.card li { margin: 0.15rem 0; font-size: 0.95rem; }
+@media (max-width: 768px) { .card ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .card ul { grid-template-columns: 1fr; } }
+
+/* ---------- INFO GRID ---------- */
+.info-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 0.75rem 1rem;
+  align-items: start;
+  margin: 0.75rem 0 1.5rem;
+}
+.info-media img { width: 100%; height: auto; max-width: 180px; border-radius: 6px; border: 1px solid #ddd; }
+@media (max-width: 768px) { .info-grid { grid-template-columns: 1fr; } .info-media img { max-width: 160px; } }
+
+/* ---------- FOOTER ---------- */
+footer { margin-top: 2rem; padding: 1rem 1rem; border-top: 1px solid #e5e7eb; color: var(--muted); text-align: center; }
+
+/* ===== Controls ===== */
+.controls { display: flex; gap: 0.5rem; max-width: var(--maxw); margin: 0.75rem auto 0; padding: 0 1rem 0.5rem; justify-content: center; }
+.btn { border: 1px solid #e5e7eb; padding: 0.4rem 0.65rem; border-radius: 999px; background: #fff; cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+.btn:hover { border-color: var(--accent); }
+
+/* ===== Toggles (JS adds/removes these classes) ===== */
+.dark { --bg: #0b1220; --ink: #e5e7eb; --muted: #94a3b8; background: var(--bg); color: var(--ink); }
+.dark .hero-nav { background: #0b1220; }
+.dark .card { background: #0f172a; border-color: #1f2937; }
+.dark .btn { background: #111827; color: var(--ink); border-color: #1f2937; }
+
+.big-text { font-size: 1.12rem; line-height: 1.8; }
+.header-accent { box-shadow: inset 0 -4px 0 var(--accent); }
+
+.highlight { background: #fff7ed; padding: 0.15rem 0.35rem; border-radius: 6px; }
