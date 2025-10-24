@@ -3,24 +3,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const textBtn   = document.getElementById("textBtn");
   const accentBtn = document.getElementById("accentBtn");
   const content   = document.getElementById("content");
-  const header    = document.querySelector(".hero"); // your header banner
+  const header    = document.querySelector(".hero");
 
-  /* Listener #1: Toggle dark mode (adds/removes CSS class) */
+  // Listener #1: Toggle dark mode (adds/removes CSS class)
   themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
   });
 
-  /* Listener #2: Toggle bigger text in main area (adds/removes CSS class) */
+  // Listener #2: Toggle bigger text in main area (adds/removes CSS class)
   textBtn.addEventListener("click", () => {
     content.classList.toggle("big-text");
   });
 
-  /* Listener #3: Accent the header (adds/removes CSS class) */
+  // Listener #3: Accent the header (adds/removes CSS class)
   accentBtn.addEventListener("click", () => {
     header.classList.toggle("header-accent");
   });
 
-  /* Bonus interactions for rubric: change innerHTML and inline styles */
+  // Bonus interactions: change innerHTML and inline styles on gallery hover
   const figures = document.querySelectorAll(".gallery figure");
   figures.forEach((fig) => {
     const img = fig.querySelector("img");
@@ -29,11 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     img.addEventListener("mouseenter", () => {
       if (!cap) return;
-      // innerHTML change
-      cap.innerHTML = "Highlighted by JavaScript ✨";
-      cap.classList.add("highlight");
-      // inline style change (border + scale)
-      img.style.borderColor = "#0ea5e9";
+      cap.innerHTML = "Highlighted by JavaScript ✨"; // innerHTML change
+      cap.classList.add("highlight");                 // add CSS class
+      img.style.borderColor = "#0ea5e9";              // inline style change
       img.style.transform = "scale(1.02)";
     });
 
@@ -46,4 +44,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
