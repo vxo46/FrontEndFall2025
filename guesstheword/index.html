@@ -3,36 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Guess The Word</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="js/guesstheword.js" defer></script>
+  <title>Guess The Word – Test</title>
+  <style>
+    body{font:16px/1.4 system-ui;margin:2rem}
+    .slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(54px,1fr));gap:.6rem;margin:1rem 0}
+    .tile{display:grid;place-items:center;height:64px;border:2px dashed #888;border-radius:12px;font-weight:800;font-size:1.6rem}
+    .note{min-height:1.2em;color:#666}
+  </style>
 </head>
 <body>
-  <main class="card">
-    <h1>Guess the Word</h1>
-    <p class="subtitle" id="hint">Theme: Florida nature</p>
+  <h1>Guess the Word (inline test)</h1>
+  <form id="guessForm" autocomplete="off">
+    <label for="myText">Enter a letter:</label>
+    <input type="text" id="myText" maxlength="1" />
+    <button type="button" id="myButton">Submit</button>
+  </form>
 
-    <form id="guessForm" autocomplete="off">
-      <label for="myText">Enter a letter:</label>
-      <input type="text" id="myText" maxlength="1" />
-      <button type="button" id="myButton">Submit</button>
-      <button type="button" id="resetBtn" class="ghost">Reset</button>
-    </form>
+  <p class="note" id="note"></p>
+  <div id="slots" class="slots"></div>
+  <div><strong>Incorrect:</strong> <span id="incorrect"></span></div>
 
-    <p id="note" class="note" aria-live="polite"></p>
+  <script>
+    "use strict";
+    console.log("JS loaded ✅"); // you should see this in DevTools Console
 
-    <div id="slots" class="slots" aria-label="letter slots"></div>
+    const words = [{word:"ibis",hint:"Mascot bird"}];
+    let target = words[0].word;
+    const letters = [...target];
 
-    <div class="row">
-      <div>
-        <strong>Incorrect:</strong>
-        <span id="incorrect" class="incorrect"></span>
-      </div>
-      <div class="lives">
-        <strong>Lives:</strong>
-        <span id="lives">6</span>
-      </div>
-    </div>
-  </main>
+    const textInput = document.getElementById("myText");
+    const btn = document.getElementById("myButton");
+    const slots = document.getElementById("slots");
+    const incorrect = document.getElementById("incorrect");
+    const note = document.getElementById("note");
+
+    const correctSet = new Set();
+    const wrongSet = new Set();
+
+    letters.forEach(()=> {
+      const s = document.createElement("span");
+      s.className = "tile";
+      s.textContent = "—";
+      slots.appendChild(s);
+    });
+
+    btn.addEventListener("click", handleGuess);
+    textInput.addEventListener("keydown", e => {
+      if (e.key === "Enter"){ e.preventDefault(); handleGuess(); }
+    });
+
+    function handleGuess(){
+      const raw = (textInput.value||"").trim().toLowerCase();
+      textInput.value="";
+      if(!/^[a-z]$/.test(raw)){ note.textContent="Enter one letter."; return; }
+
+      if (letters.includes(raw)){
+        correctSet.add(raw);
+        render();
+        note.textContent = `Nice! "${raw}" is in the word.`;
+      } else {
+        wrongSet.add(raw);
+        incorrect.textContent = [...wrongSet].join(", ");
+        note.textContent = `Nope — "${raw}" isn't there.`;
+      }
+
+      if (letters.every(ch => correctSet.has(ch))){
+        note.textContent = `You got it: ${target.toUpperCase()} ✅`;
+      }
+    }
+
+    function render(){
+      [...slots.children].forEach((tile,i)=>{
+        const ch = letters[i];
+        tile.textContent = correctSet.has(ch) ? ch : "—";
+      });
+    }
+  </script>
 </body>
 </html>
