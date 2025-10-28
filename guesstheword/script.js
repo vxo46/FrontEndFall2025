@@ -113,3 +113,39 @@ function handleGuess(){
     endRound();
   }
 }
+
+function render(){
+  const tiles = [...slotsBox.children];
+  tiles.forEach((tile, i) => {
+    const ch = letters[i];
+    tile.textContent = correctSet.has(ch) ? ch : "—";
+    tile.classList.toggle("reveal", correctSet.has(ch));
+  });
+}
+
+function revealAll(){
+  // show the whole word
+  for (let i = 0; i < letters.length; i++){
+    const tile = slotsBox.children[i];
+    tile.textContent = letters[i];
+    tile.classList.add("reveal");
+  }
+}
+
+function endRound(){
+  // disable input, then auto-start a new round after a pause
+  textInput.disabled = true;
+  submitBtn.disabled = true;
+  setTimeout(() => startRound(), NEXT_ROUND_DELAY_MS);  // <— setTimeout to change the word
+}
+
+function setNote(msg, good){
+  note.textContent = msg;
+  note.className = "note" + (good ? " good" : msg && good === false ? " bad" : "");
+  // auto-clear after a moment
+  clearTimeout(setNote._t);
+  setNote._t = setTimeout(() => {
+    note.textContent = "";
+    note.className = "note";
+  }, 1400); // <— setTimeout for fading/clearing feedback
+}
