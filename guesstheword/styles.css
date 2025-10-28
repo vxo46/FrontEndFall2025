@@ -8,17 +8,19 @@
 body{
   margin:0; min-height:100svh; display:grid; place-items:center;
   background: radial-gradient(60% 60% at 50% 40%, #0b1220 0%, var(--bg) 100%);
-  color:var(--text); font:16px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text); font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 }
 
 .card{
-  width:min(680px,92vw); background:var(--panel); border:1px solid rgba(255,255,255,.06);
+  width:min(720px,92vw); background:var(--panel); border:1px solid rgba(255,255,255,.06);
   border-radius:18px; padding:1.75rem; box-shadow:0 12px 32px rgba(0,0,0,.35);
 }
 h1{margin:0 0 .25rem; font-size:1.7rem}
-.subtitle{margin:0 0 1rem; color:var(--muted)}
+.subtitle{margin:0 0 .25rem; color:var(--muted)}
+.question{margin:.4rem 0 .6rem; font-weight:600}
+.status{margin:.25rem 0 .25rem}
 
-form{display:flex; gap:.6rem; align-items:center; margin-bottom:.6rem}
+form{display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; margin:.6rem 0}
 label{font-weight:600}
 #myText{
   width:3.2rem; padding:.55rem .6rem; text-align:center; font-size:1.1rem;
@@ -31,7 +33,7 @@ label{font-weight:600}
 #myButton:hover, .ghost:hover{ background:#0f1a2d }
 #myButton:active, .ghost:active{ transform:translateY(1px) }
 #myButton:disabled{ opacity:.6; cursor:not-allowed }
-.ghost{ opacity:.8 }
+.ghost{ opacity:.85 }
 
 .note{
   min-height:1.2em; margin:.25rem 0 .2rem; color:var(--muted)
@@ -49,14 +51,13 @@ label{font-weight:600}
 }
 .tile.reveal{ border-color: var(--accent); color: var(--accent) }
 
-.row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap }
 .incorrect{ color:var(--bad) }
 .lives{ color:var(--accent) }
 
-/* fun feedback */
+/* feedback animation on wrong guess */
 .shake{ animation:shake .3s linear }
 @keyframes shake{
   20%{ transform:translateX(-4px) } 40%{ transform:translateX(4px) }
   60%{ transform:translateX(-3px) } 80%{ transform:translateX(3px) }
 }
-
