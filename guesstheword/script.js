@@ -1,5 +1,8 @@
 "use strict";
 
+// Quick smoke test — you should see this in the browser console:
+console.log("guesstheword.js loaded ✅");
+
 /* =========================
    CONFIG: words / questions
    ========================= */
@@ -10,15 +13,13 @@ const WORDS = [
   { word: "mangrove", question: "What coastal tree stabilizes shorelines with tangled roots?", hint: "Coastal tree" },
   { word: "orchid",   question: "Which flower has many native Everglades species?", hint: "Everglades flower" },
   { word: "egret",    question: "Which tall white wading bird often hunts in shallow water?", hint: "White heron cousin" },
-  { word: "tarpón",   question: "Which silver game fish is famous in Florida waters?", hint: "Big silver fish (no accent OK: tarpon)" },
+  { word: "tarpon",   question: "Which silver game fish is famous in Florida waters?", hint: "Big silver fish" },
   { word: "sabal",    question: "What palm is Florida’s state tree?", hint: "State tree (____ palm)" }
 ];
-// allow plain 'tarpon' input even if listed with accent
-const NORMALIZE = (s) => s.normalize("NFD").replace(/\p{Diacritic}/gu, "");
 
 /* UI TUNING */
 const MAX_LIVES = 6;
-const NEXT_ROUND_DELAY_MS = 1500; // auto-start next round after win/lose
+const NEXT_ROUND_DELAY_MS = 1500;
 
 /* =========================
    DOM
@@ -37,13 +38,17 @@ const note      = document.getElementById("note");
 const hintEl    = document.getElementById("hint");
 const questionEl= document.getElementById("question");
 
+/* Guard: if any critical element is missing, stop with a clear error */
+if (!textInput || !submitBtn || !slotsBox) {
+  throw new Error("❌ Required elements not found. Check IDs: myText, myButton, slots.");
+}
+
 /* =========================
    STATE
    ========================= */
-let target = "";     // full word (may include accents)
-let norm   = "";     // normalized version (no accents) for matching
-let hint   = "";
+let target = "";
 let letters = [];
+let hint = "";
 let correctSet = new Set();
 let wrongSet   = new Set();
 let lives = MAX_LIVES;
@@ -72,9 +77,8 @@ textInput.addEventListener("keydown", (e) => {
 function startRound(){
   const choice = WORDS[Math.floor(Math.random()*WORDS.length)];
   target  = choice.word.toLowerCase();
-  norm    = NORMALIZE(target);
   hint    = choice.hint;
-  letters = [...norm]; // tiles based on normalized word
+  letters = [...target];
 
   correctSet.clear();
   wrongSet.clear();
@@ -93,7 +97,6 @@ function startRound(){
   submitBtn.disabled = false;
   hintBtn.disabled = false;
 
-  // build slots dynamically
   slotsBox.innerHTML = "";
   letters.forEach(() => {
     const span = document.createElement("span");
@@ -131,13 +134,12 @@ function handleGuess(){
     livesEl.textContent = lives;
     triesLeft.textContent = tries;
     incorrect.textContent = [...wrongSet].join(", ");
-    // feedback
     slotsBox.classList.add("shake");
     setTimeout(() => slotsBox.classList.remove("shake"), 300);
     setNote(`Nope — “${raw}” is not in the word.`, false);
 
     if (tries <= 0) {
-      revealAll(); // reveal accented original where applicable
+      revealAll();
       setNote(`Out of tries! The word was ${target.toUpperCase()} ❌`);
       endRound();
       return;
@@ -146,7 +148,6 @@ function handleGuess(){
 
   render();
 
-  // Win check: all normalized letters found
   if (letters.every(ch => correctSet.has(ch))) {
     revealAll();
     setNote(`You got it: ${target.toUpperCase()} ✅`, true);
@@ -158,28 +159,15 @@ function render(){
   const tiles = [...slotsBox.children];
   tiles.forEach((tile, i) => {
     const ch = letters[i];
-    tile.textContent = correctSet.has(ch) ? displayCharAt(i) : "—";
+    tile.textContent = correctSet.has(ch) ? ch : "—";
     tile.classList.toggle("reveal", correctSet.has(ch));
   });
-}
-
-// Map normalized char back to original (to show accents when revealed)
-function displayCharAt(i){
-  // Find the i-th normalized character’s original counterpart
-  const originalChars = [...target.normalize("NFC")];
-  const normalizedChars = [...norm];
-  // If lengths match (no combining issues), return original
-  if (originalChars.length === normalizedChars.length) {
-    return originalChars[i];
-  }
-  // fallback if mismatch
-  return letters[i];
 }
 
 function revealAll(){
   for (let i = 0; i < letters.length; i++){
     const tile = slotsBox.children[i];
-    tile.textContent = displayCharAt(i);
+    tile.textContent = letters[i];
     tile.classList.add("reveal");
   }
 }
