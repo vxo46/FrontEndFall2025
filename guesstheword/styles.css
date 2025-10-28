@@ -1,7 +1,6 @@
 :root{
   --bg:#0f172a; --panel:#111827; --text:#e5e7eb;
-  --accent:#f97316; /* UM orange vibe */
-  --good:#22c55e; --bad:#ef4444; --muted:#9ca3af;
+  --accent:#f97316; --good:#22c55e; --bad:#ef4444; --muted:#9ca3af;
 }
 
 *{box-sizing:border-box}
