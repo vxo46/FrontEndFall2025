@@ -1,62 +1,97 @@
 "use strict";
 
-// ===== Config you can change =====
+/* =========================
+   CONFIG: words / questions
+   ========================= */
 const WORDS = [
-  { word: "ibis", hint: "Mascot bird" },
-  { word: "manatee", hint: "Sea cow" },
-  { word: "panther", hint: "Florida big cat" },
-  { word: "mangrove", hint: "Coastal tree" },
-  { word: "orchid", hint: "Everglades flower" }
+  { word: "ibis",     question: "UM’s bird mascot is which wading bird?", hint: "Mascot bird" },
+  { word: "manatee",  question: "What marine mammal is nicknamed the ‘sea cow’?", hint: "Sea cow" },
+  { word: "panther",  question: "What big cat represents Florida’s NHL team?", hint: "Florida big cat" },
+  { word: "mangrove", question: "What coastal tree stabilizes shorelines with tangled roots?", hint: "Coastal tree" },
+  { word: "orchid",   question: "Which flower has many native Everglades species?", hint: "Everglades flower" },
+  { word: "egret",    question: "Which tall white wading bird often hunts in shallow water?", hint: "White heron cousin" },
+  { word: "tarpón",   question: "Which silver game fish is famous in Florida waters?", hint: "Big silver fish (no accent OK: tarpon)" },
+  { word: "sabal",    question: "What palm is Florida’s state tree?", hint: "State tree (____ palm)" }
 ];
-const MAX_LIVES = 6;
-const NEXT_ROUND_DELAY_MS = 1500; // <— uses setTimeout after win/lose
-// =================================
+// allow plain 'tarpon' input even if listed with accent
+const NORMALIZE = (s) => s.normalize("NFD").replace(/\p{Diacritic}/gu, "");
 
-// DOM
+/* UI TUNING */
+const MAX_LIVES = 6;
+const NEXT_ROUND_DELAY_MS = 1500; // auto-start next round after win/lose
+
+/* =========================
+   DOM
+   ========================= */
 const textInput = document.getElementById("myText");
 const submitBtn = document.getElementById("myButton");
 const resetBtn  = document.getElementById("resetBtn");
+const hintBtn   = document.getElementById("hintBtn");
+
 const slotsBox  = document.getElementById("slots");
 const incorrect = document.getElementById("incorrect");
 const livesEl   = document.getElementById("lives");
+const triesLeft = document.getElementById("triesLeft");
+
 const note      = document.getElementById("note");
 const hintEl    = document.getElementById("hint");
+const questionEl= document.getElementById("question");
 
-// State
-let target = "";
-let hint = "";
+/* =========================
+   STATE
+   ========================= */
+let target = "";     // full word (may include accents)
+let norm   = "";     // normalized version (no accents) for matching
+let hint   = "";
 let letters = [];
 let correctSet = new Set();
-let wrongSet = new Set();
+let wrongSet   = new Set();
 let lives = MAX_LIVES;
+let tries = MAX_LIVES;
+let hintUsed = false;
 
-// Init
+/* =========================
+   INIT
+   ========================= */
 startRound();
 
-// Events
+/* =========================
+   EVENTS
+   ========================= */
 submitBtn.addEventListener("click", handleGuess);
 resetBtn.addEventListener("click", startRound);
+hintBtn.addEventListener("click", useHint);
+
 textInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") { e.preventDefault(); handleGuess(); }
 });
 
+/* =========================
+   FUNCTIONS
+   ========================= */
 function startRound(){
-  // pick a new word
   const choice = WORDS[Math.floor(Math.random()*WORDS.length)];
-  target = choice.word.toLowerCase();
-  hint = choice.hint;
-  letters = [...target];
+  target  = choice.word.toLowerCase();
+  norm    = NORMALIZE(target);
+  hint    = choice.hint;
+  letters = [...norm]; // tiles based on normalized word
 
-  // reset state
   correctSet.clear();
   wrongSet.clear();
+  hintUsed = false;
+
   lives = MAX_LIVES;
+  tries = MAX_LIVES;
   livesEl.textContent = lives;
+  triesLeft.textContent = tries;
   incorrect.textContent = "";
-  setNote(`New round!`, true);
-  hintEl.textContent = `Hint: ${hint}`;
+  setNote("New round!", true);
+  hintEl.textContent = "Theme: Florida nature";
+  questionEl.textContent = "Question: " + choice.question;
+
   textInput.disabled = false;
   submitBtn.disabled = false;
+  hintBtn.disabled = false;
 
   // build slots dynamically
   slotsBox.innerHTML = "";
@@ -92,24 +127,29 @@ function handleGuess(){
   } else {
     wrongSet.add(raw);
     lives--;
+    tries--;
     livesEl.textContent = lives;
+    triesLeft.textContent = tries;
     incorrect.textContent = [...wrongSet].join(", ");
-    // little shake when wrong
+    // feedback
     slotsBox.classList.add("shake");
     setTimeout(() => slotsBox.classList.remove("shake"), 300);
     setNote(`Nope — “${raw}” is not in the word.`, false);
+
+    if (tries <= 0) {
+      revealAll(); // reveal accented original where applicable
+      setNote(`Out of tries! The word was ${target.toUpperCase()} ❌`);
+      endRound();
+      return;
+    }
   }
 
   render();
 
-  // Win/Lose checks
+  // Win check: all normalized letters found
   if (letters.every(ch => correctSet.has(ch))) {
     revealAll();
     setNote(`You got it: ${target.toUpperCase()} ✅`, true);
-    endRound();
-  } else if (lives <= 0) {
-    revealAll();
-    setNote(`Out of lives! The word was ${target.toUpperCase()} ❌`);
     endRound();
   }
 }
@@ -118,34 +158,62 @@ function render(){
   const tiles = [...slotsBox.children];
   tiles.forEach((tile, i) => {
     const ch = letters[i];
-    tile.textContent = correctSet.has(ch) ? ch : "—";
+    tile.textContent = correctSet.has(ch) ? displayCharAt(i) : "—";
     tile.classList.toggle("reveal", correctSet.has(ch));
   });
 }
 
+// Map normalized char back to original (to show accents when revealed)
+function displayCharAt(i){
+  // Find the i-th normalized character’s original counterpart
+  const originalChars = [...target.normalize("NFC")];
+  const normalizedChars = [...norm];
+  // If lengths match (no combining issues), return original
+  if (originalChars.length === normalizedChars.length) {
+    return originalChars[i];
+  }
+  // fallback if mismatch
+  return letters[i];
+}
+
 function revealAll(){
-  // show the whole word
   for (let i = 0; i < letters.length; i++){
     const tile = slotsBox.children[i];
-    tile.textContent = letters[i];
+    tile.textContent = displayCharAt(i);
     tile.classList.add("reveal");
   }
 }
 
 function endRound(){
-  // disable input, then auto-start a new round after a pause
   textInput.disabled = true;
   submitBtn.disabled = true;
-  setTimeout(() => startRound(), NEXT_ROUND_DELAY_MS);  // <— setTimeout to change the word
+  hintBtn.disabled = true;
+  setTimeout(() => startRound(), NEXT_ROUND_DELAY_MS);
+}
+
+function useHint(){
+  if (hintUsed || submitBtn.disabled) return;
+  hintUsed = true;
+  setNote("Hint: " + hint);
+  tries = Math.max(0, tries - 1);
+  lives = Math.max(0, lives - 1);
+  triesLeft.textContent = tries;
+  livesEl.textContent = lives;
+  hintBtn.disabled = true;
+
+  if (tries === 0) {
+    revealAll();
+    setNote(`Out of tries! The word was ${target.toUpperCase()} ❌`);
+    endRound();
+  }
 }
 
 function setNote(msg, good){
   note.textContent = msg;
   note.className = "note" + (good ? " good" : msg && good === false ? " bad" : "");
-  // auto-clear after a moment
   clearTimeout(setNote._t);
   setNote._t = setTimeout(() => {
     note.textContent = "";
     note.className = "note";
-  }, 1400); // <— setTimeout for fading/clearing feedback
+  }, 1400);
 }
