@@ -1,1 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marks of Humanity: Graffiti × Cave Art</title>
+  <meta name="description" content="A responsive mini-site comparing ancient cave art and modern street art (graffiti).">
+
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/css/uikit.min.css" />
+
+  <!-- Your styles (after UIkit so you can override) -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- UIkit JS (at end of body also works; keeping here is fine) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/js/uikit.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+  <!-- STICKY NAVBAR (UIkit: navbar + sticky) -->
+  <header class="site" uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    <div class="wrap">
+      <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+          <a class="uk-navbar-item uk-logo" href="#home">Marks of Humanity</a>
+        </div>
+
+        <div class="uk-navbar-right">
+          <!-- Desktop links -->
+          <ul class="uk-navbar-nav uk-visible@s">
+            <li><a href="#origins">Origins</a></li>
+            <li><a href="#compare">Compare</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#learn">Learn</a></li>
+          </ul>
+
+          <!-- Actions -->
+          <div class="uk-navbar-item uk-visible@s">
+            <button class="btn" id="themeBtn" aria-pressed="false">Toggle Theme</button>
+          </div>
+
+          <!-- Mobile actions -->
+          <div class="uk-navbar-item uk-hidden@s">
+            <button class="btn" id="themeBtnMobile" aria-pressed="false">Theme</button>
+            <a class="uk-navbar-toggle" uk-toggle="target: #offcanvas-nav" aria-label="Open menu">
+              <span uk-navbar-toggle-icon></span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- OFFCANVAS MENU (UIkit: offcanvas) -->
+  <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+      <button class="uk-offcanvas-close" type="button" uk-close aria-label="Close"></button>
+      <h3 class="uk-margin-small">Menu</h3>
+      <ul class="uk-nav uk-nav-default">
+        <li><a href="#origins" uk-toggle>Origins</a></li>
+        <li><a href="#compare" uk-toggle>Compare</a></li>
+        <li><a href="#gallery" uk-toggle>Gallery</a></li>
+        <li><a href="#learn" uk-toggle>Learn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-banner">
+        <div class="overlay">
+          <h1>Graffiti × Cave Art</h1>
+          <p class="tagline">
+            From Paleolithic handprints to subway chalk, humans have always drawn on walls to say:
+            <em>we were here.</em>
+          </p>
+          <a class="btn btn-accent" href="#gallery">Explore the Gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID #1: COMPARISON -->
+    <section id="compare">
+      <div class="wrap">
+        <h2>Same Walls, Different Centuries</h2>
+        <p class="section-intro">A quick comparison of intent, tools, and audience.</p>
+
+        <!-- UIkit: Scrollspy for subtle entrance -->
+        <div class="grid-cards" uk-scrollspy="target: > article; cls: uk-animation-slide-bottom-small; delay: 120">
+          <article class="card pad">
+            <div class="eyebrow">Intent</div>
+            <h3>Cave Art</h3>
+            <p>Ritual, teaching, or storytelling about animals and people.</p>
+            <h3>Street Art</h3>
+            <p>Identity, protest, and public dialogue in cities.</p>
+          </article>
+
+          <article class="card pad">
+            <div class="eyebrow">Materials</div>
+            <p><strong>Cave:</strong> ochre, charcoal, clay; brushes, fingers, air-spray through reeds.</p>
+            <p><strong>Street:</strong> spray paint, rollers, pastes, stencils, chalk.</p>
+          </article>
+
+          <article class="card pad">
+            <div class="eyebrow">Audience</div>
+            <p><strong>Cave:</strong> clan/community in restricted spaces.</p>
+            <p><strong>Street:</strong> the public, commuters, neighbors, tourists.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPLORE: UIkit SLIDER -->
+    <section id="explore">
+      <div class="wrap">
+        <h2>Explore the Art</h2>
+        <p class="section-intro">Swipe/drag or use arrows to browse. Click a panel to watch a short video.</p>
+
+        <div uk-slider="finite: true">
+          <div class="uk-position-relative">
+            <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid-small" uk-grid>
+              <!-- 01 El Castillo (fixed broken quote in href) -->
+              <li>
+                <a class="tile uk-card uk-card-default uk-overflow-hidden" href="https://www.youtube.com/watch?v=t0j9NC1hID0" target="_blank" rel="noopener">
+                  <figure class="uk-margin-remove">
+                    <img src="../images/ElCastillo_cave.png" alt="El Castillo Cave hand stencils">
+                  </figure>
+                  <div class="tile-meta uk-flex uk-flex-between uk-padding-small">
+                    <span class="num">01</span>
+                    <span class="title">El Castillo (Spain)</span>
+                    <span class="arrow">→</span>
+                  </div>
+                </a>
+              </li>
+
+              <!-- 02 Chauvet -->
+              <li>
+                <a class="tile uk-card uk-card-default uk-overflow-hidden" href="https://www.youtube.com/watch?v=3OLaNtKoJFk" target="_blank" rel="noopener">
+                  <figure class="uk-margin-remove">
+                    <img src="../images/Chauvet_cave.png" alt="Chauvet Cave animals">
+                  </figure>
+                  <div class="tile-meta uk-flex uk-flex-between uk-padding-small">
+                    <span class="num">02</span>
+                    <span class="title">Chauvet (France)</span>
+                    <span class="arrow">→</span>
+                  </div>
+                </a>
+              </li>
+
+              <!-- 03 Sulawesi -->
+              <li>
+                <a class="tile uk-card uk-card-default uk-overflow-hidden" href="https://www.youtube.com/watch?v=gtD9oyGK5MA" target="_blank" rel="noopener">
+                  <figure class="uk-margin-remove">
+                    <img src="../images/Sulawesi_cave.png" alt="Sulawesi Cave pig and handprints">
+                  </figure>
+                  <div class="tile-meta uk-flex uk-flex-between uk-padding-small">
+                    <span class="num">03</span>
+                    <span class="title">Sulawesi (Indonesia)</span>
+                    <span class="arrow">→</span>
+                  </div>
+                </a>
+              </li>
+
+              <!-- 04 Haring Subway -->
+              <li>
+                <a class="tile uk-card uk-card-default uk-overflow-hidden" href="https://www.youtube.com/watch?v=8Nscsx9NldA" target="_blank" rel="noopener">
+                  <figure class="uk-margin-remove">
+                    <img src="../images/KeithHaring_Sub.png" alt="Keith Haring subway chalk drawing">
+                  </figure>
+                  <div class="tile-meta uk-flex uk-flex-between uk-padding-small">
+                    <span class="num">04</span>
+                    <span class="title">Haring — Subway Drawings</span>
+                    <span class="arrow">→</span>
+                  </div>
+                </a>
+              </li>
+
+              <!-- 05 Crack Is Wack -->
+              <li>
+                <a class="tile uk-card uk-card-default uk-overflow-hidden" href="https://www.youtube.com/watch?v=uwvNzQSPoG8" target="_blank" rel="noopener">
+                  <figure class="uk-margin-remove">
+                    <img src="../images/KeithHaring_CrackWack.png" alt="Crack Is Wack mural">
+                  </figure>
+                  <div class="tile-meta uk-flex uk-flex-between uk-padding-small">
+                    <span class="num">05</span>
+                    <span class="title">Haring - Crack Is Wack</span>
+                    <span class="arrow">→</span>
+                  </div>
+                </a>
+              </li>
+
+              <!-- 06 Banksy Cave Painting Removal -->
+              <li>
+                <a class="tile uk-card uk-card-default uk-overflow-hidden" href="https://www.youtube.com/watch?v=4ZvDth0onmk" target="_blank" rel="noopener">
+                  <figure class="uk-margin-remove">
+                    <img src="../images/Banksy_CaveRemoval.png" alt="Banksy Cave Painting Removal">
+                  </figure>
+                  <div class="tile-meta uk-flex uk-flex-between uk-padding-small">
+                    <span class="num">06</span>
+                    <span class="title">Banksy — Cave Painting Removal</span>
+                    <span class="arrow">→</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+
+            <!-- Slider nav -->
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous" aria-label="Previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next" aria-label="Next"></a>
+          </div>
+
+          <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY: UIkit LIGHTBOX -->
+    <section id="gallery">
+      <div class="wrap">
+        <h2>Image Gallery</h2>
+        <p class="section-intro">Tap an image to enlarge.</p>
+
+        <!-- Wrap images in anchors; activate with uk-lightbox -->
+        <div class="gallery" uk-lightbox="animation: slide">
+          <a href="../images/KeithHaring_Sub.png" data-caption="Keith Haring - Subway Drawing (1980s)">
+            <img src="../images/KeithHaring_Sub.png" alt="Keith Haring subway chalk drawing of radiant dog">
+          </a>
+
+          <a href="../images/KeithHaring_CrackWack.png" data-caption="Keith Haring - Crack Is Wack (1986)">
+            <img src="../images/KeithHaring_CrackWack.png" alt="Keith Haring 'Crack Is Wack' mural">
+          </a>
+
+          <a href="../images/Banksy_CaveRemoval.png" data-caption="Banksy - Cave Painting Removal (2008)">
+            <img src="../images/Banksy_CaveRemoval.png" alt="Banksy Cave Painting Removal mural">
+          </a>
+
+          <a href="../images/ElCastillo_cave.png" data-caption="El Castillo Cave (Spain)">
+            <img src="../images/ElCastillo_cave.png" alt="El Castillo Cave hand stencils">
+          </a>
+
+          <a href="../images/Chauvet_cave.png" data-caption="Chauvet-Pont-d’Arc (France)">
+            <img src="../images/Chauvet_cave.png" alt="Chauvet Cave animal drawings">
+          </a>
+
+          <a href="../images/Sulawesi_cave.png" data-caption="Sulawesi Cave (Indonesia)">
+            <img src="../images/Sulawesi_cave.png" alt="Sulawesi Cave pig and handprints">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARN: UIkit ACCORDION -->
+    <section id="learn">
+      <div class="wrap">
+        <h2>What connects them?</h2>
+        <p class="section-intro">Both are wall-based storytelling: presence, community, and memory.</p>
+
+        <ul class="uk-accordion" uk-accordion>
+          <li class="uk-open">
+            <a class="uk-accordion-title" href="#">Presence & Identity</a>
+            <div class="uk-accordion-content">
+              <p>Hand stencils and tags both assert “I exist here.” They anchor identity in place.</p>
+            </div>
+          </li>
+          <li>
+            <a class="uk-accordion-title" href="#">Community & Audience</a>
+            <div class="uk-accordion-content">
+              <p>From small clans in caves to entire neighborhoods, both forms speak to a community.</p>
+            </div>
+          </li>
+          <li>
+            <a class="uk-accordion-title" href="#">Tools & Technique</a>
+            <div class="uk-accordion-content">
+              <p>Air-sprayed ochre vs. aerosol: different tools, same urge to mark and narrate.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2025 Vivian Orellana · Midterm - Front-End Fundamentals</div>
+  </footer>
+
+  <!-- (Legacy) Lightbox dialog kept out; UIkit lightbox replaces it -->
+  <!-- <dialog id="lightbox"> ... </dialog> -->
+
+  <script src="script.js"></script>
+</body>
+</html>
 
