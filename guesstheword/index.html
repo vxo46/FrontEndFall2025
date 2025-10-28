@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Guess The Word</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="js/guesstheword.js" defer></script>
+  <!-- Cache-buster ?v=2 prevents old JS from sticking -->
+  <script src="js/guesstheword.js?v=2" defer></script>
 </head>
 <body>
+  <!-- Diagnostics area (auto-filled by JS if something is wrong) -->
+  <div id="diag" style="position:fixed;inset:auto 1rem 1rem 1rem;z-index:9999;max-width:720px"></div>
+
   <main class="card">
     <h1>Guess the Word</h1>
     <p id="hint" class="subtitle">Theme: Florida nature</p>
