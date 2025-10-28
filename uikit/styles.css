@@ -1,41 +1,24 @@
 /* =========================================================
-   Marks of Humanity — Full Stylesheet (UIkit-friendly)
-   Vivian Orellana — 2025
+   Marks of Humanity — Full Stylesheet (keeps original look)
+   with UIkit compatibility tweaks
    ========================================================= */
 
 /* ---------- RESET ---------- */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-html, body {
-  height: 100%;
-}
+*, *::before, *::after { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
   line-height: 1.6;
   color: #121316;
-  background: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: #fff;
 }
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-a {
-  color: #0b6dff;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
+img { max-width: 100%; display: block; }
+a { color: #0b6dff; text-decoration: none; }
 
-/* ---------- DESIGN TOKENS ---------- */
+/* ---------- COLOR TOKENS ---------- */
 :root {
   --accent: #ff6b00;
-  --accent-2: #b4893d;
-  --bg-stone: #f3efe9;
+  --stone: #f3efe9;
   --ink: #121316;
   --muted: #6b7280;
   --panel: #ffffff;
@@ -44,37 +27,13 @@ a:hover {
 }
 
 /* ---------- DARK MODE ---------- */
-.dark {
-  background: #0f1012;
-  color: #eef1f6;
-}
+.dark { background: #0f1012; color: #eef1f6; }
 .dark a { color: #7dd3fc; }
-.dark .card {
-  background: #14161a;
-  border-color: #23262d;
-}
-.dark header.site {
-  background: #0f1012e6;
-  border-bottom-color: #22262c;
-}
-.dark .uk-navbar-container {
-  background: #0f1012cc;
-}
-.dark .uk-offcanvas-bar {
-  background: #111318;
-}
-.dark .uk-lightbox {
-  background: rgba(0,0,0,0.95);
-}
-.dark .gallery a img {
-  box-shadow: 0 6px 18px rgba(0,0,0,.4);
-}
+.dark .card { background: #14161a; border-color: #23262d; }
+.dark header.site { background: #0f1012e6; border-bottom-color: #22262c; }
 
 /* ---------- UTILITIES ---------- */
-.wrap {
-  width: min(1100px, 92vw);
-  margin: 0 auto;
-}
+.wrap { width: min(1100px, 92vw); margin: 0 auto; }
 .card {
   background: var(--panel);
   border: 1px solid #e5e7eb;
@@ -83,25 +42,21 @@ a:hover {
 }
 .pad { padding: 1rem; }
 .eyebrow {
-  font-size: .78rem;
+  font-size: .8rem;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--muted);
 }
-
-/* Buttons (your custom buttons; UIkit has its own .uk-button) */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  padding: .55rem .85rem;
+  padding: .55rem .8rem;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
   background: #fff;
   color: var(--ink);
   cursor: pointer;
-  font-weight: 600;
-  text-decoration: none;
 }
 .btn:hover { background: #f6f7fb; }
 .btn-accent {
@@ -109,10 +64,8 @@ a:hover {
   border-color: var(--accent);
   color: #111;
 }
-.btn-accent:hover { filter: brightness(1.05); }
 
-/* ---------- HEADER / NAV ---------- */
-/* Wrap your UIkit navbar with a subtle frame */
+/* ---------- HEADER & NAV (your original vibe) ---------- */
 header.site {
   position: sticky;
   top: 0;
@@ -121,184 +74,144 @@ header.site {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #e5e7eb;
 }
-
-/* Make the UIkit navbar translucent by default, solid when sticky */
-.uk-navbar-container {
-  background: transparent;
-  transition: background .2s ease, box-shadow .2s ease;
+nav.primary {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: .8rem;
+  align-items: center;
+  padding: .6rem 0;
 }
-.uk-navbar-sticky {
-  background: #fffffff2; /* becomes solid when sticky */
-  box-shadow: 0 6px 16px rgba(0,0,0,.06);
-  backdrop-filter: blur(10px);
+.brand {
+  display: flex; align-items: center; gap: .6rem; font-weight: 800;
 }
+.nav-links {
+  display: grid; grid-auto-flow: column; gap: .4rem; justify-content: end;
+}
+.nav-links a {
+  padding: .45rem .7rem; border-radius: 10px; color: inherit;
+}
+.nav-links a:hover { background: #f3f4f6; }
+.hamburger { display: none; }
 
-/* ---------- HERO (full-bleed banner with fade & parallax) ---------- */
+/* ---------- HERO (original) ---------- */
 .hero { padding: 0; margin: 0; }
 .hero-banner {
   position: relative;
   width: 100%;
   height: 85vh;
   background: url("../images/ElCastillo_cave.png") center center / cover no-repeat fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: opacity 0.4s ease, transform 0.4s ease; /* parallax JS uses this */
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .hero-banner::before {
   content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.6) 60%, rgba(0,0,0,.85) 100%);
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.85) 100%);
 }
 .hero-banner .overlay {
-  position: relative;
-  z-index: 1;
-  max-width: 760px;
-  padding: 1.5rem;
-  color: #fff;
+  position: relative; color: #fff; z-index: 1; max-width: 720px; padding: 1.5rem;
 }
-.hero-banner h1 {
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  line-height: 1.1;
-  margin: 0 0 1rem 0;
-}
-.hero-banner .tagline {
-  font-size: 1.1rem;
-  color: #e6e2db;
-  margin-bottom: 1.8rem;
-}
+.hero-banner h1 { font-size: clamp(2rem, 3.5vw, 3.2rem); margin-bottom: 1rem; }
+.hero-banner .tagline { font-size: 1.1rem; color: #e6e2db; margin-bottom: 1.8rem; }
 .hero-banner .btn {
-  background: var(--accent-2);
-  color: #111;
-  border-color: var(--accent-2);
-  font-weight: 700;
+  background: #b4893d; color: #111; border-color: #b4893d; font-weight: 600;
 }
-.hero-banner .btn:hover { filter: brightness(1.05); }
+.hero-banner .btn:hover { background: #cda85a; }
 
 /* ---------- SECTIONS ---------- */
-section {
-  padding: 2.2rem 0;
-  scroll-margin-top: 76px; /* account for sticky header on anchor jump */
-}
-section h2 {
-  margin: .2rem 0 .6rem;
-  font-size: clamp(1.3rem, 2.2vw, 2rem);
-}
-.section-intro {
-  color: var(--muted);
-  margin-bottom: 1rem;
-}
+section { padding: 2rem 0; scroll-margin-top: 76px; }
+section h2 { margin: .2rem 0 .6rem; }
+.section-intro { color: var(--muted); margin-bottom: 1rem; }
 
-/* ---------- GRID: Comparison cards ---------- */
-.grid-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-.grid-cards .card h3 {
-  margin: .25rem 0 .35rem;
-}
+/* ---------- GRID #1: Comparison ---------- */
+.grid-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.grid-cards .card h3 { margin: .25rem 0 .35rem; }
 
-/* ---------- EXPLORE: Tiles inside UIkit Slider ---------- */
-.tile {
-  display: block;
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.tile:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px rgba(0,0,0,.12);
-}
-.tile figure { margin: 0; }
-.tile img { width: 100%; height: auto; display: block; }
-.tile-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .6rem;
-  font-weight: 600;
-}
-.tile-meta .num { opacity: .6; }
-.tile-meta .title { flex: 1; text-align: center; }
-.tile-meta .arrow { opacity: .6; }
+/* ---------- GRID #2: Gallery (grid only) ---------- */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
+.gallery img { border-radius: 12px; cursor: pointer; }
 
-/* Make UIkit slider dots sit closer */
-.uk-slider-nav.uk-dotnav { margin-top: .5rem; }
-
-/* ---------- GALLERY: Grid + UIkit Lightbox trigger ---------- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: .75rem;
+/* ---------- (Legacy) Tabs — keep styles in case you reuse ---------- */
+.tabs { display: grid; gap: .6rem; }
+.tab-buttons { display: grid; grid-auto-flow: column; gap: .5rem; }
+.tab-buttons button {
+  border: 1px solid #e5e7eb; background: #fff; padding: .5rem .7rem; border-radius: 10px; cursor: pointer;
 }
-.gallery a {
-  border-radius: 12px;
-  overflow: hidden;
-  display: block;
+.tab-buttons button[aria-selected="true"] {
+  background: var(--accent); border-color: var(--accent); color: #111;
 }
-.gallery a img {
-  transition: transform .2s ease, filter .2s ease;
-  border-radius: 12px;
-}
-.gallery a:hover img {
-  transform: scale(1.02);
-  filter: saturate(1.06);
-}
-
-/* ---------- ACCORDION (UIkit) tweak ---------- */
-.uk-accordion-title {
-  font-weight: 700;
-}
-.uk-accordion-content p {
-  color: inherit;
-}
+.tab-panel { display: none; }
+.tab-panel[aria-hidden="false"] { display: block; }
 
 /* ---------- FOOTER ---------- */
 footer {
-  padding: 2rem 0;
-  color: var(--muted);
-  border-top: 1px solid #e5e7eb;
-  text-align: center;
+  padding: 2rem 0; color: var(--muted);
+  border-top: 1px solid #e5e7eb; text-align: center;
 }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 1100px) {
-  .wrap { width: min(1100px, 94vw); }
-}
 @media (max-width: 900px) {
   .grid-cards { grid-template-columns: repeat(2, 1fr); }
   .gallery { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 720px) {
+  nav.primary { grid-template-columns: auto auto 1fr; }
+  .hamburger { display: inline-flex; justify-self: end; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: grid; grid-auto-flow: row; justify-items: start;
+    background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: .5rem;
+    position: absolute; right: 1rem; top: 3.2rem;
+  }
   .grid-cards { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
-  .hero-banner { height: 70vh; background-attachment: scroll; } /* better perf on mobile */
+  .hero-banner { height: 70vh; background-attachment: scroll; } /* smoother on mobile */
 }
 
-/* ---------- NICE EXTRAS (optional) ---------- */
-/* Subtle section dividers */
-section + section {
-  border-top: 1px solid rgba(0,0,0,.06);
-}
-.dark section + section {
-  border-top-color: rgba(255,255,255,.06);
+/* =========================================================
+   UIkit compatibility (adds components, keeps your style)
+   ========================================================= */
+
+/* Sticky navbar keeps your translucent header feel */
+.uk-navbar-container { background: transparent; }
+.uk-navbar-sticky {
+  background: #ffffffee;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
 }
 
-/* Reduce underlines on nav links but keep hover focus visibility */
+/* Make UIkit navbar links match your nav look */
 .uk-navbar-nav > li > a {
-  text-decoration: none;
+  padding: .45rem .7rem; border-radius: 10px; color: inherit; text-decoration: none;
 }
-.uk-navbar-nav > li > a:hover {
-  text-decoration: none;
-}
+.uk-navbar-nav > li > a:hover { background: #f3f4f6; }
 
-/* Focus styles for accessibility */
-:where(a, button, [tabindex]):focus-visible {
-  outline: 3px solid #8cc6ff;
-  outline-offset: 2px;
-  border-radius: 8px;
+/* Offcanvas (mobile menu) palette */
+.uk-offcanvas-bar {
+  background: #111318; /* dark slate for contrast */
+  color: #eef1f6;
 }
+.uk-offcanvas-bar .uk-nav-default > li > a { color: #eef1f6; }
+.uk-offcanvas-bar .uk-nav-default > li > a:hover { color: #fff; text-decoration: none; }
 
+/* Slider: let tiles use your card look */
+.uk-slider-items .tile.card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: var(--shadow);
+}
+.tile figure { margin: 0; }
+.tile img { width: 100%; height: auto; display: block; }
+.tile-meta { display: flex; justify-content: space-between; align-items: center; gap: .6rem; font-weight: 600; }
+.tile-meta .num, .tile-meta .arrow { opacity: .6; }
+
+/* Lightbox backdrop a bit darker but neutral */
+.uk-lightbox { background: rgba(0,0,0,0.94); }
+
+/* Accordion headings match your typography */
+.uk-accordion-title { font-weight: 700; color: inherit; }
+.uk-accordion-content p { color: inherit; }
+
+/* Optional: subtle scrollspy animation without changing layout */
+.uk-animation-slide-bottom-small { will-change: transform, opacity; }
