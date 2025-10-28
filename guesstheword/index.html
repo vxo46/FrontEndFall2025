@@ -3,42 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Guess The Word</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="js/guesstheword.js" defer></script>
+  <title>Guess The Word — Minimal Test</title>
+  <style>
+    body{font:16px/1.5 system-ui;margin:2rem}
+    .slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(54px,1fr));gap:.6rem;margin:1rem 0}
+    .tile{display:grid;place-items:center;height:64px;border:2px dashed #888;border-radius:12px;font-weight:800;font-size:1.6rem}
+    .note{min-height:1.2em;color:#444}
+  </style>
 </head>
 <body>
-  <main class="card">
-    <h1>Guess the Word</h1>
-    <p id="hint" class="subtitle">Theme: Florida nature</p>
+  <h1>Guess the Word (Minimal)</h1>
 
-    <p id="question" class="question"></p>
+  <p id="question"><strong>Question:</strong> UM’s bird mascot is which wading bird?</p>
 
-    <form id="guessForm" autocomplete="off">
-      <label for="myText">Enter a letter:</label>
-      <input type="text" id="myText" maxlength="1" />
-      <button type="button" id="myButton">Submit</button>
-      <button type="button" id="hintBtn" class="ghost">Show hint (–1 try)</button>
-      <button type="button" id="resetBtn" class="ghost">Reset</button>
-    </form>
+  <form id="guessForm" autocomplete="off">
+    <label for="myText">Enter a letter:</label>
+    <input type="text" id="myText" maxlength="1" />
+    <button type="button" id="myButton">Submit</button>
+  </form>
 
-    <p class="status">
-      <strong>Tries left:</strong> <span id="triesLeft">6</span>
-    </p>
+  <p><strong>Tries left:</strong> <span id="triesLeft">6</span></p>
+  <p id="note" class="note"></p>
 
-    <p id="note" class="note" aria-live="polite"></p>
+  <div id="slots" class="slots"></div>
+  <div><strong>Incorrect:</strong> <span id="incorrect"></span></div>
 
-    <div id="slots" class="slots" aria-label="letter slots"></div>
+  <script>
+    "use strict";
+    console.log("✅ JS loaded"); // You MUST see this in DevTools Console
 
-    <div class="row">
-      <div>
-        <strong>Incorrect:</strong>
-        <span id="incorrect" class="incorrect"></span>
-      </div>
-      <div class="lives">
-        <strong>Lives:</strong> <span id="lives">6</span>
-      </div>
-    </div>
-  </main>
+    // data
+    const target = "ibis";
+    const letters = [...target];
+
+    // dom
+    const textInput = document.getElementById("myText");
+    const button    = document.getElementById("myButton");
+    const slots     = document.getElementById("slots");
+    const note      = document.getElementById("note");
+    const incorrect = document.getElementById("incorrect");
+    const triesEl   = document.getElementById("triesLeft");
+
+    // state
+    const correctSet = new Set();
+    const wrongSet   = new Set();
+    let tries = 6;
+
+    // build tiles
+    letters.forEach(()=> {
+      const s = document.createElement("span");
+      s.className = "tile";
+      s.textContent = "—";
+      slots.appendChild(s);
+    });
+
+    button.addEventListener("click", handleGuess);
+    textInput.addEventListener("keydown", e => {
+      if (e.key === "Enter"){ e.preventDefault(); handleGuess(); }
+    });
+
+    function handleGuess(){
+      const raw = (textInput.value || "").trim().toLowerCase();
+      textInput.value = "";
+      textInput.focus();
+
+      if (!/^[a-z]$/.test(raw)) {
+        note.textContent = "Enter a single letter (A–Z).";
+        return;
+      }
+
+      if (correctSet.has(raw) || wrongSet.has(raw)) {
+        note.textContent = `You already tried “${raw}”.`;
+        return;
+      }
+
+      if (letters.includes(raw)) {
+        correctSet.add(raw);
+        render();
+        note.textContent = `Nice! “${raw}” is in the word.`;
+      } else {
+        wrongSet.add(raw);
+        incorrect.textContent = [...wrongSet].join(", ");
+        tries--;
+        triesEl.textContent = tries;
+        note.textContent = `Nope — “${raw}” is not in the word.`;
+        if (tries <= 0){
+          revealAll();
+          note.textContent = `Out of tries! The word was ${target.toUpperCase()}.`;
+          button.disabled = true;
+          textInput.disabled = true;
+        }
+      }
+
+      if (letters.every(ch => correctSet.has(ch))) {
+        revealAll();
+        note.textContent = `You got it: ${target.toUpperCase()} ✅`;
+        button.disabled = true;
+        textInput.disabled = true;
+      }
+    }
+
+    function render(){
+      [...slots.children].forEach((tile,i)=>{
+        const ch = letters[i];
+        tile.textContent = correctSet.has(ch) ? ch : "—";
+      });
+    }
+
+    function revealAll(){
+      [...slots.children].forEach((tile,i)=>{
+        tile.textContent = letters[i];
+      });
+    }
+  </script>
 </body>
 </html>
