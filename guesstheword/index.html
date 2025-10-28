@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess The Word</title>
-    <script src="js/guesstheword.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guess The Word</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="js/guesstheword.js" defer></script>
 </head>
-
 <body>
-    <form>
-        <label>Enter a letter:</label>
-        <input type="text" id="myText" >
-        <button type="button" id="myButton">Submit</button>
-    </form>
-    <div>
-    <span class="output"></span>
-    <span class="output"></span>
-    <span class="output"></span>
-    <span class="output"></span>
-    </div>
+  <main class="card">
+    <h1>Guess the Word</h1>
+    <p class="subtitle" id="hint">Theme: Florida nature</p>
 
-    <div id="incorrect"></div>
-    
- 
+    <form id="guessForm" autocomplete="off">
+      <label for="myText">Enter a letter:</label>
+      <input type="text" id="myText" maxlength="1" />
+      <button type="button" id="myButton">Submit</button>
+      <button type="button" id="resetBtn" class="ghost">Reset</button>
+    </form>
+
+    <p id="note" class="note" aria-live="polite"></p>
+
+    <div id="slots" class="slots" aria-label="letter slots"></div>
+
+    <div class="row">
+      <div>
+        <strong>Incorrect:</strong>
+        <span id="incorrect" class="incorrect"></span>
+      </div>
+      <div class="lives">
+        <strong>Lives:</strong>
+        <span id="lives">6</span>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
