@@ -1,4 +1,4 @@
-// THEME TOGGLE (works for desktop & mobile button)
+// THEME TOGGLE (desktop + mobile buttons)
 function setThemeButtonState(isDark, btn) {
   if (!btn) return;
   btn.setAttribute('aria-pressed', String(isDark));
@@ -25,7 +25,7 @@ document.getElementById('themeBtn')?.addEventListener('click', toggleTheme);
 document.getElementById('themeBtnMobile')?.addEventListener('click', toggleTheme);
 applySavedTheme();
 
-// HERO fade/parallax on scroll (optional flourish)
+// HERO fade + parallax on scroll (optional visual touch)
 const hero = document.querySelector('.hero-banner');
 if (hero) {
   window.addEventListener('scroll', () => {
@@ -36,4 +36,3 @@ if (hero) {
     hero.style.transform = `translateY(${y * 0.2}px)`;
   });
 }
-
