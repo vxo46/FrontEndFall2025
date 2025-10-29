@@ -243,9 +243,18 @@ footer {
 .uk-slider-items .tile a {
   color: #000000 !important;
 }
-/* Force slider captions + any link hover to dark gray (instead of blue) */
+/* Override UIkit link colors everywhere */
+.uk-link,
+.uk-link-toggle,
+.uk-link-reset,
+.uk-slider-items a,
+a {
+  color: #000000 !important;      /* black text */
+}
+.uk-link:hover,
+.uk-link-toggle:hover,
+.uk-link-reset:hover,
 .uk-slider-items a:hover,
 a:hover {
-  color: #444444 !important;
+  color: #444444 !important;      /* dark gray on hover */
 }
-
