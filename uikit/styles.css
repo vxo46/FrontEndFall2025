@@ -226,3 +226,12 @@ footer {
 .btn:hover, .uk-button:hover {
   background: #ff8e3a !important; /* lighter orange on hover */
 }
+/* Make ONLY the hero text white */
+.hero-banner .overlay,
+.hero-banner .overlay h1,
+.hero-banner .overlay p,
+.hero-banner .overlay em,
+.hero-banner .overlay a,
+.hero-banner .overlay span {
+  color: #ffffff !important;
+}
