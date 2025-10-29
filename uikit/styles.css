@@ -65,7 +65,7 @@ header.site {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #ffffffcc;
+  background: #ffffff;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #e5e7eb;
 }
