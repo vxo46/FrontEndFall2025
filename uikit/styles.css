@@ -216,10 +216,13 @@ footer {
 /* Optional: subtle scrollspy animation without changing layout */
 .uk-animation-slide-bottom-small { will-change: transform, opacity; }
 
-body {
-  color: #ffffff !important;
+.btn, .uk-button {
+  background: #ff6b00 !important;
+  border-color: #ff6b00 !important;
+  color: #111 !important;   /* black text on orange */
+  font-weight: 700;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, span, li, .uk-accordion-title, .section-intro {
-  color: #ffffff !important;
+.btn:hover, .uk-button:hover {
+  background: #ff8e3a !important; /* lighter orange on hover */
 }
