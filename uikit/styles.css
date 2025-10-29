@@ -8,7 +8,7 @@ body {
   background: #ffffff;
 }
 img { max-width: 100%; display: block; }
-a { color: #0b6dff; text-decoration: none; }
+a { color: #000000; text-decoration: none; }
 
 /* ---------- COLOR TOKENS ---------- */
 :root {
@@ -237,12 +237,5 @@ footer {
   height: 100% !important;
   object-fit: cover !important;  /* fill + crop evenly */
   display: block;
-}
-.uk-slider-items a {
-  color: #000000 !important;
-}
-
-.uk-slider-items a:hover {
-  color: #444444 !important; /* darker gray on hover */
 }
 
