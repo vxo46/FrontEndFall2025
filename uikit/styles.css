@@ -243,4 +243,9 @@ footer {
 .uk-slider-items .tile a {
   color: #000000 !important;
 }
+/* Force slider captions + any link hover to dark gray (instead of blue) */
+.uk-slider-items a:hover,
+a:hover {
+  color: #444444 !important;
+}
 
