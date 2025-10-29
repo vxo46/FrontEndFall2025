@@ -215,3 +215,11 @@ footer {
 
 /* Optional: subtle scrollspy animation without changing layout */
 .uk-animation-slide-bottom-small { will-change: transform, opacity; }
+
+body {
+  color: #ffffff !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, li, .uk-accordion-title, .section-intro {
+  color: #ffffff !important;
+}
