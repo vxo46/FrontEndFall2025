@@ -225,7 +225,6 @@ footer {
 .hero-banner .overlay span {
   color: #ffffff !important;
 }
-/* Uniform size for ALL Explore images (force over UIkit) */
 .uk-slider-items > li a.tile.card > figure {
   width: 100% !important;
   height: 260px !important;   /* change to 300px if you want taller tiles */
@@ -238,5 +237,12 @@ footer {
   height: 100% !important;
   object-fit: cover !important;  /* fill + crop evenly */
   display: block;
+}
+.uk-slider-items a {
+  color: #000000 !important;
+}
+
+.uk-slider-items a:hover {
+  color: #444444 !important; /* darker gray on hover */
 }
 
