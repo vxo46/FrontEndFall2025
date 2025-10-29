@@ -235,3 +235,15 @@ footer {
 .hero-banner .overlay span {
   color: #ffffff !important;
 }
+/* Make header perfectly white (no transparency) */
+header.site {
+  background: #ffffff !important;
+}
+
+/* Also force UIkit sticky navbar to pure white */
+.uk-navbar-sticky {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
