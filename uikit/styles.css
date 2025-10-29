@@ -225,16 +225,18 @@ footer {
 .hero-banner .overlay span {
   color: #ffffff !important;
 }
-/* Make all slider images same size as El Castillo */
-.uk-slider-items .tile figure {
-  width: 100%;
-  height: 260px;           /* adjust to any height you want */
+/* Uniform size for ALL Explore images (force over UIkit) */
+.uk-slider-items > li a.tile.card > figure {
+  width: 100% !important;
+  height: 260px !important;   /* change to 300px if you want taller tiles */
+  margin: 0;
   overflow: hidden;
-}
-
-.uk-slider-items .tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;       /* auto-crop to fill evenly */
   display: block;
 }
+.uk-slider-items > li a.tile.card > figure > img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;  /* fill + crop evenly */
+  display: block;
+}
+
