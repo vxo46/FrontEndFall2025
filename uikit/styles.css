@@ -238,4 +238,9 @@ footer {
   object-fit: cover !important;  /* fill + crop evenly */
   display: block;
 }
+/* FORCE slider captions black */
+.uk-slider-items .tile *,
+.uk-slider-items .tile a {
+  color: #000000 !important;
+}
 
