@@ -60,7 +60,7 @@ a { color: #0b6dff; text-decoration: none; }
   color: #111;
 }
 
-/* ---------- HEADER & NAV (your original vibe) ---------- */
+/* ---------- HEADER & NAV ---------- */
 header.site {
   position: sticky;
   top: 0;
@@ -88,7 +88,7 @@ nav.primary {
 .nav-links a:hover { background: #f3f4f6; }
 .hamburger { display: none; }
 
-/* ---------- HERO (original) ---------- */
+/* ---------- HERO ---------- */
 .hero { padding: 0; margin: 0; }
 .hero-banner {
   position: relative;
@@ -126,7 +126,7 @@ section h2 { margin: .2rem 0 .6rem; }
 .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
 .gallery img { border-radius: 12px; cursor: pointer; }
 
-/* ---------- (Legacy) Tabs — keep styles in case you reuse ---------- */
+/* ---------- (Legacy) Tabs - keep styles in case you reuse ---------- */
 .tabs { display: grid; gap: .6rem; }
 .tab-buttons { display: grid; grid-auto-flow: column; gap: .5rem; }
 .tab-buttons button {
@@ -163,11 +163,6 @@ footer {
   .hero-banner { height: 70vh; background-attachment: scroll; } /* smoother on mobile */
 }
 
-/* =========================================================
-   UIkit compatibility (adds components, keeps your style)
-   ========================================================= */
-
-/* Sticky navbar keeps your translucent header feel */
 .uk-navbar-container { background: transparent; }
 .uk-navbar-sticky {
   background: #ffffffee;
@@ -229,4 +224,17 @@ footer {
 .hero-banner .overlay a,
 .hero-banner .overlay span {
   color: #ffffff !important;
+}
+/* Make all slider images same size as El Castillo */
+.uk-slider-items .tile figure {
+  width: 100%;
+  height: 260px;           /* adjust to any height you want */
+  overflow: hidden;
+}
+
+.uk-slider-items .tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* auto-crop to fill evenly */
+  display: block;
 }
