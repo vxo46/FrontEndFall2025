@@ -13,7 +13,7 @@ body{
 
 .hero{
   position:relative;
-  background:url("./images/header-bg.png") center/cover no-repeat;
+  background:url("../images/header-bg.png") center/cover no-repeat;
   min-height:34vh; display:flex; align-items:flex-end; color:#fff;
 }
 .hero::before{ content:""; position:absolute; inset:0; background:rgba(0,0,0,.4); }
@@ -57,7 +57,7 @@ h2{ margin-top:1.5rem; font-weight:700; font-size:1.4rem; }
 .card{ padding:.9rem; border:1px solid #e5e7eb; border-radius:8px; background:#fafafa; margin:.75rem 0; }
 .note{ margin-top:.75rem; padding:.6rem .9rem; background:#fffbe6; border-left:4px solid #facc15; border-radius:4px; font-size:.95rem; }
 
-/* GALLERY (small thumbs) */
+/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(120px,1fr));
@@ -71,7 +71,7 @@ h2{ margin-top:1.5rem; font-weight:700; font-size:1.4rem; }
 }
 .gallery figcaption{ margin-top:.35rem; font-size:.85rem; color:var(--muted); }
 
-/* INFO GRID (small media column) */
+/* INFO GRID */
 .info-grid{
   display:grid; grid-template-columns:180px 1fr;
   gap:.75rem 1rem; align-items:start; margin:.75rem 0 1.5rem;
@@ -86,7 +86,7 @@ footer{ margin-top:2rem; padding:1rem 1rem; border-top:1px solid #e5e7eb; color:
 .btn{ border:1px solid #e5e7eb; padding:.4rem .65rem; border-radius:999px; background:#fff; cursor:pointer; font-weight:600; font-size:.95rem; }
 .btn:hover{ border-color:var(--accent); }
 
-/* TOGGLES (these classes are added/removed by JS) */
+/* TOGGLES (added by JS) */
 .dark{ --bg:#0b1220; --ink:#e5e7eb; --muted:#94a3b8; background:var(--bg); color:var(--ink); }
 .dark .hero-nav{ background:#0b1220; }
 .dark .card{ background:#0f172a; border-color:#1f2937; }
