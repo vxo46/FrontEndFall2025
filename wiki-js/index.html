@@ -3,55 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Florida Legends Wiki — TEST</title>
+  <meta name="author" content="Vivian Orellana" />
+  <meta name="keywords" content="Florida Bigfoot, Florida Man, Florida Woman, Everglades, wiki" />
+  <meta name="description" content="A fun wiki-style page about Florida Bigfoot, Florida Man, and Florida Woman." />
+  <title>Florida Legends Wiki</title>
+
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --ink:#0b1723; --bg:#fff; --muted:#6b7a8c; --accent:#0ea5e9; --maxw:1000px; }
-    *{ box-sizing:border-box; }
-    body{ margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6; color:var(--ink); background:var(--bg); }
-    .hero{ position:relative; min-height:20vh; display:flex; align-items:flex-end; color:#fff; background:#111; }
-    .hero::before{ content:""; position:absolute; inset:0; background:rgba(0,0,0,.4); }
-    .hero-banner{ position:relative; width:100%; padding:1rem 0; z-index:1; }
-    .hero-banner .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 1rem; }
-    .hero-banner h1{ margin:0; font-size:1.8rem; font-weight:800; text-shadow:0 2px 8px rgba(0,0,0,.35); }
-    .hero-banner .tagline{ margin:.4rem 0 0; color:#f0f0f0; }
-    .hero-nav{ background:#000; }
-    .hero-nav .wrap{ max-width:var(--maxw); margin:0 auto; }
-    .hero-nav ul{ list-style:none; margin:0; padding:.5rem 1rem; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); }
-    .hero-nav a{ display:block; text-decoration:none; color:#fff; font-weight:700; text-align:center; padding:.5rem .4rem; font-size:.95rem; }
-    .hero-nav a:hover,.hero-nav a:focus{ color:var(--accent); }
-    main{ max-width:var(--maxw); margin:1.25rem auto 2rem; padding:0 1rem; }
-    h2{ margin-top:1.5rem; font-weight:700; font-size:1.4rem; }
-    .section{ margin-bottom:2rem; }
-    .card{ padding:.9rem; border:1px solid #e5e7eb; border-radius:8px; background:#fafafa; margin:.75rem 0; }
-    .note{ margin-top:.75rem; padding:.6rem .9rem; background:#fffbe6; border-left:4px solid #facc15; border-radius:4px; font-size:.95rem; }
-    .gallery{ display:grid; grid-template-columns:repeat(auto-fill, minmax(120px,1fr)); gap:.75rem; margin-top:.5rem; }
-    .gallery figure{ margin:0; text-align:center; }
-    .gallery img{ width:100%; height:120px; object-fit:cover; border-radius:6px; border:1px solid #ddd; transition: transform .15s, border-color .15s; }
-    .gallery figcaption{ margin-top:.35rem; font-size:.85rem; color:var(--muted); }
-    .info-grid{ display:grid; grid-template-columns:180px 1fr; gap:.75rem 1rem; align-items:start; margin:.75rem 0 1.5rem; }
-    .info-media img{ width:100%; max-width:180px; height:auto; border-radius:6px; border:1px solid #ddd; }
-    footer{ margin-top:2rem; padding:1rem 1rem; border-top:1px solid #e5e7eb; color:var(--muted); text-align:center; }
-    .controls{ display:flex; gap:.5rem; justify-content:center; max-width:var(--maxw); margin:.75rem auto 0; padding:0 1rem .5rem; }
-    .btn{ border:1px solid #e5e7eb; padding:.4rem .65rem; border-radius:999px; background:#fff; cursor:pointer; font-weight:600; font-size:.95rem; }
-    .btn:hover{ border-color:var(--accent); }
-    .dark{ --bg:#0b1220; --ink:#e5e7eb; --muted:#94a3b8; background:var(--bg); color:var(--ink); }
-    .dark .hero-nav{ background:#0b1220; }
-    .dark .card{ background:#0f172a; border-color:#1f2937; }
-    .dark .btn{ background:#111827; color:var(--ink); border-color:#1f2937; }
-    .big-text{ font-size:1.12rem; line-height:1.8; }
-    .header-accent{ box-shadow: inset 0 -4px 0 var(--accent); }
-    .highlight{ background:#fff7ed; padding:.15rem .35rem; border-radius:6px; }
-  </style>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/styles-wiki.css" />
+
+  <!-- JS -->
+  <script src="../js/wiki.js" defer></script>
 </head>
 <body>
+  <!-- HERO / HEADER -->
   <header class="hero" role="banner">
-    <div class="hero-banner"><div class="wrap">
-      <h1>Florida Bigfoot, Florida Man &amp; Florida Woman - Wiki</h1>
-      <p class="tagline">A tiny encyclopedia of only-in-Florida legends.</p>
-    </div></div>
+    <div class="hero-banner">
+      <div class="wrap">
+        <h1>Florida Bigfoot, Florida Man &amp; Florida Woman - Wiki</h1>
+        <p class="tagline">A tiny encyclopedia of only-in-Florida legends.</p>
+      </div>
+    </div>
   </header>
 
+  <!-- NAV -->
   <nav class="hero-nav" aria-label="Primary">
     <div class="wrap">
       <ul>
@@ -64,6 +41,7 @@
     </div>
   </nav>
 
+  <!-- CONTROLS (added for JS interactions) -->
   <div class="controls" aria-label="Page controls">
     <button id="themeBtn" class="btn" type="button">Toggle Dark Mode</button>
     <button id="textBtn" class="btn" type="button">Toggle Big Text</button>
@@ -71,84 +49,113 @@
   </div>
 
   <main id="content">
+    <!-- Section: Bigfoot -->
     <section id="bigfoot" class="section">
       <h2>Florida Bigfoot</h2>
-      <article class="card"><ul>
-        <li>Also known as: Skunk Ape</li><li>Habitat: Everglades</li><li>Fun fact: Loves Publix chicken tender subs</li>
-      </ul></article>
+      <p class="lead">Also known as the Skunk Ape—mysterious, swamp-loving, and (allegedly) a connoisseur of Publix chicken tender subs.</p>
+
+      <article class="card">
+        <ul>
+          <li>Also known as:
+            <a href="https://en.wikipedia.org/wiki/Skunk_ape" target="_blank" rel="noopener">Skunk Ape</a>
+          </li>
+          <li>Habitat: Everglades</li>
+          <li>Fun fact: Loves Publix chicken tender subs</li>
+        </ul>
+      </article>
+
       <div class="info-grid">
-        <div class="info-media"><img src="https://picsum.photos/seed/bigfoot/180/240" alt=""></div>
-        <div class="info-text"><p>Locals say Florida Bigfoot appears at dusk…</p><aside class="note">Note: Often a strong odor — “Skunk Ape.”</aside></div>
+        <div class="info-media">
+          <img src="../images/florida-bigfoot.png" alt="Florida Bigfoot cartoon" width="180">
+        </div>
+        <div class="info-text">
+          <p>
+            Locals say Florida Bigfoot appears at dusk, lumbering through the sawgrass with a sandwich in hand.
+            Some claim he leaves behind a trail of swamp water and laughter, but no one’s ever caught him on camera long enough to prove it.
+          </p>
+          <aside class="note">Note: Reports often mention a strong odor—hence the nickname “Skunk Ape.”</aside>
+        </div>
       </div>
     </section>
 
+    <!-- Section: Florida Man -->
     <section id="man" class="section">
       <h2>Florida Man</h2>
-      <article class="card"><ul><li>Chaos magnet</li><li>Inflatable flamingos</li><li>Fireworks as bug spray</li></ul></article>
+      <article class="card">
+        <ul>
+          <li>Rides inflatable flamingos into hurricanes</li>
+          <li>Uses fireworks as bug spray</li>
+          <li><strong>Chaos magnet:</strong> Always in the news</li>
+        </ul>
+      </article>
+
       <div class="info-grid">
-        <div class="info-media"><img src="https://picsum.photos/seed/flman/180/240" alt=""></div>
-        <div class="info-text"><p>Legendary misadventures.</p></div>
+        <div class="info-media">
+          <img src="../images/florida-man.png" alt="Florida Man cartoon" width="180">
+        </div>
+        <div class="info-text">
+          <p>
+            Florida Man’s misadventures are legendary: one week he’s arrested for wrestling an alligator in a convenience store parking lot,
+            the next he’s spotted parasailing with a lawn chair. His motto? “If it makes the news, it was worth it.”
+          </p>
+        </div>
       </div>
     </section>
 
+    <!-- Section: Florida Woman -->
     <section id="woman" class="section">
       <h2>Florida Woman</h2>
-      <article class="card"><ul><li>Raccoon Doritos negotiations</li><li>Karaoke airboats</li></ul></article>
+      <article class="card">
+        <ul>
+          <li>Argues with raccoons for Doritos</li>
+          <li>Karaoke airboat parties</li>
+          <li><em>Bedazzled emergency gear</em></li>
+        </ul>
+      </article>
+
       <div class="info-grid">
-        <div class="info-media"><img src="https://picsum.photos/seed/flwoman/180/240" alt=""></div>
-        <div class="info-text"><p>Sequined survival kits and dance-offs.</p></div>
+        <div class="info-media">
+          <img src="../images/florida-woman.png" alt="Florida Woman cartoon" width="180">
+        </div>
+        <div class="info-text">
+          <p>
+            Florida Woman once held up traffic to save a baby alligator, all while belting out karaoke classics.
+            She’s equally famous for her sequined survival kits and spontaneous dance-offs at roadside fruit stands.
+          </p>
+        </div>
       </div>
     </section>
 
+    <!-- Gallery -->
     <section id="gallery" class="section">
       <h2>Image Gallery</h2>
       <div class="gallery">
-        <figure><img src="https://picsum.photos/seed/a/240/240" alt=""><figcaption>Bigfoot sighting</figcaption></figure>
-        <figure><img src="https://picsum.photos/seed/b/240/240" alt=""><figcaption>Florida Man</figcaption></figure>
-        <figure><img src="https://picsum.photos/seed/c/240/240" alt=""><figcaption>Florida Woman</figcaption></figure>
+        <figure>
+          <img src="../images/florida-bigfoot.png" alt="Bigfoot sighting in Florida" width="120" height="120">
+          <figcaption>Bigfoot sighting</figcaption>
+        </figure>
+        <figure>
+          <img src="../images/florida-man.png" alt="Florida Man illustration" width="120" height="120">
+          <figcaption>Florida Man</figcaption>
+        </figure>
+        <figure>
+          <img src="../images/florida-woman.png" alt="Florida Woman illustration" width="120" height="120">
+          <figcaption>Florida Woman</figcaption>
+        </figure>
       </div>
     </section>
 
+    <!-- FAQ -->
     <aside id="faq" class="section">
       <h2>FAQ</h2>
       <p><strong>Are they real?</strong> The legends are real. The evidence is flexible.</p>
+      <p>Learn more about the <a href="https://www.nps.gov/ever/index.htm" target="_blank" rel="noopener">Everglades</a>.</p>
     </aside>
   </main>
 
-  <footer><p>&copy; 2025 Vivian Orellana — Class demo.</p></footer>
-
-  <script>
-    console.log("✅ inline JS loaded");
-    document.addEventListener("DOMContentLoaded", () => {
-      const themeBtn  = document.getElementById("themeBtn");
-      const textBtn   = document.getElementById("textBtn");
-      const accentBtn = document.getElementById("accentBtn");
-      const content   = document.getElementById("content");
-      const header    = document.querySelector(".hero");
-
-      themeBtn.addEventListener("click", () => document.body.classList.toggle("dark"));
-      textBtn.addEventListener("click",  () => content.classList.toggle("big-text"));
-      accentBtn.addEventListener("click",() => header.classList.toggle("header-accent"));
-
-      document.querySelectorAll(".gallery figure").forEach((fig) => {
-        const img = fig.querySelector("img");
-        const cap = fig.querySelector("figcaption");
-        const original = cap ? cap.innerHTML : "";
-        img.addEventListener("mouseenter", () => {
-          cap.innerHTML = "Highlighted by JavaScript ✨";
-          cap.classList.add("highlight");
-          img.style.borderColor = "#0ea5e9";
-          img.style.transform = "scale(1.02)";
-        });
-        img.addEventListener("mouseleave", () => {
-          cap.innerHTML = original;
-          cap.classList.remove("highlight");
-          img.style.borderColor = "#ddd";
-          img.style.transform = "none";
-        });
-      });
-    });
-  </script>
+  <footer>
+    <p>&copy; 2025 Vivian Orellana — Class demo.</p>
+  </footer>
 </body>
 </html>
 
