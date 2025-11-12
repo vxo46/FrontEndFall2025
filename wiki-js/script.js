@@ -1,4 +1,3 @@
-// See this in DevTools console if the JS loads correctly
 console.log("✅ wiki.js loaded from wki-js/");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -8,12 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const content   = document.getElementById("content");
   const header    = document.querySelector(".hero");
 
-  // 3 required listeners
   themeBtn.addEventListener("click", () => document.body.classList.toggle("dark"));
   textBtn.addEventListener("click",  () => content.classList.toggle("big-text"));
   accentBtn.addEventListener("click",() => header.classList.toggle("header-accent"));
 
-  // Bonus: innerHTML + inline style on gallery hover
   document.querySelectorAll(".gallery figure").forEach((fig) => {
     const img = fig.querySelector("img");
     const cap = fig.querySelector("figcaption");
