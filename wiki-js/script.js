@@ -1,4 +1,4 @@
-console.log("✅ wiki.js loaded from wki-js/");
+console.log("✅ wiki.js loaded successfully.");
 
 document.addEventListener("DOMContentLoaded", () => {
   const themeBtn  = document.getElementById("themeBtn");
@@ -7,17 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const content   = document.getElementById("content");
   const header    = document.querySelector(".hero");
 
-  themeBtn.addEventListener("click", () => document.body.classList.toggle("dark"));
-  textBtn.addEventListener("click",  () => content.classList.toggle("big-text"));
-  accentBtn.addEventListener("click",() => header.classList.toggle("header-accent"));
+  // 3 EVENT LISTENERS (main requirement)
+  if (themeBtn)  themeBtn.addEventListener("click", () => document.body.classList.toggle("dark"));
+  if (textBtn)   textBtn.addEventListener("click",  () => content.classList.toggle("big-text"));
+  if (accentBtn) accentBtn.addEventListener("click",() => header.classList.toggle("header-accent"));
 
+  // BONUS: GALLERY hover = innerHTML + style + add/remove class
   document.querySelectorAll(".gallery figure").forEach((fig) => {
     const img = fig.querySelector("img");
     const cap = fig.querySelector("figcaption");
     const original = cap ? cap.innerHTML : "";
 
+    if (!img || !cap) return;
+
     img.addEventListener("mouseenter", () => {
-      if (!cap) return;
       cap.innerHTML = "Highlighted by JavaScript ✨";
       cap.classList.add("highlight");
       img.style.borderColor = "#0ea5e9";
@@ -25,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     img.addEventListener("mouseleave", () => {
-      if (!cap) return;
       cap.innerHTML = original;
       cap.classList.remove("highlight");
       img.style.borderColor = "#ddd";
@@ -33,4 +35,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
