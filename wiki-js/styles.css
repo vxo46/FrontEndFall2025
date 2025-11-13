@@ -11,6 +11,7 @@ body{
   background:var(--bg);
 }
 
+/* HEADER (image path is relative to this CSS file) */
 .hero{
   position:relative;
   background:url("../images/header-bg.png") center/cover no-repeat;
@@ -45,12 +46,8 @@ h2{ margin-top:1.5rem; font-weight:700; font-size:1.4rem; }
 .section{ margin-bottom:2rem; }
 
 .section img{
-  max-width:180px;
-  height:auto;
-  display:block;
-  margin:.75rem 0;
-  border-radius:6px;
-  border:1px solid #ddd;
+  max-width:180px; height:auto; display:block; margin:.75rem 0;
+  border-radius:6px; border:1px solid #ddd;
 }
 
 /* CARDS + NOTE */
@@ -59,8 +56,7 @@ h2{ margin-top:1.5rem; font-weight:700; font-size:1.4rem; }
 
 /* GALLERY */
 .gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(120px,1fr));
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(120px,1fr));
   gap:.75rem; margin-top:.5rem;
 }
 .gallery figure{ margin:0; text-align:center; }
@@ -86,8 +82,11 @@ footer{ margin-top:2rem; padding:1rem 1rem; border-top:1px solid #e5e7eb; color:
 .btn{ border:1px solid #e5e7eb; padding:.4rem .65rem; border-radius:999px; background:#fff; cursor:pointer; font-weight:600; font-size:.95rem; }
 .btn:hover{ border-color:var(--accent); }
 
-/* TOGGLES (added by JS) */
-.dark{ --bg:#0b1220; --ink:#e5e7eb; --muted:#94a3b8; background:var(--bg); color:var(--ink); }
+/* TOGGLE CLASSES (what JS adds/removes) */
+.dark{
+  --bg:#0b1220; --ink:#e5e7eb; --muted:#94a3b8;
+  background:var(--bg); color:var(--ink);
+}
 .dark .hero-nav{ background:#0b1220; }
 .dark .card{ background:#0f172a; border-color:#1f2937; }
 .dark .btn{ background:#111827; color:var(--ink); border-color:#1f2937; }
