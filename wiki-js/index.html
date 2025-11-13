@@ -11,11 +11,9 @@
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="../css/styles-wiki.css" />
-
-  <!-- JS -->
-  <script src="../js/wiki.js" defer></script>
+  <!-- Correct relative paths from /html/ to /css/ and /js/ -->
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script src="../js/script.js" defer></script>
 </head>
 <body>
   <!-- HERO / HEADER -->
@@ -41,7 +39,7 @@
     </div>
   </nav>
 
-  <!-- CONTROLS (added for JS interactions) -->
+  <!-- CONTROLS (event-listener targets) -->
   <div class="controls" aria-label="Page controls">
     <button id="themeBtn" class="btn" type="button">Toggle Dark Mode</button>
     <button id="textBtn" class="btn" type="button">Toggle Big Text</button>
@@ -158,4 +156,3 @@
   </footer>
 </body>
 </html>
-
