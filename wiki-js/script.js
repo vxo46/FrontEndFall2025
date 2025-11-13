@@ -1,4 +1,4 @@
-console.log("✅ wiki.js loaded successfully.");
+console.log("✅ script.js loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
   const themeBtn  = document.getElementById("themeBtn");
@@ -7,23 +7,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const content   = document.getElementById("content");
   const header    = document.querySelector(".hero");
 
-  // 3 EVENT LISTENERS (main requirement)
-  if (themeBtn)  themeBtn.addEventListener("click", () => document.body.classList.toggle("dark"));
-  if (textBtn)   textBtn.addEventListener("click",  () => content.classList.toggle("big-text"));
-  if (accentBtn) accentBtn.addEventListener("click",() => header.classList.toggle("header-accent"));
+  // 3 required event listeners
+  if (themeBtn) themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    // small visible feedback
+    themeBtn.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Toggle Dark Mode";
+  });
 
-  // BONUS: GALLERY hover = innerHTML + style + add/remove class
+  if (textBtn) textBtn.addEventListener("click", () => {
+    content.classList.toggle("big-text");
+  });
+
+  if (accentBtn) accentBtn.addEventListener("click", () => {
+    header.classList.toggle("header-accent");
+  });
+
+  // Bonus: gallery hover shows innerHTML + class + inline style changes
   document.querySelectorAll(".gallery figure").forEach((fig) => {
     const img = fig.querySelector("img");
     const cap = fig.querySelector("figcaption");
-    const original = cap ? cap.innerHTML : "";
-
     if (!img || !cap) return;
 
+    const original = cap.innerHTML;
+
     img.addEventListener("mouseenter", () => {
-      cap.innerHTML = "Highlighted by JavaScript ✨";
-      cap.classList.add("highlight");
-      img.style.borderColor = "#0ea5e9";
+      cap.innerHTML = "Highlighted by JavaScript ✨";   // innerHTML change
+      cap.classList.add("highlight");                   // add CSS class
+      img.style.borderColor = "#0ea5e9";                // inline style changes
       img.style.transform = "scale(1.02)";
     });
 
