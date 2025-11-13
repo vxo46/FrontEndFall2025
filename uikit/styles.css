@@ -122,11 +122,11 @@ section h2 { margin: .2rem 0 .6rem; }
 .grid-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .grid-cards .card h3 { margin: .25rem 0 .35rem; }
 
-/* ---------- GRID #2: Gallery (grid only) ---------- */
+/* ---------- GRID #2: Gallery ---------- */
 .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
 .gallery img { border-radius: 12px; cursor: pointer; }
 
-/* ---------- (Legacy) Tabs - keep styles in case you reuse ---------- */
+/* ---------- Tabs ---------- */
 .tabs { display: grid; gap: .6rem; }
 .tab-buttons { display: grid; grid-auto-flow: column; gap: .5rem; }
 .tab-buttons button {
@@ -160,7 +160,7 @@ footer {
   }
   .grid-cards { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
-  .hero-banner { height: 70vh; background-attachment: scroll; } /* smoother on mobile */
+  .hero-banner { height: 70vh; background-attachment: scroll; }
 }
 
 .uk-navbar-container { background: transparent; }
@@ -170,7 +170,6 @@ footer {
   box-shadow: 0 8px 22px rgba(0,0,0,.06);
 }
 
-/* Make UIkit navbar links match your nav look */
 .uk-navbar-nav > li > a {
   padding: .45rem .7rem; border-radius: 10px; color: inherit; text-decoration: none;
 }
@@ -178,13 +177,13 @@ footer {
 
 /* Offcanvas (mobile menu) palette */
 .uk-offcanvas-bar {
-  background: #111318; /* dark slate for contrast */
+  background: #111318;
   color: #eef1f6;
 }
 .uk-offcanvas-bar .uk-nav-default > li > a { color: #eef1f6; }
 .uk-offcanvas-bar .uk-nav-default > li > a:hover { color: #fff; text-decoration: none; }
 
-/* Slider: let tiles use your card look */
+/* Slider */
 .uk-slider-items .tile.card {
   border-radius: var(--radius);
   overflow: hidden;
@@ -196,27 +195,25 @@ footer {
 .tile-meta { display: flex; justify-content: space-between; align-items: center; gap: .6rem; font-weight: 600; }
 .tile-meta .num, .tile-meta .arrow { opacity: .6; }
 
-/* Lightbox backdrop a bit darker but neutral */
+/* Lightbox backdrop */
 .uk-lightbox { background: rgba(0,0,0,0.94); }
 
-/* Accordion headings match your typography */
+/* Accordion headings */
 .uk-accordion-title { font-weight: 700; color: inherit; }
 .uk-accordion-content p { color: inherit; }
-
-/* Optional: subtle scrollspy animation without changing layout */
 .uk-animation-slide-bottom-small { will-change: transform, opacity; }
 
 .btn, .uk-button {
   background: #ff6b00 !important;
   border-color: #ff6b00 !important;
-  color: #111 !important;   /* black text on orange */
+  color: #111 !important;  
   font-weight: 700;
 }
 
 .btn:hover, .uk-button:hover {
-  background: #ff8e3a !important; /* lighter orange on hover */
+  background: #ff8e3a !important; 
 }
-/* Make ONLY the hero text white */
+/* hero text white */
 .hero-banner .overlay,
 .hero-banner .overlay h1,
 .hero-banner .overlay p,
@@ -227,7 +224,7 @@ footer {
 }
 .uk-slider-items > li a.tile.card > figure {
   width: 100% !important;
-  height: 260px !important;   /* change to 300px if you want taller tiles */
+  height: 260px !important;   
   margin: 0;
   overflow: hidden;
   display: block;
@@ -235,26 +232,25 @@ footer {
 .uk-slider-items > li a.tile.card > figure > img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;  /* fill + crop evenly */
+  object-fit: cover !important;  
   display: block;
 }
-/* FORCE slider captions black */
+/* slider captions black */
 .uk-slider-items .tile *,
 .uk-slider-items .tile a {
   color: #000000 !important;
 }
-/* Override UIkit link colors everywhere */
 .uk-link,
 .uk-link-toggle,
 .uk-link-reset,
 .uk-slider-items a,
 a {
-  color: #000000 !important;      /* black text */
+  color: #000000 !important;    
 }
 .uk-link:hover,
 .uk-link-toggle:hover,
 .uk-link-reset:hover,
 .uk-slider-items a:hover,
 a:hover {
-  color: #444444 !important;      /* dark gray on hover */
+  color: #444444 !important;     
 }
