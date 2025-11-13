@@ -25,7 +25,7 @@ document.getElementById('themeBtn')?.addEventListener('click', toggleTheme);
 document.getElementById('themeBtnMobile')?.addEventListener('click', toggleTheme);
 applySavedTheme();
 
-// HERO fade + parallax on scroll (optional visual touch)
+// HERO fade + parallax on scroll 
 const hero = document.querySelector('.hero-banner');
 if (hero) {
   window.addEventListener('scroll', () => {
