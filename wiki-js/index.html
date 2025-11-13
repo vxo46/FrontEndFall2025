@@ -45,8 +45,11 @@
     .gallery{ display:grid; grid-template-columns:repeat(auto-fill, minmax(120px,1fr)); gap:.75rem; margin-top:.5rem; }
     .gallery figure{ margin:0; text-align:center; }
     .gallery img{
-      width:100%; height:120px; object-fit:cover;
-      border-radius:6px; border:1px solid #ddd;
+      width:100%;
+      height:120px;
+      object-fit:cover;
+      border-radius:6px;
+      border:1px solid #ddd;
       transition: transform .15s, border-color .15s;
       cursor:pointer;
     }
@@ -70,7 +73,6 @@
     .dark .card{ background:#0f172a; border-color:#1f2937; }
     .big-text{ font-size:1.12rem; line-height:1.8; }
     .header-accent{ box-shadow: inset 0 -4px 0 var(--accent); }
-    .highlight{ background:#fff7ed; padding:.15rem .35rem; border-radius:6px; }
 
     /* LIGHTBOX */
     .lightbox {
@@ -178,7 +180,7 @@
           <img src="../images/florida-woman.png" alt="">
         </div>
         <div class="info-text">
-          <p>Florida Woman is known for spontaneous dance-offs and rescuing alligator babies.</p>
+          <p>Florida Woman is known for spontaneous dance-offs and rescuing baby alligators.</p>
         </div>
       </div>
     </section>
@@ -233,28 +235,19 @@
       textBtn.onclick   = () => content.classList.toggle("big-text");
       accentBtn.onclick = () => header.classList.toggle("header-accent");
 
-      // Hover effects
-      document.querySelectorAll(".gallery figure").forEach((fig) => {
-        const img = fig.querySelector("img");
-        const cap = fig.querySelector("figcaption");
-        const original = cap.innerHTML;
-
+      // Hover effect (NO caption changes)
+      document.querySelectorAll(".gallery img").forEach(img => {
         img.addEventListener("mouseenter", () => {
-          cap.innerHTML = "Highlighted by JavaScript ✨";
-          cap.classList.add("highlight");
           img.style.borderColor = "#0ea5e9";
           img.style.transform = "scale(1.02)";
         });
-
         img.addEventListener("mouseleave", () => {
-          cap.innerHTML = original;
-          cap.classList.remove("highlight");
           img.style.borderColor = "#ddd";
           img.style.transform = "none";
         });
       });
 
-      // CLICK-TO-EXPAND LIGHTBOX
+      // Lightbox
       const lightbox = document.getElementById("lightbox");
       const lightboxImg = document.getElementById("lightbox-img");
 
