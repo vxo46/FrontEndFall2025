@@ -3,57 +3,73 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Florida Legends Wiki — ONE FILE TEST</title>
+  <title>Florida Legends Wiki — FINAL WITH IMAGES</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
   <style>
     :root { --ink:#0b1723; --bg:#fff; --muted:#6b7a8c; --accent:#0ea5e9; --maxw:1000px; }
     *{ box-sizing:border-box; }
     body{ margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6; color:var(--ink); background:var(--bg); }
-    .hero{ position:relative; min-height:24vh; display:flex; align-items:flex-end; color:#fff; background:#111; }
+
+    /* Your real header image */
+    .hero{
+      position:relative;
+      min-height:24vh;
+      display:flex;
+      align-items:flex-end;
+      color:#fff;
+      background:url("../images/header-bg.png") center/cover no-repeat;
+    }
     .hero::before{ content:""; position:absolute; inset:0; background:rgba(0,0,0,.35); }
     .hero-banner{ position:relative; width:100%; padding:1rem 0; z-index:1; }
     .hero-banner .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 1rem; }
     .hero-banner h1{ margin:0; font-size:1.8rem; font-weight:800; text-shadow:0 2px 8px rgba(0,0,0,.35); }
     .hero-banner .tagline{ margin:.4rem 0 0; color:#f0f0f0; }
+
     .hero-nav{ background:#000; }
     .hero-nav .wrap{ max-width:var(--maxw); margin:0 auto; }
     .hero-nav ul{ list-style:none; margin:0; padding:.5rem 1rem; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); }
     .hero-nav a{ display:block; text-decoration:none; color:#fff; font-weight:700; text-align:center; padding:.5rem .4rem; font-size:.95rem; }
-    .hero-nav a:hover,.hero-nav a:focus{ color:var(--accent); }
+    .hero-nav a:hover{ color:var(--accent); }
+
     main{ max-width:var(--maxw); margin:1.25rem auto 2rem; padding:0 1rem; }
     h2{ margin-top:1.5rem; font-weight:700; font-size:1.4rem; }
     .section{ margin-bottom:2rem; }
+
     .card{ padding:.9rem; border:1px solid #e5e7eb; border-radius:8px; background:#fafafa; margin:.75rem 0; }
     .note{ margin-top:.75rem; padding:.6rem .9rem; background:#fffbe6; border-left:4px solid #facc15; border-radius:4px; font-size:.95rem; }
+
     .gallery{ display:grid; grid-template-columns:repeat(auto-fill, minmax(120px,1fr)); gap:.75rem; margin-top:.5rem; }
     .gallery figure{ margin:0; text-align:center; }
-    .gallery img{ width:100%; height:120px; object-fit:cover; border-radius:6px; border:1px solid #ddd; transition: transform .15s, border-color .15s; }
+    .gallery img{ width:100%; height:120px; object-fit:cover; border-radius:6px; border:1px solid #ddd; transition:.15s; }
     .gallery figcaption{ margin-top:.35rem; font-size:.85rem; color:var(--muted); }
+
     .info-grid{ display:grid; grid-template-columns:180px 1fr; gap:.75rem 1rem; align-items:start; margin:.75rem 0 1.5rem; }
     .info-media img{ width:100%; max-width:180px; height:auto; border-radius:6px; border:1px solid #ddd; }
-    footer{ margin-top:2rem; padding:1rem 1rem; border-top:1px solid #e5e7eb; color:var(--muted); text-align:center; }
+
     .controls{ display:flex; gap:.5rem; justify-content:center; max-width:var(--maxw); margin:.75rem auto 0; padding:0 1rem .5rem; }
     .btn{ border:1px solid #e5e7eb; padding:.4rem .65rem; border-radius:999px; background:#fff; cursor:pointer; font-weight:600; font-size:.95rem; }
     .btn:hover{ border-color:var(--accent); }
-    /* Toggle classes (what JS adds/removes) */
+
+    /* Toggle classes (JS applies these) */
     .dark{ --bg:#0b1220; --ink:#e5e7eb; --muted:#94a3b8; background:var(--bg); color:var(--ink); }
     .dark .hero-nav{ background:#0b1220; }
     .dark .card{ background:#0f172a; border-color:#1f2937; }
-    .dark .btn{ background:#111827; color:var(--ink); border-color:#1f2937; }
     .big-text{ font-size:1.12rem; line-height:1.8; }
     .header-accent{ box-shadow: inset 0 -4px 0 var(--accent); }
     .highlight{ background:#fff7ed; padding:.15rem .35rem; border-radius:6px; }
   </style>
 </head>
+
 <body>
-  <header class="hero" role="banner">
+  <header class="hero">
     <div class="hero-banner"><div class="wrap">
       <h1>Florida Bigfoot, Florida Man &amp; Florida Woman - Wiki</h1>
       <p class="tagline">A tiny encyclopedia of only-in-Florida legends.</p>
     </div></div>
   </header>
 
-  <nav class="hero-nav" aria-label="Primary">
+  <nav class="hero-nav">
     <div class="wrap">
       <ul>
         <li><a href="#bigfoot">Florida Bigfoot</a></li>
@@ -65,51 +81,90 @@
     </div>
   </nav>
 
-  <div class="controls" aria-label="Page controls">
-    <button id="themeBtn" class="btn" type="button">Toggle Dark Mode</button>
-    <button id="textBtn" class="btn" type="button">Toggle Big Text</button>
-    <button id="accentBtn" class="btn" type="button">Toggle Header Accent</button>
+  <div class="controls">
+    <button id="themeBtn" class="btn">Toggle Dark Mode</button>
+    <button id="textBtn" class="btn">Toggle Big Text</button>
+    <button id="accentBtn" class="btn">Toggle Header Accent</button>
   </div>
 
   <main id="content">
+
     <section id="bigfoot" class="section">
       <h2>Florida Bigfoot</h2>
       <article class="card">
-        <ul><li>Also known as: Skunk Ape</li><li>Habitat: Everglades</li><li>Fun fact: Loves Publix chicken tender subs</li></ul>
+        <ul>
+          <li>Also known as: Skunk Ape</li>
+          <li>Habitat: Everglades</li>
+          <li>Fun fact: Loves Publix chicken tender subs</li>
+        </ul>
       </article>
+
       <div class="info-grid">
-        <div class="info-media"><img src="https://picsum.photos/seed/bigfoot/180/240" alt="Florida Bigfoot"></div>
+        <div class="info-media">
+          <img src="../images/florida-bigfoot.png" alt="">
+        </div>
         <div class="info-text">
           <p>Locals say Florida Bigfoot appears at dusk, lumbering through the sawgrass with a sandwich in hand.</p>
-          <aside class="note">Note: Often a strong odor—hence “Skunk Ape.”</aside>
+          <aside class="note">Note: Reports mention a strong odor — “Skunk Ape.”</aside>
         </div>
       </div>
     </section>
 
     <section id="man" class="section">
       <h2>Florida Man</h2>
-      <article class="card"><ul><li>Inflatable flamingos into hurricanes</li><li>Fireworks as bug spray</li><li>Chaos magnet</li></ul></article>
+      <article class="card">
+        <ul>
+          <li>Rides inflatable flamingos into hurricanes</li>
+          <li>Uses fireworks as bug spray</li>
+          <li>Chaos magnet</li>
+        </ul>
+      </article>
+
       <div class="info-grid">
-        <div class="info-media"><img src="https://picsum.photos/seed/flman/180/240" alt="Florida Man"></div>
-        <div class="info-text"><p>Misadventures are legendary.</p></div>
+        <div class="info-media">
+          <img src="../images/florida-man.png" alt="">
+        </div>
+        <div class="info-text">
+          <p>Florida Man’s misadventures are legendary and unpredictable.</p>
+        </div>
       </div>
     </section>
 
     <section id="woman" class="section">
       <h2>Florida Woman</h2>
-      <article class="card"><ul><li>Raccoon Doritos negotiations</li><li>Karaoke airboats</li><li>Bedazzled gear</li></ul></article>
+      <article class="card">
+        <ul>
+          <li>Argues with raccoons for Doritos</li>
+          <li>Karaoke airboat parties</li>
+          <li>Bedazzled emergency gear</li>
+        </ul>
+      </article>
+
       <div class="info-grid">
-        <div class="info-media"><img src="https://picsum.photos/seed/flwoman/180/240" alt="Florida Woman"></div>
-        <div class="info-text"><p>Sequined survival kits and dance-offs.</p></div>
+        <div class="info-media">
+          <img src="../images/florida-woman.png" alt="">
+        </div>
+        <div class="info-text">
+          <p>Florida Woman is famous for spontaneous dance-offs and saving alligators.</p>
+        </div>
       </div>
     </section>
 
     <section id="gallery" class="section">
       <h2>Image Gallery</h2>
       <div class="gallery">
-        <figure><img src="https://picsum.photos/seed/a/240/240" alt=""><figcaption>Bigfoot sighting</figcaption></figure>
-        <figure><img src="https://picsum.photos/seed/b/240/240" alt=""><figcaption>Florida Man</figcaption></figure>
-        <figure><img src="https://picsum.photos/seed/c/240/240" alt=""><figcaption>Florida Woman</figcaption></figure>
+        <figure>
+          <img src="../images/florida-bigfoot.png" alt="">
+          <figcaption>Bigfoot sighting</figcaption>
+        </figure>
+        <figure>
+          <img src="../images/florida-man.png" alt="">
+          <figcaption>Florida Man</figcaption>
+        </figure>
+        <figure>
+          <img src="../images/florida-woman.png" alt="">
+          <figcaption>Florida Woman</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -117,12 +172,12 @@
       <h2>FAQ</h2>
       <p><strong>Are they real?</strong> The legends are real. The evidence is flexible.</p>
     </aside>
+
   </main>
 
   <footer><p>&copy; 2025 Vivian Orellana — Class demo.</p></footer>
 
   <script>
-    console.log("✅ inline JS loaded");
     document.addEventListener("DOMContentLoaded", () => {
       const themeBtn  = document.getElementById("themeBtn");
       const textBtn   = document.getElementById("textBtn");
@@ -130,25 +185,28 @@
       const content   = document.getElementById("content");
       const header    = document.querySelector(".hero");
 
-      // Required 3 listeners (clicks)
-      themeBtn.addEventListener("click", () => {
+      themeBtn.onclick = () => {
         document.body.classList.toggle("dark");
-        themeBtn.textContent = document.body.classList.contains("dark") ? "Light Mode" : "Toggle Dark Mode";
-      });
-      textBtn.addEventListener("click",  () => content.classList.toggle("big-text"));
-      accentBtn.addEventListener("click",() => header.classList.toggle("header-accent"));
+        themeBtn.textContent = document.body.classList.contains("dark")
+          ? "Light Mode"
+          : "Toggle Dark Mode";
+      };
 
-      // Bonus: gallery hover uses innerHTML + class + inline style
+      textBtn.onclick = () => content.classList.toggle("big-text");
+      accentBtn.onclick = () => header.classList.toggle("header-accent");
+
       document.querySelectorAll(".gallery figure").forEach((fig) => {
         const img = fig.querySelector("img");
         const cap = fig.querySelector("figcaption");
         const original = cap.innerHTML;
+
         img.addEventListener("mouseenter", () => {
           cap.innerHTML = "Highlighted by JavaScript ✨";
           cap.classList.add("highlight");
           img.style.borderColor = "#0ea5e9";
           img.style.transform = "scale(1.02)";
         });
+
         img.addEventListener("mouseleave", () => {
           cap.innerHTML = original;
           cap.classList.remove("highlight");
