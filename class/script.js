@@ -1,65 +1,17 @@
-// 1) Mobile menu toggle
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
-menuBtn?.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', String(open));
-});
+chart = {
+  // Declare the chart dimensions and margins.
+  const width = 928;
+  const height = 500;
+  const marginTop = 20;
+  const marginRight = 30;
+  const marginBottom = 30;
+  const marginLeft = 40;
 
-// 2) Theme toggle (light/dark)
-const themeBtn = document.getElementById('themeBtn');
-themeBtn.addEventListener('click', () => {
-  const dark = document.body.classList.toggle('dark');
-  themeBtn.setAttribute('aria-pressed', String(dark));
-  try {
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
-  } catch (e) {}
-});
-// Load saved theme
-try {
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark');
-    themeBtn.setAttribute('aria-pressed', 'true');
-  }
-} catch (e) {}
+  const svg = d3.select ("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("viewBox", [0, 0, width, height])
+      .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
 
-// 3) Tabs
-const btnCaves = document.getElementById('btn-caves');
-const btnStreet = document.getElementById('btn-street');
-const tabCaves = document.getElementById('tab-caves');
-const tabStreet = document.getElementById('tab-street');
-
-function selectTab(which) {
-  const caves = which === 'caves';
-  btnCaves.setAttribute('aria-selected', caves ? 'true' : 'false');
-  btnStreet.setAttribute('aria-selected', caves ? 'false' : 'true');
-  tabCaves.setAttribute('aria-hidden', caves ? 'false' : 'true');
-  tabStreet.setAttribute('aria-hidden', caves ? 'true' : 'false');
-}
-btnCaves.addEventListener('click', () => selectTab('caves'));
-btnStreet.addEventListener('click', () => selectTab('street'));
-
-// 4) Lightbox for gallery images
-const dlg = document.getElementById('lightbox');
-const lightImg = document.getElementById('lightImg');
-const lightCap = document.getElementById('lightCap');
-
-document.querySelectorAll('.gallery img').forEach(img => {
-  img.addEventListener('click', () => {
-    lightImg.src = img.src;
-    lightCap.textContent = img.dataset.caption || img.alt || '';
-    dlg.showModal();
-  });
-});
-// Hero fade-out on scroll
-const hero = document.querySelector('.hero-banner');
-if (hero) {
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const fadePoint = window.innerHeight * 0.8; // start fading before the fold
-    const opacity = Math.max(0, 1 - scrollY / fadePoint);
-    hero.style.opacity = opacity;
-    hero.style.transform = `translateY(${scrollY * 0.2}px)`; // subtle parallax shift
-  });
-}
-
+  const x = d3.scaleUtc(d3.extent(aapl, d => d.date), [marginLeft, width - marginRight]);
+  const y = d3.scaleLinear([0, d3.max(aapl, d => d.close)], [height - marginBottom, marginTop]);
